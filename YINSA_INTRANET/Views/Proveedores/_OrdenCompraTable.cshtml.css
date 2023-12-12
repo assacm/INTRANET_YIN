@@ -1,0 +1,45 @@
+﻿body {
+}
+.subirFactura__btn {
+	color: #0083AE;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+	.subirFactura__btn :hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+.disable {
+	display: none !important;
+}
+
+.tabla-container{
+	margin-bottom:3rem;
+}
+
+.subirFactura__td{
+	border:none;
+	color:#ffff;
+	background-color:var(--yinsa-dark);
+	padding:10px;
+	border-radius:5px;
+	font-size:1rem;
+}
+.subirFactura__td:hover{
+	background-color:var(--yinsa-dark-light);
+}
+.subirFactura__td img {
+	max-height: 80%;
+	min-height: 20px;
+	height: 20px;
+}
+
+a.files {
+	cursor: pointer;
+}
+
+	a.files img {
+		height: 40px;
+	}

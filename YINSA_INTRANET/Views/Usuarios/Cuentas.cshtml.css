@@ -1,0 +1,111 @@
+﻿body {
+}
+
+section {
+	width: 100%;
+	height: 100%;
+	background-color: #faf7f7;
+	/*padding-top:20px;
+	padding-bottom:20px;*/
+}
+
+#cuentas__title {
+	font-family: "SuisseIntl-Thin_0", sans-serif; 
+	
+	font-size: 1.6rem;
+	/*font-weight: 100;*/
+}
+.cuentas__container {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	align-items: center;
+	height: fit-content;
+	padding: 2rem 1rem;
+	background-color: #fdfcfd77;
+	/*	border: 3px solid var(--yinsa-dark);*/
+	border-radius: 10px;
+	box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+	-webkit-box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+	-moz-box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+}
+
+.cuentas__container-type {
+	padding: 1rem 0.5rem;
+	width: 100%
+}
+
+.cuentas__card{
+	padding:1rem 0.5rem;
+/*	border:0.5px solid black;*/
+}
+	.cuentas__card:hover {
+		border-radius:10px;
+		box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+		-webkit-box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+		-moz-box-shadow: 1px 1px 6px 0px rgba(173,163,163,0.54);
+	}
+#cuentas-link.btn-default {
+	width: 100%;
+	background: #2D2926;
+	color: #fff;
+	border-radius: 0;
+	border: transparent;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+	.btn-default:hover{
+		color:var(--yinsa-primary);
+	}
+	/* Ocultar los radio buttons originales */
+	input[type="radio"] {
+		display: none;
+	}
+
+/* Estilizar el contenedor */
+.radio-container {
+	display: inline-block;
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+/* Estilizar el checkmark */
+.checkmark {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: transparent;
+	border: 2px solid var(--yinsa-primary);
+	border-radius: 50%;
+}
+
+/* Estilizar el checkmark cuando está seleccionado */
+.radio-container input:checked ~ .checkmark {
+	background-color:transparent;
+}
+
+/* Estilizar el punto central del checkmark */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+
+}
+
+/* Mostrar el punto central del checkmark cuando está seleccionado */
+.radio-container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Estilizar el punto central del checkmark */
+.radio-container .checkmark:after {
+	top: 2px;
+	left: 2px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--yinsa-primary);
+}

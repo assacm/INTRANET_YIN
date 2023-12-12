@@ -1,0 +1,24 @@
+/*********** GENERAL *************/
+/*#section-pedidos {
+	padding-top: 7rem;
+}*/
+
+.disable[b-y4s5wluovm] {
+	display:none;
+}
+/*************** TABS *******************/
+.nav-link[b-y4s5wluovm] {
+	border: none;
+	transition: transition ease-in-out 0.5s;
+}
+button.nav-link[b-y4s5wluovm] {
+	color: var(--yinsa-dark);
+}
+.nav-link:hover[b-y4s5wluovm]{
+	transform:scale(1.03);
+}
+	button.nav-link.active[b-y4s5wluovm] {
+		color: var(--yinsa-dark);
+		border-bottom: 8px solid #FFC72C;
+	}
+

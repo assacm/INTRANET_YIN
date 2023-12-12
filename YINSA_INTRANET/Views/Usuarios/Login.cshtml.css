@@ -1,0 +1,257 @@
+﻿body {
+	font-family: "Suisse Intl Medium", sans-serif;
+	color: #2D2926;
+	/*background: #FFC72C;*/
+	/*  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;*/
+}
+.sin-pm {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.enable{
+	display:inline;
+}
+.disable{
+	display:none;
+}
+
+.spinner-border-sm {
+	width: 1rem;
+	height: 1rem;
+	border-width: 0.02em;
+}
+
+
+a {
+	color: #2D2926;
+}
+
+	a:hover {
+		color: #FFC72C;
+		text-decoration: none;
+	}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Suisse Intl Bold", sans-serif;
+}
+
+/* ============== CONTENIDO ============== */
+
+#login {
+	background-color: #FFC72C !important;
+	height: 100%;
+	min-height:100vh;
+}
+
+/*	#login .form-control {
+		height:38px;
+		border:none;
+		border-radius: 1px;
+		font-family: "Suisse Intl Medium", sans-serif;
+	}*/
+
+		#login .form-control:focus{
+			border:none;
+		}
+		.login__container-input {
+			display: flex;
+			align-items: center;
+			background-color: #FFFF;
+			height: 100%;
+		}
+
+			.login__container-input input {
+				height: 38px;
+				border: none;
+				border-radius: 1px;
+				font-family: "Suisse Intl Medium", sans-serif;
+			}
+				.login__container-input input:focus {
+					border: none;
+				}
+				
+				
+		#login .form-group {
+					height: 50px;
+					display: flex;
+				}
+
+	#login span.error {
+		height: 38px;
+		width:38px;
+		/*padding-left: 15px;*/
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+.eye-icon {
+	height: 38px;
+	width: 38px;
+}
+
+.eye-icon img{
+	height: 100%;
+	
+}
+
+#login h1 {
+	color: #fff;
+	text-align: center;
+}
+
+
+img.form-decoration {
+	height: 100%;
+	/*width: 3rem;*/
+}
+
+img.login__logo {
+	max-height: 270px;
+}
+
+.btn-default {
+	width: 100%;
+	background: #2D2926;
+	color: #fff;
+	border-radius: 0;
+	border: transparent;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+
+	.btn-default:hover {
+		color: #FFC72C;
+	}
+
+#btn-regresar {
+	text-align: center;
+}
+
+	#btn-regresar button:hover {
+		color: var(--yinsa-dark);
+	}
+
+	#btn-regresar .btn {
+		border: 1px solid #2D2926;
+		color: #fff;
+	}
+
+#img-y {
+	display: none;
+	max-height: 30px;
+}
+
+#header .logo a {
+	color: #2D2926;
+}
+
+	#header .logo a span {
+		color: #2D2926;
+	}
+
+#img-n {
+	max-height: 50px;
+}
+
+/*DESKTOP*/
+@media screen and (min-width:1171px) {
+
+	#login {
+		background-color: #FFC72C !important;
+		height: 100%;
+		min-height: 100vh;
+	}
+
+		#login .form-control {
+			border-radius: 1px;
+			font-family: "Suisse Intl Medium", sans-serif;
+		}
+
+		#login .form-group {
+			display: flex;
+			/*flex-direction:column;*/
+		}
+
+		/*#login span {
+			padding-left: 15px;
+			font-size: 1.5rem;
+			font-weight: bold;
+		}*/
+
+		#login h1 {
+			color: #fff;
+			text-align: center;
+		}
+
+
+	/*img.form-decoration {
+		height: 5rem;
+		width: 3rem;
+	}
+*/
+	img.login__logo {
+		max-height: 270px;
+	}
+
+	.btn-default {
+		width: 100%;
+		background: #2D2926;
+		color: #fff;
+		border-radius: 0;
+		border: transparent;
+		font-family: "Suisse Intl Medium", sans-serif;
+	}
+
+		.btn-default:hover {
+			color: #FFC72C;
+		}
+
+	#btn-regresar {
+		text-align: center;
+	}
+
+		#btn-regresar button:hover {
+			color: var(--yinsa-dark);
+		}
+
+		#btn-regresar .btn {
+			border: 1px solid #2D2926;
+			color: #fff;
+		}
+
+	#img-y {
+		display: none;
+		max-height: 30px;
+	}
+
+	#header .logo a {
+		color: #2D2926;
+	}
+
+		#header .logo a span {
+			color: #2D2926;
+		}
+
+	#img-n {
+		max-height: 50px;
+	}
+
+}
+
+
+/* DISPOSITIVOS MOVILES MD */
+@media (max-width:1170px) {
+	img.login__logo {
+		max-height: 200px;
+	}
+}
+
+@media screen and (max-width:768px) {
+	img.login__logo {
+		max-height: 170px;
+	}
+}

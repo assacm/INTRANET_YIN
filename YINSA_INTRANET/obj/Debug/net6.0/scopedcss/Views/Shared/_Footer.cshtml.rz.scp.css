@@ -1,0 +1,125 @@
+.bg-yellow[b-11e1az3akt] {
+	background: var(--yinsa-primary);
+}
+/*#ul-redes.bg-yellow {
+	font-size: 30px;
+	color: var(--yinsa-primary);
+}*/
+.bg-white[b-11e1az3akt] {
+	background: #FFFF;
+	
+}
+
+
+#ul-redes.bg-white li a i[b-11e1az3akt] {
+	font-size: 30px;
+	color: #FFFF;
+}
+
+a[b-11e1az3akt] {
+	color: #FFFF;
+	text-decoration: none;
+}
+#footer[b-11e1az3akt] {
+	display:block;
+	position:static;
+	height: auto;
+	
+	width: 100% ;
+	/*bottom: 0;
+	left: 0;*/
+	overflow:clip;
+}
+.content-footer[b-11e1az3akt]{
+	padding-top:2.5rem;
+	padding-bottom:2.5rem;
+}
+/*#footer .content {
+		padding-left: 10vh;
+		padding-right: 10vh;
+	}*/
+#div-img-footer[b-11e1az3akt] {
+	justify-content: center;
+}
+#img-footer[b-11e1az3akt] {
+	padding-left:3rem;
+	width: 60%;
+}
+
+#footer h3[b-11e1az3akt] {
+	font-family: "Suisse Intl Book", sans-serif;
+	color: var(--yinsa-dark);
+	text-align: center;
+}
+
+.img-redes[b-11e1az3akt] {
+	width: 40px;
+}
+ul#ul-redes[b-11e1az3akt]{
+	margin:0;
+}
+#ul-redes[b-11e1az3akt] {
+	display: flex;
+	list-style: none;
+}
+
+	#ul-redes li[b-11e1az3akt] {
+		padding: 8px 10px;
+		background-color: var(--yinsa-dark);
+		margin-right: 4px;
+		/*border-radius: 4rem;*/
+		clip-path: circle(50% at 50% 50%);
+	}
+		#ul-redes li a i[b-11e1az3akt] {
+			font-size: 30px;
+			color: var(--yinsa-primary); /*<---------- color de los iconos*/
+		}
+
+	
+
+	#div-redes[b-11e1az3akt] {
+		justify-content: center;
+		display: flex;
+	}
+
+#div-links ul li[b-11e1az3akt] {
+	list-style: none;
+}
+
+#div-links a[b-11e1az3akt] {
+	color: var(--yinsa-dark);
+	font-family: "SuisseIntl-Thin_0", sans-serif;
+	line-height: 2rem;
+	font-size:1.1rem;
+}
+
+#div-derechos[b-11e1az3akt] {
+	color:var(--yinsa-dark);
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+
+	#img-footer[b-11e1az3akt] {
+		width: 50%;
+	}
+
+	#footer h3[b-11e1az3akt] {
+		font-size: 1.5rem;
+	}
+
+	#footer .content[b-11e1az3akt] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	#div-img-footer[b-11e1az3akt] {
+		display: flex;
+		justify-content: center;
+	}
+
+	#div-redes[b-11e1az3akt] {
+		justify-content: left;
+	}
+}

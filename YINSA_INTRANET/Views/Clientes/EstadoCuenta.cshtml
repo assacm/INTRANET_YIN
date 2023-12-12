@@ -1,0 +1,124 @@
+﻿@model EstadoCuentaViewModel
+@{
+    ViewData["Title"] = "Estado de Cuenta";
+    
+}
+<partial name="_Menu" />
+
+<div class="container pt-5 pb-5">
+	<!-- Encabezado -->
+	<section id="encabezado" class="pt-5">
+		<div class="container content">
+			<div class="row">
+				<div class="col-lg-8 col-md-6 col-12">
+					<h1>@Model.Nombre.ToUpper()</h1>
+					<h2>@((Model.Estado == 1) ? "Facturas" : "Estado de cuenta")</h2>
+				</div>
+				<div class="col-lg-4 col-md-6 col-12">
+					<div class="row  header__buttons">
+						<div class="col-lg-6 col-md-6 col-12">
+							<a asp-action="Index" asp-route-id="@Model.IdCuenta" class="btn-regresar">REGRESAR</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-12">
+							<a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default" id="btn-logout">CERRAR SESIÓN</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-12 pt-4">
+					<hr>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="filtros">
+		<form method="post" asp-action="EstadoCuenta" id="cuentaForm" enctype="application/x-www-form-urlencoded">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-12">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+							<input asp-for="Inicio" class="form-control" name="fechaInput" id="fechaInput">
+						</div>
+					</div>
+					<div class="form-group col-lg-3 col-md-6 col-12">
+						<select asp-for="@Model.Estado" class="form-control background-g" asp-items="@Html.GetEnumSelectList<TipoReporte>()">
+							<option>Seleccione reporte:</option>
+						</select>
+
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<button type="submit" data-bs-toggle="modal" data-bs-target="#modalUpd"
+								class="btn btn-y"
+								asp-route-estado="Estado"
+								asp-action="EstadoCuenta">
+							<span class="fa fa-search"></span>
+						</button>
+					</div>
+				</div>
+				<div class="row justify-content-end">
+					<div class="col-lg">
+						<div class="text-end">
+							<button type="submit" asp-controller="Clientes" asp-action="RotativaPDF"
+									 asp-route-estado="Estado"
+									 target="_blank"
+									 class="btn btn-y"
+									 id="btn-descargar">
+								<i class="fa fa-download"></i> Descargar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+
+<partial name="_EstadoCuenta" model="Model" />
+</div>
+
+<div class="modal fade" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h6 class="modal-title" id="modalLabel"></h6>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body d-flex justify-content-center" id="modalInfo">
+				Obteniendo movimientos . . .
+			</div>			
+		</div>
+	</div>
+</div>
+	
+
+@*@section Scripts{
+
+	<script>
+		var spinner = document.getElementById('spinner');
+		//var error = document.getElementById('view-error');
+
+		function load() {
+			spinner.classList.toggle('disable');
+			error.textContent = '';
+		}
+
+	</script>
+
+}*@
+
+@section Scripts{
+
+	<script src="~/js/fecha-vencimiento.js" asp-append-version="true"></script>
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+
+}

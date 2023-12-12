@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
+
+@*@if (User.Identity.IsAuthenticated)
+{
+    <p>Bienvenido, @User.Identity.Name</p>
+}
+else
+{
+    <p>No has iniciado sesión</p>
+}*@
+@{
+    var cuentas = new List<Cuenta>(){ };
+    var list = Context.Session.GetString("lstCuentas");
+   
+    if (!string.IsNullOrEmpty(list))
+    { cuentas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Cuenta>>(list); }
+}
+
+
+<header>
+    <nav id="menu-nav">
+        <a href="#"><img class="logo" src="~/img/YINSA_WEB_Logo.png" alt="logo"></a>
+        <button class="ham" type="button">
+            <span class="br-1"></span>
+            <span class="br-2"></span>
+            <span class="br-3"></span>
+        </button>
+        <ul class="enlaces-menu">
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                if(cuentas!=null && cuentas.Count > 1)
+                {
+                    <li>
+                        <div class="dropdown">
+                            <button type="button" class="btn-cuentas" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                             MIS CUENTAS
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                               @foreach(var c in cuentas){
+                                <li><a class="dropdown-item" asp-action="TipoCuenta" asp-controller="Usuarios" 
+                                 asp-route-id="@c.codigoS" asp-route-tipo="@c.tipo"> @c.codigoS  -  @c.nombreS</a>
+                             </li>
+                                }
+                            </ul>
+                        </div>
+
+                    </li>
+                }
+                <li class="li-btn-acceso"><a class="btn-acceso" asp-action="Logout" asp-controller="Usuarios">Cerrar Sesión</a></li>
+            }
+            else
+            {
+                <li>
+                    <div class="dropdown">
+                        <button type="button" class="btn-acceso" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            ACCESO
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" asp-action="Login" asp-controller="Usuarios">Acceso Cliente</a></li>
+                            <li><a class="dropdown-item" asp-action="Login" asp-controller="Usuarios">Acceso Proveedor</a></li>
+                            <li><a class="dropdown-item" asp-action="Login" asp-controller="Usuarios">Acceso Colaborador</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+            }
+
+            
+  @*          <li><a href="#">PRODUCTOS</a></li>
+            <li><a href="#">HÁZLO TU MISMO</a></li>
+            <li><a href="#">QUÉ DICEN LOS EXPERTOS</a></li>
+            <li><a href="#">CONTACTO</a></li>
+            <li><a href="#">COTIZAR</a></li>*@
+           
+        </ul>
+
+
+    </nav>
+</header>

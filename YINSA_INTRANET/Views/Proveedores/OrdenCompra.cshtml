@@ -1,0 +1,167 @@
+﻿@model Documento
+@{
+	ViewData["Title"] = "Orden de Compra";
+
+	string factura = "";
+}
+<partial name="_Menu" />
+
+<div class="pt-5">
+    <div class="row">
+		<div class="col-lg-12">
+
+			<div class="mt-3 border">
+				<div class="box box-g ">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<h5>Llega el @Model.FechaEntrega.ToString("D")</h5>
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Pedido realizado el</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Model.Fecha.ToString("D")</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">No. Pedido</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Model.NoDocumento</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Total</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Html.DisplayFor(m => Model.Importe)</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Enviar a</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">
+										<a class="pedidos__btn-a pedidos__color-b" data-bs-toggle="collapse" href="#collapseDirection" role="button" aria-expanded="false">
+											Direccion B <i class="icofont-simple-down"></i>
+										</a>
+									</p>
+									<div class="collapse mb-3" id="collapseDirection">
+										<div class="card card-body">
+											<p class="font-min">Direccion @Model.DireccionEntrega</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									@if (string.IsNullOrEmpty(factura))
+									{
+										<p class="font-min subirFactura__btn" onclick="show({docEntry:@Model.DocEntry,docNum:@Model.NoDocumento})">
+											Subir Factura
+										</p>
+									}
+									else
+									{
+										<p class="font-min">
+											<a class="btn-a color-b" data-bs-toggle="collapse" href="#collapseFactura" role="button" aria-expanded="false">
+												Descargar factura <i class="icofont-simple-down"></i>
+											</a>
+										</p>
+										<div class="collapse mb-3" id="collapseFactura">
+											<div class="box-g">
+												<a href="" class="btn-a"><img src="~/img/xml.png"><img src="~/img/pdf-file-red.png"> Factura</a>
+											</div>
+										</div>
+									}
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">
+										<a class="pedidos__color-b" asp-action="Factura">Ver factura</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row row-eq-height mt-4">
+
+					<div class="col-lg-8 col-md-8 ps-5">
+						<div class="row">
+							<div class="col-lg-12">
+								<h5 class="text-uppercase">@Model.Producto</h5>
+								<h5>@Html.DisplayFor(m => @Model.Cantidad) @Model.UnidadMedida</h5>
+
+								<br><br>
+
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<a href="" id="cancelar-link" class="btn-a text-uppercase font-min pedidos__text-underline inactivo"> Cancelar pedido</a>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="color-g font-min">Elegible hasta el @Model.Fecha.AddDays(10).ToString("D") </p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+		</div>
+    </div>
+</div>
+ 
+    <partial name="_SubirFactura" />
+
+
+@section Scripts{
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+
+    <script src="~/js/drag-drop.js" asp-append-version="true"></script>
+
+    <script>
+
+        const url = '@Url.Action("SubirFactura","Home")'; //cambiar ruta
+        console.log(`url de script ${url}`)
+        uploadFile(url);
+
+        //MOSTRAR Y OCULTAR MODAL SUBIR FACTURAS
+        const cont = document.querySelector('.subirArchivo__layout');
+        const btnClose = document.getElementById('close-subir');
+
+        btnClose.addEventListener('click', function () {
+            console.log('clic close _subirfactura')
+            cont.classList.add('disable');
+        });
+
+        function close() {
+
+            console.log('onclic _SubirFactura')
+            cont.classList.add('disable');
+        }
+        function show(doc) {
+            console.log(doc);
+            inputEntry.value = doc.docEntry;
+            inputNum.value = doc.docNum;
+
+            cont.classList.remove('disable');
+
+        }
+    </script>
+}

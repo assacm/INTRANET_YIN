@@ -1,0 +1,340 @@
+﻿@model ControlViewModel
+@{
+	ViewData["Title"] = "Panel de control";
+}
+
+@section Styles{
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+}
+<partial name="_Menu" />
+
+<section id="mi-perfil-adm">
+
+	<div class="header__top">
+		<div class="row sin-pm">
+			<div class="col-lg-7 col-md-7 sin-pm d-flex justify-content-lg-start align-items-center justify-content-center">
+				<h2>PANEL DE CONTROL</h2>
+			</div>
+			<div class="col-lg-5 col-md-5 col-12 sin-pm">
+				<div class="row sin-pm d-flex justify-content-between">
+					<div class="col-lg-6 col-md-6 col-12 sin-pm">
+						<div class="d-flex justify-content-lg-end justify-content-center">
+							<a asp-action="Index" asp-controller="Colaboradores"
+		  class="header-button btn-f-white">MI PERFIL</a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-12 sin-pm">
+						<div class="d-flex justify-content-lg-end justify-content-center">
+							<a asp-action="Logout" asp-controller="Usuarios"
+		  class="header-button btn-t-yellow">CERRAR SESIÓN</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="header__bottom">
+		<div class="row sin-pm">
+			<div class="col-lg-4 col-12 sin-pm d-flex justify-content-center align-items-center">
+				<img class="img-perfil" src="/img/logos/YINSA_Logo_FondoNegro.png">
+			</div>
+			<div class="col-lg-8 col-12 sin-pm d-flex justify-content-lg-start align-items-center justify-content-center">
+				<div class="info-perfil">
+					<h3>@Model.Nombre.ToUpper()</h3>
+					<p class="text-uppercase">@Model.Puesto</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<div class="control__container">
+	<aside>
+		<form method="post" asp-action="Panel" id="menu-form">
+			<ul class="aside__menu">
+			<li>
+				<a asp-action="Registro" asp-controller="Usuarios">
+					<div class="aside__menu-card" id="">
+						@*<input type="radio" value="c.CardCode">*@
+						
+						<span class="card-content">
+							<span class="icon-container">
+								<img src="/img/icons/plus.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Crear usuario</span>
+						</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a asp-action="Registro" asp-controller="Colaboradores">
+					<div  class="aside__menu-card" id="">
+						<span class="card-content">
+							<span class="icon-container">
+								<img src="/img/icons/add-empleado.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Agregar empleado</span>
+						</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<label class="aside__menu-card">
+					<input type="radio" asp-for="MenuOption" value="1">
+					<span class="card-content">
+						<span class="icon-container">
+							<span class="circle notification-circle">
+								<span class="notification-number">@Model.No_Notificaciones</span>
+							</span>
+							<img src="/img/icons/bell.png" alt="icon" class="menu-icon" />
+						</span>
+						<span class="menu-opcion">Notificaciones</span>
+					</span>
+				</label>
+			</li>
+			<li>
+				<label class="aside__menu-card">
+					<input type="radio" asp-for="MenuOption" value="0">
+					<span class="card-content">
+						<span class="icon-container">
+							<img src="/img/icons/user.png" alt="icon" class="menu-icon" />
+						</span>
+						<span class="menu-opcion">Usuarios</span>
+
+					</span>
+				</label>
+			</li>
+			<li>
+				<label class="aside__menu-card">
+					<input type="radio" asp-for="MenuOption" value="2">
+					<span class="card-content">
+						<span class="icon-container">
+							<img src="/img/icons/file.png" alt="icon" class="menu-icon" />
+						</span>
+						<span class="menu-opcion">Autorizar documentos</span>
+
+					</span>
+				</label>
+			</li>
+			<li>
+				<a asp-action="RevisionArchivos" asp-controller="Usuarios">
+					<div class="aside__menu-card">
+						<span class="card-content">
+								<span class="icon-container">
+									<span class="circle notification-circle">
+										<span class="notification-number">@Model.FacturasPendientes</span>
+									</span>
+									<img src="/img/icons/xml.png" alt="icon" class="menu-icon" />
+								</span>
+								<span class="menu-opcion">Autorizar Facturas</span>
+						</span>
+					</div>
+				</a>
+			</li>
+		</ul>
+		</form>
+	</aside>
+	<main>
+		<section class="control__section-container  @(Model.MenuOption ==1 ? "active":"")">
+			<p class="align-self-center"> Sin notificaciones. </p>
+		</section>
+		<section class="control__section-container  @(Model.MenuOption ==0 ? "active":"")">
+			<div class="control-tabs__container">
+				<form id="form-tab" method="post" asp-action="Panel">
+					<label class="radio-tab">
+						<input type="radio"asp-for="SelectTabla" value="0" />
+						<span>Usuarios</span>
+					</label>
+
+					<label class="radio-tab">
+						<input type="radio" asp-for="SelectTabla" value="1" />
+						<span>Empleados</span>
+					</label>
+					@*<label class="radio-tab">
+						<input type="radio" for="SelectTabla" value="3" />
+						<span>Clientes</span>
+					</label>
+					<label class="radio-tab">
+						<input type="radio" for="SelectTabla" value="2" />
+						<span>Proveedores</span>
+					</label>*@
+					<input type="hidden" asp-for="MenuOption" value="@Model.MenuOption" />
+				</form>
+			</div>
+			<div class="tabs__content">
+				<div class="tabla-container  @(Model.SelectTabla ==0 ? "active":"")">
+					<table id="users-table" class="display">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Correo</th>
+								<th>Estado</th>
+								<th>Ver</th>
+								<th>Editar</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var user in Model.Usuarios)
+							{
+								<tr>
+									<td>@user.userName</td>
+									<td>@user.email</td>
+									<td>@user.estatus</td>
+									<td><a href="#">Ver Perfil</a></td>
+									<td><a asp-action="Editar" asp-controller="Usuarios" asp-route-id="@user.userName">Editar Perfil</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<div class="tabla-container  @(Model.SelectTabla ==1 ? "active":"")">
+					<table id="empleados-table" class="display">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Puesto</th>
+								<th>Departamento</th>
+								<th>Correo</th>
+								<th>Celular</th>
+								<th>NSS</th>
+								<th>Editar</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var user in Model.Empleados)
+							{
+								<tr>
+									<td>@user.Nombre @user.ApellidoPa @user.ApellidoMa</td>
+									<td>@user.Puesto </td>
+									<td>@user.Departamento</td>
+									<td>@user.Email</td>
+									<td>@user.Celular</td>
+									<td>@user.Nss</td>
+									<td><a asp-action="Editar" asp-controller="Colaboradores" asp-route-id="@user.IdCuenta">Editar Perfil</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		
+		<section class="control__section-container @(Model.MenuOption ==2 ? "active":"")">
+			<p> Autorizar documentos</p>
+		</section>
+	</main>
+</div>
+
+
+
+@section Scripts{
+
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.6/b-2.4.1/b-html5-2.4.1/b-print-2.4.1/datatables.min.js"></script>
+		<script src="~/js/menu.js" asp-append-version="true"></script>
+		<script type="module">
+
+			import {customMenu} from '/js/menu-options.js'
+			let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+			customMenu(urlMenu);
+
+		</script>
+	
+	<script>
+		$(document).ready(function () {
+			$('#users-table').DataTable({
+				lengthChange: true,
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+				language: {
+					url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+				},
+				//dom: 'Bfrtip',
+				dom: 'Blfrtip',
+				buttons: [
+					{ extend: 'copy', className: 'copyButton' },
+					{ extend: 'excel', className: 'excelButton' },
+					{ extend: 'pdf', className: 'pdfButton' }
+				],
+				pagingType: 'full_numbers'
+			});
+
+			$('#empleados-table').DataTable({
+				lengthChange: true,
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+				language: {
+					url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+				},
+				//dom: 'Bfrtip',
+				dom: 'Blfrtip',
+				buttons: [
+					{ extend: 'copy', className: 'copyButton' },
+					{ extend: 'excel', className: 'excelButton' },
+					{ extend: 'pdf', className: 'pdfButton' }
+				],
+				pagingType: 'full_numbers'
+			});
+		
+		});
+	</script>
+
+	<script>
+
+		let menuTabs = document.querySelectorAll('.aside__menu-card input[type="radio"]');
+		let menuTabsContent = document.querySelectorAll('.control__section-container');
+		let menuForm = document.getElementById('menu-form');
+
+		menuTabs.forEach((tab, i) => {
+
+			tab.addEventListener('click', () => {
+				//submitform
+				menuForm.submit();
+				//showLoading()
+				menuTabs.forEach((tab, i) => {
+					menuTabsContent[i].classList.remove('active')
+				})
+				menuTabsContent[i].classList.add('active')
+
+				scrollTop();
+			})
+		})
+
+		let tabs = document.querySelectorAll('.radio-tab input[type="radio"]');
+		let tabsContent = document.querySelectorAll('.tabla-container');
+		let formTab = document.getElementById('form-tab');
+
+		tabs.forEach((tab, i) => {
+
+			tab.addEventListener('click', () => {
+				//submitform
+				//formTab.submit();
+				//showLoading()
+				tabs.forEach((tab, i) => {
+					tabsContent[i].classList.remove('active')
+				})
+				tabsContent[i].classList.add('active')
+
+			})
+		})
+
+		function scrollTop() {
+			let targetElement = document.querySelector(".info-perfil");
+
+			const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+
+			window.scrollTo({
+				top: targetPosition,
+				behavior: "smooth"
+			});
+		}
+	</script>
+}

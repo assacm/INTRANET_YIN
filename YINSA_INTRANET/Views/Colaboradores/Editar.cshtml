@@ -1,0 +1,257 @@
+﻿@model EmpleadoViewModel
+@{
+	ViewData["Title"] = "Editar empleado";
+}
+<partial name="_Menu" />
+
+<div class="empleado__layout">
+
+	<div class="empleado__container">
+		<form asp-action="Editar" method="post">
+			<div class="row">
+				<div class="col-12">
+					<div class="row">
+						<div class="col-6"><h1>INFORMACIÓN DEL EMPLEADO</h1></div>
+						<div class="col-6 d-flex align-items-center justify-content-end px-5">
+							<a asp-action="Panel" asp-controller="Usuarios" class="link-button btn-short btn-f-black">VOLVER</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Nombre</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="text" class="form-control" placeholder="Nombre del empleado" asp-for="Empleado.Nombre" />
+									<input type="hidden" asp-for="Empleado.IdCuenta"  />
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.Nombre" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Fecha de nacimiento</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="date" class="form-control" asp-for="Empleado.Nacimiento" />
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.Nacimiento" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Apellido</legend>
+								<div class="d-flex flex-row">
+									<div class="d-flex flex-row ">
+										<img class="form-decoration" src="/img/form-decoration.png">
+										<input type="text" class="form-control input-50" placeholder="Apellido paterno" asp-for="Empleado.ApellidoPa" />
+										<input type="text" class="form-control input-50 ms-4" placeholder="Apellido materno" asp-for="Empleado.ApellidoMa" />
+									</div>
+
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.ApellidoPa" class="text-danger"></span>
+									<span asp-validation-for="Empleado.ApellidoMa" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Fecha de ingreso</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input class="form-control" asp-for="Empleado.FechaIngreso"  />
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.FechaIngreso" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Departamento</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<select asp-for="Empleado.IdDepartamento" class="form-control" asp-items="@Model.Departamentos">
+										<option>Seleccione departamento</option>
+									</select>
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.IdDepartamento" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Correo electrónico</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="email" class="form-control" placeholder="Correo electrónico" asp-for="Empleado.Email" />
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.Email" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Puesto</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<select class="form-control" asp-for="Empleado.IdPuesto" asp-items="@Model.Puestos">
+										<option>Seleccione puesto de trabajo</option>
+									</select>
+
+								</div>
+								<div>
+									<span asp-validation-for="Empleado.IdPuesto" class="text-danger"></span>
+								</div>
+							</fieldset>
+
+
+						</div>
+						<div class="col-12 col-lg-6 d-flex ">
+							<fieldset class="form-group flex-column input-50">
+								<legend>Teléfono</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="tel" class="form-control" placeholder="Tel:6210041213" asp-for="Empleado.Telefono" />
+								</div>
+								<div>
+									@*<span asp-validation-for="Empleado.Telefono" class="text-danger"></span>*@
+								</div>
+							</fieldset>
+							<fieldset class="form-group flex-column  ps-3 input-50">
+								<legend>Celular</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="tel" class="form-control" placeholder="Cel:6210041213" asp-for="Empleado.Celular" />
+								</div>
+								<div>
+									@*<span asp-validation-for="Empleado.Celular" class="text-danger"></span>*@
+								</div>
+							</fieldset>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>NSS</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="text" class="form-control" placeholder="Número de seguridad social" asp-for="Empleado.Nss" />
+								</div>
+								<div>
+									@*<span asp-validation-for="Empleado.Nss" class="text-danger"></span>*@
+								</div>
+							</fieldset>
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Días de vacaciones</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<input type="number" class="form-control input-50" asp-for="Empleado.Vacaciones" />
+								</div>
+								<div>
+									@*<span asp-validation-for="Empleado.Vacaciones" class="text-danger"></span>*@
+								</div>
+							</fieldset>
+
+
+						</div>
+						<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Tipo de sangre</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="/img/form-decoration.png">
+									<select class="form-control input-50" placeholder="Seleccione el tipo de sangre" asp-for="Empleado.TipoSangre">
+										<option value="A+">A+</option>
+										<option value="A-">A-</option>
+										<option value="B+">B+</option>
+										<option value="B-">B-</option>
+										<option value="AB+">AB+</option>
+										<option value="AB-">AB-</option>
+										<option value="O+">O+</option>
+										<option value="O-">O-</option>
+									</select>
+								</div>
+								<div>
+									@*<span asp-validation-for="Empleado.TipoSangre" class="text-danger"></span>*@
+								</div>
+							</fieldset>
+
+
+						</div>
+
+						<div class="col-12">
+							<div class="empleado__container-button">
+								<button type="submit" data-bs-toggle="modal" data-bs-target="#modalUpd">ACTUALIZAR</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade justify-content-center" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h6 class="modal-title" id="modalLabel">Registro</h6>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body d-flex justify-content-center" id="modalInfo-reg">
+				Editando información. . .
+			</div>
+
+		</div>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+
+	<partial name="_ValidationScriptsPartial" />
+}

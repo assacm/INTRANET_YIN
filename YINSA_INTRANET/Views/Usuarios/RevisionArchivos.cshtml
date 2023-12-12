@@ -1,0 +1,863 @@
+﻿@using System.Security.Claims;
+@model RevisionArchivosVM
+@{
+	ViewData["Title"] ="Revisión de Facturas";
+
+	var rol = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+
+}
+<partial name="_Menu" />
+
+<div class="revison-archivos__container">
+	<aside class="aside-providers__container">
+		<div class="aside-header"><p>PROVEEDORES</p></div>
+		<form method="post" asp-action="RevisionArchivos" id="form-liststate">
+			<div class="aside-header__liststate">
+				
+				<label class="liststate">
+					<input type="radio" value="0" asp-for="ListState" />
+					<input type="hidden" asp-for="Estado" value="0" />
+					<span>Pendientes</span>
+				</label>
+				<label class="liststate">
+					<input type="radio" value="1" asp-for="ListState" />
+					<input type="hidden" asp-for="Estado" value="1" />
+					<span>Aprobados</span>
+				</label>
+				<label class="liststate">
+					<input type="radio" value="2" asp-for="ListState" />
+					<input type="hidden" asp-for="Estado" value="2" />
+					<span>Rechazados</span>
+				</label>
+				<label class="liststate">
+					<input type="radio" value="-1" asp-for="ListState" />
+					<span>Ver Todos</span>
+				</label>
+			</div>
+			<button type="submit" class="btn-frm-submit" id="btn-frm-liststate"
+					asp-route-id="0"
+					asp-route-estado="@Model.Estado"
+					asp-route-periodo="@Model.Periodo"></button>
+		</form>
+		<form method="post" asp-action="RevisionArchivos" id="form-cards">
+		<input type="hidden" asp-for="ListState"/>
+
+			<ul>
+				@if (Model.Proveedores != null)
+				{
+
+					if (Model.Proveedores.Count >  0)
+						@foreach (var c in Model.Proveedores)
+						{
+							<li>
+								<label for="IdProveedor" class="aside-providers__card" id="@c.CardCode">
+									<input type="radio" asp-for="IdProveedor" value="@c.CardCode" >
+									<span class="card-content">
+										<span>@c.CardCode</span>
+										<span class="nombre-prov">@c.CardName</span>
+										<span class="circle notification-circle">
+											<span class="notification-number">@c.Count</span>
+										</span>
+									</span>
+								</label>
+							</li>
+
+
+						}
+
+				}		
+		</ul>
+			<button type="submit" class="btn-frm-submit" id="btn-frm-cards"
+					asp-route-id="0"
+					asp-route-estado="@Model.Estado"
+					asp-route-periodo="@Model.Periodo"></button>
+
+		</form>
+	</aside>
+	<main class="main__container">
+		<!-- Encabezado -->
+		<section class="encabezado">
+			<div class="row w-100 sin-pm">
+				<div class="col-lg-6 col-md-6 col-12">
+					<div class="title-encabezado">
+						<h1>REVISIÓN DE FACTURAS</h1>
+						@*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-12 sin-pm">
+					<div class="row btn-pair-container">
+						<div class="col-lg-6 col-md-6 col-12">
+							<a asp-action="Panel" asp-route-id="@Model.IdEmpleado" class="btn btn-default" id="btn-logout">VOLVER</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-12">
+							<a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default" id="btn-logout">CERRAR SESIÓN</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-12 pt-4">
+					<hr>
+				</div>
+			</div>
+		</section>
+
+		<section class="revison-archivos__filtros">
+			<form method="post" asp-action="RevisionArchivos" id="form-filtros">
+				<div class="flex-radio__container">
+					<label class="item-radio" id="radio-filtro0">
+						<input type="radio" asp-for="Estado" value="0" />
+						<span>Pendientes</span>
+					</label>
+					<label class="item-radio" id="radio-filtro1">
+						<input type="radio" asp-for="Estado" value="1"/>
+						<span>Aceptados</span>
+					</label>
+					<label class="item-radio" id="radio-filtro2">
+						<input type="radio" asp-for="Estado" value="2" />
+						<span>Rechazados</span>
+					</label>
+				</div>				
+				<div class="item-input">
+					<span class="pedidos__select-label">Periodo</span>
+					<select id="periodoInput" asp-for="Periodo" asp-items="Model.SelectPeriodo"></select>
+				</div>
+				<input type="hidden" asp-for="IdProveedor"/>
+				<input type="hidden" asp-for="ListState" />
+				<button type="submit" class="btn-frm-submit" id="btn-frm-filtros"
+						asp-route-id="0"></button>
+			</form>
+		</section>
+
+		<div class="row sin-pm">
+			<div class="col-12 sin-pm">
+				<div class="prov-compras__header">
+					@switch (Model.Estado)
+					{
+						case 1: {	<p>Facturas aprobadas </p>   break; }
+						case 2:	{	<p>Facturas rechazadas</p>  break;}
+						default:{ 	<p>Facturas pendientes</p> break; }
+					}
+				
+				</div>
+				<div class="spinner__container disable">
+					<span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>
+				</div>
+			</div>
+			
+			@if (Model.Archivos != null)
+			{
+
+				if (Model.Archivos.Count > 0)
+					@foreach (var c in Model.Archivos)
+					{
+						<div class="col-lg-6 col-12 sin-pm">
+							<div class="prov-compras__cards-container">
+								<div class="prov-compras__card">
+									@* onclick="cardSelected({entry:@c.DocEntry, num:@c.DocNum})"*@
+									<div class="row h-100">
+
+										<div class="col-12">
+											<div class="prov-compras__card-info">
+												<div class="row socio-info">
+													<div class="col-3">
+														<div class="idsocio">
+															<span>@c.IdSocio</span>
+														</div>
+													</div>
+													<div class="col-8">
+														<div class="socio">
+															<h3>@c.Socio</h3>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-7">
+														<div class="prov-compras__card-doc">
+															<div class="concepto">
+																<p>
+																	@c.Descripcion
+																</p>
+															</div>
+															<div class="docentry">
+																<span>No. OC</span>
+																<span>@c.DocNum</span>
+															</div>
+															
+														</div>
+
+													</div>
+													<div class="col-5">
+														<div class="prov-compras__card-archivos">
+															<div class="file">
+																<a class="file-img"
+																   asp-action="PdfViewer" 
+																   asp-route-filename="@c.Archivos.FirstOrDefault().Nombre" target="_blank">
+																	<img src="/img/icons/pdf.png" alt="pdf" />
+																</a>
+															</div>
+															<div class="file">
+																<a class="file-img" asp-action="Descargar"
+																   asp-route-filename="@c.Archivos.FirstOrDefault().Nombre"
+																   asp-route-tipo="xml"><img src="/img/icons/xml.png" alt="xml" /></a>
+															</div>
+															@if (c.Archivos.Count>2) {
+																<span class="circle" id="ver">
+																	<span>+ @(c.Archivos.Count - 2)</span>
+																</span>													
+															}
+														</div>
+														
+													</div>
+													<div class="col-12 ">
+														<div class="row sin-pm">
+															<div class="col-6 sin-pm">
+																<div class="container__card-label-estado">
+																	<span class="label-estado__card @c.Estatus.ToLower()">@c.Estatus</span> 																	
+																</div>
+																
+															</div>
+															<div class="col-6 sin-pm d-flex justify-content-end">
+																<div class="fecha">
+																	<span>Fecha de actualización</span>
+																	<span>@c.FechaUpd</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-12 ">
+														@if (c.Estatus == "Pendiente" && rol != "contador") { 
+															<form method="post" asp-action="ValidacionArchivo" id="validForm-@c.Id" class="w-100 h-100">
+															<input type="hidden" name="IdDoc" value="@c.Id">
+															<input type="hidden" name="Comentario">
+															<div class="prov-compras__card-buttons">
+																<label class="btn-aceptar">
+																	<input onclick="submitForm(@c.Id,'modalUpd-lg')" type="radio" name="Estado" value="true"> @*id="f1-rad1"*@
+																	<i class="bi bi-check-lg"></i>
+																</label>
+																<label class="btn-rechazar">
+																	<input onclick="submitForm(@c.Id,'modalUpd-lg')" type="radio" name="Estado" value="false">@* id="f1-rad2"*@
+																	<i class="bi bi-x-lg"></i>
+																</label>
+															</div>
+															</form>
+														}else if (c.Estatus != "Pendiente")
+														{
+															<form method="post" asp-action="ValidacionArchivo" id="validForm-@c.Id" class="w-100 h-100">
+																<input type="hidden" name="IdDoc" value="@c.Id">
+																<input type="hidden" name="Comentario">
+																<div class="prov-compras__card-buttons">
+																	<label class="btn-aceptar">
+																		<input onclick="submitForm(@c.Id,'modalUpd-lg')" type="radio" name="Estado" value="true"> @*id="f1-rad1"*@
+																		<i class="bi bi-check-lg"></i>
+																	</label>
+																	<label class="btn-rechazar">
+																		<input onclick="submitForm(@c.Id,'modalUpd-lg')" type="radio" name="Estado" value="false">@* id="f1-rad2"*@
+																		<i class="bi bi-x-lg"></i>
+																	</label>
+																</div>
+															</form>
+														}
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-12 d-flex align-items-end">
+											<form method="post" asp-action="RevisionArchivos" class="w-100" id="verDetalleForm">
+												<div class="prov-compras__card-detalle">
+													<hr />
+													<input type="hidden" value="@c.Id">
+													<input type="hidden" value="@Model.Estado">
+													<input type="hidden" value="@Model.Periodo">
+													<input type="hidden" value="@c.IdSocio">
+
+													<button asp-action="RevisionArchivos" 
+														asp-route-id="@c.Id"
+														asp-route-estado="@Model.Estado"
+														asp-route-periodo="@Model.Periodo"
+														asp-route-idProveedor="@c.IdSocio"
+														id="btnVerDetalle">
+															Ver detalle
+													</button>
+
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+					}
+			}
+
+		</div>
+
+		<!-- Modal detalle-->
+		<div class="modal__layout @ViewBag.Detalle">
+			@if (Model.Detalle.DocEntry > 0 && Model.Detalle != null)
+			{
+				<div class="archivo-detalle__container">
+					<div class="row socio-info">
+						<div class="col-3">
+							<div class="idsocio">
+								<span>@Model.Detalle.IdSocio</span>
+							</div>
+						</div>
+						<div class="col-9 sin-pm position-relative">
+							<div class="socio">
+								<h3>@Model.Detalle.Socio</h3>
+							</div>
+							<span id="close-modal" onclick="close()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+									<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+								</svg>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-8 pt-2">
+							<div class="prov-compras__card-doc">
+								<div class="concepto">
+									<p>
+										@Model.Detalle.Descripcion
+									</p>
+								</div>
+								<div class="docentry">
+									<span>@Model.Detalle.DocNum</span>
+								</div>
+								<div class="fecha">
+									<span>@Model.Detalle.FechaUpd</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-4 pt-2">
+							<div class="contenedor">
+								<span>Estado</span>
+								<div>
+									<span class="estado @Model.Detalle.Estatus.ToLower()">@Model.Detalle.Estatus</span>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<p class="desc-control-label">Archivos adjuntos</p>
+						</div>
+						<div class="col-12">
+							<div class="detalle__archivos">
+
+							@foreach(var f in Model.Detalle.Archivos)
+							{
+
+									if (f.Extension == "pdf")
+									{
+
+										<div class="file">
+											<a class="file-img" id="pdf-link" asp-action="PdfViewer" asp-controller="Archivos"
+												asp-route-filename="@f.Nombre" target="_blank">
+												<img src="/img/icons/pdf.png" alt="pdf" />
+											</a>
+										</div>
+
+									}
+									else
+									{
+										<div class="file">
+											<a class="file-img" asp-action="Descargar" asp-controller="Archivos"
+											   asp-route-filename="@f.Nombre"
+											   asp-route-tipo="@f.Extension">
+												<img src="/img/icons/xml.png" alt="xml" />
+											 </a>
+										</div>
+									}
+								}								
+								
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<p class="desc-control-label">Validaciones de los archivos</p>
+						</div>
+						<div class="col-12 d-flex">
+							<div class="contenedor">
+								<span>Validación por Contabilidad</span>
+								<span>@(Model.Detalle.Contabilidad ? "Sí" : "No")</span>					
+							</div>
+							<div class="contenedor">
+								<span>Validación por SAP</span>
+								<span>@((Model.Detalle.ValidXML) ? "Sí" : "No")</span>
+							</div>
+							<div class="contenedor">
+								<span>Validación por SAT</span>
+								<span>@((Model.Detalle.ValidSAT) ? "Sí" : "No")</span>
+							</div>
+						</div>
+					</div>
+					<div class="comentarios__container">
+						@if (Model.Detalle.Estatus == "Pendiente" && rol != "contador")
+						{
+							<form method="post" asp-action="ValidacionArchivo" id="validForm-detalle">
+								<div class="comentarios__container-input">
+									
+									<label>Agregar comentario</label>
+									<textarea name="Comentario" type="text" id="input-comentario"></textarea>
+
+									<p class="desc-control-label">Aprobar archivo de factura</p>
+
+									<div class="commentar-btn">
+										<input type="hidden" name="IdDoc" value="@Model.Detalle.Id">
+
+										<label class="btn-aceptar">
+											<input id="f2-rad1" type="radio" name="Estado" value="true"
+											onclick="submitForm('detalle','modalUpd-sm')">
+											<i class="bi bi-check-lg"></i>
+										</label>
+										<label class="btn-rechazar">
+											<input id="f2-rad2" type="radio" name="Estado" value="false"
+											onclick="submitForm('detalle','modalUpd-sm')">
+											<i class="bi bi-x-lg"></i>
+										</label>
+									</div>
+								</div>
+							</form>
+						}else if (Model.Detalle.Estatus != "Pendiente")
+						{
+							<form method="post" asp-action="ValidacionArchivo" id="validForm-detalle">
+								<div class="comentarios__container-input">
+									<input type="hidden" name="Nombre" value="@Model.Detalle.Archivos.FirstOrDefault().Nombre" />
+									<input type="hidden" name="Ruta" value="@Model.Detalle.Archivos.FirstOrDefault(a => a.Extension == "xml")?.Ruta" />
+									<label>Agregar comentario</label>
+									<textarea name="Comentario" type="text" id="input-comentario"></textarea>
+
+									<p class="desc-control-label">Aprobar archivo de factura</p>
+
+									<div class="commentar-btn">
+										<input type="hidden" name="IdDoc" value="@Model.Detalle.Id">
+
+										<label class="btn-aceptar">
+											<input id="f2-rad1" type="radio" name="Estado" value="true"
+												   onclick="submitForm('detalle','modalUpd-sm')">
+											<i class="bi bi-check-lg"></i>
+										</label>
+										<label class="btn-rechazar">
+											<input id="f2-rad2" type="radio" name="Estado" value="false"
+												   onclick="submitForm('detalle','modalUpd-sm')">
+											<i class="bi bi-x-lg"></i>
+										</label>
+									</div>
+								</div>
+							</form>
+						}
+						<div class="autorizaciones__container-label">
+								<span class="aut_desplegar-input">Ver autorizaciones  <i class="bi bi-chevron-down"></i></span>
+							</div>
+						
+						<div class="autorizaciones__container disable">
+							<div class="row sin-pm">
+								
+								@if (Model.Detalle.Autorizaciones != null)
+								{
+									@if (Model.Detalle.Autorizaciones.Count > 0)
+									{
+										@foreach (var aut in Model.Detalle.Autorizaciones)
+										{
+											<div class="col-lg-6 col-12 sin-pm">
+												<div class="contenedor-autorizaciones">
+													<div class="datos">
+														<span>@aut.Nombre</span>
+														<span class="text-capitalize">@aut.Rol</span>
+													</div>
+													<span class="autorizacion-label estado @aut.Estado.ToLower()">@aut.Estado</span>
+												</div>
+											</div>
+										}
+									}
+								}
+								@if (Model.Detalle.AutorizacionesConta != null)
+								{
+									@if (Model.Detalle.AutorizacionesConta.Count > 0)
+									{
+										@foreach (var aut in Model.Detalle.AutorizacionesConta)
+										{
+											<div class="col-lg-6 col-12 sin-pm">
+												<div class="contenedor-autorizaciones">
+													<div class="datos">
+														<span>@aut.Nombre</span>
+														<span class="text-capitalize">@aut.Rol</span>
+													</div>
+													<span class="autorizacion-label estado @aut.Estado.ToLower()">@aut.Estado</span>
+												</div>
+											</div>
+										}
+									}
+								}
+								@if (!Model.Detalle.Contabilidad)
+								{
+									
+									<div class="col-lg-6 col-12 sin-pm">
+										<div class="contenedor-autorizaciones">
+											<div class="datos">
+												<span>Contabilidad</span>
+											</div>
+											<span class="autorizacion-label estado pendiente">Pendiente</span>
+										</div>
+									</div>
+
+								}
+							</div>
+						</div>
+						<div class="comentarios__container-label">
+							<span class="desplegar-input" id="desp-desc">Ver comentarios  <i class="bi bi-chevron-down"></i></span>
+						</div>
+						
+						<div class="comentarios__container-lista disable">
+							@if (Model.Detalle.Comentarios != null)
+							{
+								@if (Model.Detalle.Comentarios.Count > 0)
+								{
+									@foreach (var c in Model.Detalle.Comentarios)
+									{
+										<div class="comentario">
+											<div class="row sin-pm socio-info">
+												<div class="col-3">
+													<div class="idsocio">
+														<span>@c.IdSocio</span>
+													</div>
+												</div>
+												<div class="col-8">
+													<div class="socio">
+														<span>@c.Socio</span>
+													</div>
+												</div>
+											</div>
+											<p class="comentario-content">
+												@c.Comentario
+											</p>
+											<p class="fecha">@c.FechaUpd</p>
+										</div>
+									}
+
+								}
+							}
+
+						</div>
+						
+					</div>
+
+					<!-- Modal -->
+					<div class="modalUpd__layout disable" id="modalUpd-sm">
+						<div class="modalUpd">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h6 class="modal-title" id="modalLabel">Actualización</h6>
+									<span class="close-modalUpd" onclick="closeModalUpd('modalUpd-sm')">
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+											<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+										</svg>
+									</span>
+								</div>
+								<div class="modal-body d-flex justify-content-center modalInfo" id="modalInfo">
+									<p>Realizando actualización...</p>
+									<span class="spinner-border spinner-border-sm spinner disable" role="status" aria-hidden="true"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			}
+		</div>
+
+		<!-- Modal -->
+		<div class="modalUpd__layout disable" id="modalUpd-lg">
+			<div class="modalUpd">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h6 class="modal-title" id="modalLabel">Actualización</h6>
+						<span class="close-modalUpd" onclick="closeModalUpd('modalUpd-lg')">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+								<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+							</svg>
+						</span>
+					</div>
+					<div class="modal-body d-flex justify-content-center modalInfo">
+						<p>Realizando actualización...</p>
+						<span class="spinner-border spinner-border-sm spinner disable" role="status" aria-hidden="true"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+</div>
+
+@section Scripts{
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+		<script type="module">
+
+			import {customMenu} from '/js/menu-options.js'
+			let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+			customMenu(urlMenu);
+
+		</script>
+
+
+	<script>
+
+		//document.getElementById('ver').addEventListener('click', ()=>{
+
+		//	document.getElementById('verDetalleForm').submit();
+		//});
+
+		document.querySelector('.aut_desplegar-input').addEventListener('click', () =>{
+			let container = document.querySelector('.autorizaciones__container');
+			let arrow =document.querySelector('.aut_desplegar-input i')
+			container.classList.toggle('disable');
+			if (arrow.classList.contains('bi-chevron-down')) {
+
+				arrow.classList.remove('bi-chevron-down')
+				arrow.classList.add('bi-chevron-up');
+
+			}
+			else {
+				arrow.classList.remove('bi-chevron-up');
+				arrow.classList.add('bi-chevron-down');
+
+			}
+		
+		});
+
+		function hideSpinner(selector) {
+			let spinner = document.querySelector(selector);
+
+			spinner.classList.add('disable');
+
+		};
+		
+		function showSpinner(selector){
+			let spinner = document.querySelector(selector);
+
+			spinner.classList.remove('disable');
+		};
+		function closeModalUpd(id) {
+			const modalUpd = document.querySelector(`#${id}`);
+			modalUpd.classList.add('disable');
+		}
+		function showModalUpd(id) {
+			const modalUpd = document.querySelector(`#${id}`);
+			modalUpd.classList.remove('disable');
+		}
+
+		function submitForm(id, idModal) {
+
+			var formValid = document.getElementById(`validForm-${id}`);
+		
+			var formData = Object.fromEntries(new FormData(formValid));
+			
+			
+
+
+			postForm(formData,idModal);
+
+		}
+		
+		
+		async function postForm(formData,idModal){
+			let doc =  {
+				idDoc: formData.IdDoc,
+				comentario: formData.Comentario,
+				estatus: formData.Estado
+			};
+
+			console.log(doc);
+
+			var modalContent = document.querySelector(`#${idModal} .modalInfo`);
+
+
+			const text =document.createElement('p');
+			//text.textContent = 'Realizando actualización...';
+			//modalContent.appendChild(text);
+			let spin = ` #${idModal} .modal-content .modalInfo .spinner`;
+			showSpinner(spin);
+			showModalUpd(idModal)
+			
+
+			const url = '@Url.Action("ValidacionArchivo","Usuarios")';
+
+			await fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(doc)
+			})
+			.then(function (response) {
+
+					if (!response.ok) {
+						modalContent.innerHTML = '';
+						response.json().then(error => {
+							//modalContent.innerHTML = '';
+							text.textContent = error.message
+						});
+
+						modalContent.appendChild(text);
+					}
+					else {
+						modalContent.innerHTML = '';
+						text.textContent = 'Archivos válidados correctamente.';
+						modalContent.appendChild(text);
+						setTimeout(() => {
+							window.location.reload();
+						}, 1000);
+						
+					}
+				})
+			.catch((error) => {
+					console.log(error)
+					text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+					modalContent.appendChild(text);
+				});
+
+
+		}
+
+
+	</script>
+
+	<script>
+		let listState = document.querySelectorAll('.liststate input[type="radio"]')
+		let provs = document.querySelectorAll('.aside-providers__card input[type="radio"]');
+		let btnCards = document.getElementById('btn-frm-cards');
+
+		provs.forEach(prov => {
+
+			prov.addEventListener('click', function () {
+				showSpinner('.spinner__container');
+				btnCards.click();
+			})
+		})
+
+		//let formListState = document.getElementById('form-liststate');
+		let btnListState = document.getElementById('btn-frm-liststate');
+
+		listState.forEach( radio =>{
+			radio.addEventListener('click',()=>{
+				showSpinner('.spinner__container');
+				btnListState.click();
+			})
+		});
+
+		let radios = document.querySelectorAll('.item-radio input[type="radio"]');
+		let btnFiltro = document.getElementById('btn-frm-filtros');
+
+		radios.forEach(radio => {
+
+			radio.addEventListener('click', () => {
+				showSpinner('.spinner__container')
+				btnFiltro.click();
+			})
+		});
+
+		document.getElementById('periodoInput').addEventListener('change', function () {
+			showSpinner('.spinner__container')
+			btnFiltro.click();
+		});
+
+	</script>
+
+	<script>
+
+		const comentarios = document.querySelector('.comentarios__container-lista');
+		const despComment = document.getElementById('desp-desc');
+		const arrowComment = despComment.querySelector('i');
+
+		const cerrarModal = document.getElementById('close-modal');
+		const modalDetalle = document.querySelector('.modal__layout');
+
+
+		cerrarModal.addEventListener('click', function () {
+
+			modalDetalle.classList.add('disable');
+		});
+
+		despComment.addEventListener('click', function () {
+
+			comentarios.classList.toggle('disable');
+			if (arrowComment.classList.contains('bi-chevron-down')) {
+
+				arrowComment.classList.remove('bi-chevron-down')
+				arrowComment.classList.add('bi-chevron-up');
+
+			}
+			else {
+				arrowComment.classList.remove('bi-chevron-up');
+				arrowComment.classList.add('bi-chevron-down');
+
+			}
+
+		});
+
+
+	</script>
+}
+
+
+@*
+
+	<script>
+
+
+
+
+		document.getElementById('enlaceParaAccion').addEventListener('click', function (e) {
+			e.preventDefault(); // Evita que el enlace realice la navegación predeterminada.
+
+			var parametro = 123; // Aquí define el valor del parámetro que deseas pasar.
+
+			// Construye la URL con el parámetro.
+			var url = '/MiControlador/MiAccion?id=' + parametro;
+
+			// Redirige al usuario a la URL.
+			window.location.href = url;
+		});
+	</script>
+*@ 	@* onclick="pdfViewer('@c.Archivos.FirstOrDefault().Ruta')"*@
+
+		@*
+		<div class="prov-compras__card-buttons">
+													<button class="btn-aceptar">
+														<i class="bi bi-check-lg"></i>
+													</button>
+													<button class="btn-rechazar">
+														<i class="bi bi-x-lg"></i>
+													</button>
+												</div>
+		
+		*@
+
+@* .Estatus.ToLower()
+																	@switch (Model.Estado)
+																	{
+																		case 1:
+																			{
+																				<span class="label-estado__card aprobado">Aprobada</span>
+																				break;
+																			}
+																		case 2:
+																			{
+																				<span class="label-estado__card rechazado">Rechazada</span>
+																				break;
+																			}
+																		default:
+																			{
+																				<span class="label-estado__card pendiente">Pendiente</span>
+																				break;
+																			}
+														}*@

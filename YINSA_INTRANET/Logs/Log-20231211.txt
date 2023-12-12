@@ -1,0 +1,4 @@
+2023-12-11T11:08:34.6909515-11:00 0HMVQIMHU0PIF:00000001 [ERR] Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder. (192.168.1.17:9096) (990c4331)
+2023-12-11T12:31:10.2549984-11:00 0HMVQK4T10BNA:00000001 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)
+2023-12-11T13:51:15.3453488-11:00 0HMVQLHACGETD:00000003 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)
+2023-12-11T13:52:21.3695426-11:00 0HMVQLHACGETF:00000001 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)

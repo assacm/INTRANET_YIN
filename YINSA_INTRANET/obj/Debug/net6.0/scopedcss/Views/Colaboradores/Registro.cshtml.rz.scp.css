@@ -1,0 +1,65 @@
+body[b-klr5z9ln76] {
+	
+}
+.link-button[b-klr5z9ln76] {
+	text-decoration:none !important;
+	padding:10px 12px !important;
+}
+	a.link-button.btn-f-black:hover[b-klr5z9ln76] {
+		
+		color: var(--yinsa-primary);
+	}
+.input-50[b-klr5z9ln76]{
+	width:50% !important;
+}
+.empleado__layout[b-klr5z9ln76] {
+	background-image: url('img/bg_control.png');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	height:100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.empleado__container[b-klr5z9ln76]{
+	height:100%;
+	width:85%;
+}
+
+legend[b-klr5z9ln76] {
+	float: none;
+	width: 100%;
+	padding: 0 0 0.5rem 0;
+	margin-bottom: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: inherit;
+	font-family: "Suisse Intl Book", sans-serif;
+	color: var(--yinsa-dark);
+}
+
+fieldset[b-klr5z9ln76] {
+	padding-bottom: 2rem;
+}
+
+.empleado__container-button[b-klr5z9ln76]{
+	height:20vh;
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.empleado__container-button button[b-klr5z9ln76]{
+	border:none;
+	padding:0.7rem 1.5rem;
+	color:#FFFF;
+	background-color:var(--yinsa-primary);
+}

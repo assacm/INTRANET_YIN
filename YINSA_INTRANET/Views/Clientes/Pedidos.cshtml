@@ -1,0 +1,173 @@
+﻿@model TabsViewModel
+@{
+    ViewData["Title"] = "Mis Pedidos";
+    //string Nombre = "NOMBRE DEL CLIENTE";
+
+    int footer = 1;
+}
+<partial name="_Menu" />
+
+<!-- Encabezado -->
+<section id="encabezado" class="pt-5">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 col-12">
+                <h1>@Model.Socio.NombreS.ToUpper()</h1>
+                <h2>Mis Pedidos</h2>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="row header__buttons">
+                    <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+                        <a asp-action="Index" asp-route-id="@Model.IdCuenta" class="btn-regresar">REGRESAR</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default" id="btn-logout"
+                          >CERRAR SESIÓN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-12 pt-4">
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-pedidos" class="pt-5 pb-5">
+        <div class="container ">
+            <div class="row">
+            <form method="post" asp-action="Pedidos" id="pedidosForm">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs  flex-column flex-sm-row" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                            <button asp-route-vista="0" class="@((Model.DetalleProducto.Vista ==0) ? "nav-link active":"nav-link")" type="submit" id="pedidos-tab" 
+                                data-bs-toggle="tab" data-bs-target="#pedidos"
+                                role="tab" aria-controls="pedidos" aria-selected="true">Pedidos</button>
+                            </li>
+                            @*<li class="nav-item" role="presentation">
+                                <button class="nav-link" id="comprados-tab" data-bs-toggle="tab" data-bs-target="#comprados" type="button" role="tab" aria-controls="pendientes" aria-selected="false">Comprar de nuevo</button>
+                            </li>*@
+                            <li class="nav-item" role="presentation">
+                            <button asp-route-vista="1" class="@((Model.DetalleProducto.Vista ==1) ? " nav-link active":"nav-link")" id="pendientes-tab" type="submit"
+                                    data-bs-toggle="tab" data-bs-target="#pedidos" role="tab" aria-controls="comprados" aria-selected="false">Pendiente de envío</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button asp-route-vista="2" class="@((Model.DetalleProducto.Vista ==2) ? " nav-link active":"nav-link")" id="cancelados-tab" data-bs-toggle="tab" data-bs-target="#pedidos"
+                                    type="submit" role="tab" aria-controls="cancelados" aria-selected="false">Pedidos cancelados</button>
+                            </li>
+                            <li class="flex-sm-fill text-end text-capitalize" role="presentation">
+                                <a href="#"class="nav-link" id="direcciones-tab" data-bs-toggle="tab" data-bs-target="#direcciones" type="button" role="tab" aria-controls="direcciones" aria-selected="false">
+                                    <i class="icofont-ui-edit"></i>   Direcciones
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab">
+                                 <div class="row pt-3 pb-3">
+                                     <div class="col-3 d-flex justify-content-end">
+                                            <p class="pedidos__select-label">Pedidos realizados: </p>
+                                     </div>
+                                      <div class="col-9">
+                                            <select id="periodoInput" asp-for="Periodo" asp-items="ViewBag.Opciones"></select>
+                                             <input type="hidden" asp-for="Vista" id="input-vista" />
+
+                                      </div>              
+                                 </div>
+                           
+                            <div class="d-flex justify-content-center " >
+                                <div class="spinner-border disable" role="status" id="spinner">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            
+                                <div class="row @(Model.DetalleProducto.ProductosV2.Any() ? "disable" : "" )">
+                                    <div class="col-lg-12 d-flex justify-content-center pedidos__container-empty text-danger">
+                                        <p class="pt-5" id="noproduct">No se encontraron productos</p>
+                                    </div>
+                                </div>
+                                @if (Model.DetalleProducto.ProductosV2.Any())
+                                {
+                                    @*<partial name="_Pedido" model="Model.DetalleProducto" />*@
+                                    <partial name="_PedidoTable" model="Model.DetalleProducto" />
+                                }
+                            </div>
+                            @*<div class="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">Comprados</div>*@
+                           @* <div class="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">Pendientes de envío
+                            <partial name="_Ficha" model="Model.Productos" />
+
+                            </div>
+                            <div class="tab-pane fade" id="cancelados" role="tabpanel" aria-labelledby="cancelados-tab">Cancelados
+                            <partial name="_Ficha" model="Model.Productos" />
+
+                            </div>*@
+                            <div class="tab-pane fade" id="direcciones" role="tabpanel" aria-labelledby="direcciones-tab">
+                            <h5 class="py-3 px-5">Direcciones</h5>
+                            <partial name="_Direcciones" model="Model.Socio" />
+                            </div>
+
+                        </div>
+                    </div>
+               </form>
+            </div>
+        </div>
+
+</section>
+<partial name="_Footer" model="footer" />
+@section Scripts {
+    <script src="~/js/menu.js" asp-append-version="true"></script>
+    <script type="module">
+
+        import { customMenu } from '/js/menu-options.js'
+        let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+        customMenu(urlMenu);
+
+    </script>
+    <script>
+
+
+
+        $(document).ready(function () {
+
+            var spinner = document.getElementById('spinner');
+           var noProducto = document.getElementById('noproduct');
+         
+            var buttons = document.querySelectorAll('.nav-item button');
+
+            buttons.forEach((button, i) => {
+                button.addEventListener('click', () => {
+                    document.getElementById('input-vista').value = i;
+                    showLoading();
+
+                })
+            })
+            var formElement = document.getElementById("pedidosForm");
+            var selectElement = document.getElementById("periodoInput");
+
+            selectElement.addEventListener("change", function () {
+
+                showLoading();
+                formElement.submit();
+            });
+
+
+            function showLoading() {
+                spinner.classList.remove('disable');
+                noProducto.classList.add('disable');
+
+            }
+            
+        })
+        
+       
+
+      
+
+      
+
+    </script>
+  
+
+}
+
+
+
+

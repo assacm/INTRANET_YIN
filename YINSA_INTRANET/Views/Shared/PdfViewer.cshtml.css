@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.pdf-header__container {
+	height: 40vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	
+}
+
+button {
+	display:inline-block;
+	border: none;
+	border-radius: 15px;
+	padding: 0.5rem 1.2rem;
+	margin-inline: 4px;
+	color: #FFF;
+	font-size: 0.8rem;
+	font-weight:600;
+	background-color: var(--yinsa-dark);
+}

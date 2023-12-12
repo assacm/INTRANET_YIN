@@ -1,0 +1,6 @@
+2023-12-08T08:41:28.5963696-11:00 0HMVO4MGHQLJF:00000001 [ERR] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión. (localhost:7024) (40a0c0f0)
+2023-12-08T09:48:09.9522978-11:00 0HMVO5FQ20J1F:00000001 [ERR] The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing. (b5604604)
+2023-12-08T09:48:11.8659881-11:00 0HMVO5FQ20J1F:00000003 [ERR] The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing. (b5604604)
+2023-12-08T17:17:35.2970506-11:00 0HMVODMK4S3TE:00000001 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)
+2023-12-08T17:20:57.5074746-11:00 0HMVODN8UTE6I:00000001 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)
+2023-12-08T17:27:15.7287752-11:00 0HMVODS36VJBC:00000001 [ERR] The SSL connection could not be established, see inner exception. (6cddb6e7)

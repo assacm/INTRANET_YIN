@@ -1,0 +1,66 @@
+body[b-gt19bydaz4] {
+}
+.link-button[b-gt19bydaz4] {
+	text-decoration: none !important;
+	padding: 10px 12px !important;
+}
+
+a.link-button.btn-f-black:hover[b-gt19bydaz4] {
+	color: var(--yinsa-primary);
+}
+
+.input-50[b-gt19bydaz4] {
+	width: 50% !important;
+}
+
+.empleado__layout[b-gt19bydaz4] {
+	background-image: url('img/bg_control.png');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.empleado__container[b-gt19bydaz4] {
+	height: 100%;
+	width: 85%;
+}
+
+legend[b-gt19bydaz4] {
+	float: none;
+	width: 100%;
+	padding: 0 0 0.5rem 0;
+	margin-bottom: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: inherit;
+	font-family: "Suisse Intl Book", sans-serif;
+	color: var(--yinsa-dark);
+}
+
+fieldset[b-gt19bydaz4] {
+	padding-bottom: 2rem;
+}
+
+.empleado__container-button[b-gt19bydaz4] {
+	height: 20vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	.empleado__container-button button[b-gt19bydaz4] {
+		border: none;
+		padding: 0.7rem 1.5rem;
+		color: #FFFF;
+		background-color: var(--yinsa-primary);
+	}

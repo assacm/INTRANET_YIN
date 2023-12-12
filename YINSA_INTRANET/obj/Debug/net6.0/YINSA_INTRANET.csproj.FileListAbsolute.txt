@@ -1,0 +1,209 @@
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\appsettings.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.staticwebassets.runtime.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.exe
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.deps.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.runtimeconfig.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.pdb
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.AssemblyReference.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.AssemblyInfoInputs.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.AssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.CoreCompileInputs.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.RazorAssemblyInfo.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.RazorAssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.YINSA_INTRANET.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.build.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\bundle\YINSA_INTRANET.styles.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\projectbundle\YINSA_INTRANET.bundle.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\refint\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.pdb
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.genruntimeconfig.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\ref\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_RedesSociales.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Home\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Footer.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Rotativa.AspNetCore.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.CopyComplete
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Menu.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\_Facturacion.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_EstadoCuenta.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\Pedidos.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\Tabs.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\LogIn\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Colaboradores\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Home\NoEncontrado.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\_Direcciones.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Ficha.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\__Ficha.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Factura.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Login.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Cuentas.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Registro.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Pruebas.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Control.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Editar.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Compras.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\appsettings.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Connected Services\SatFacturaElectronica\ConnectedService.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.staticwebassets.runtime.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.exe
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.deps.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.runtimeconfig.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\YINSA_INTRANET.pdb
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Rotativa.AspNetCore.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.Private.ServiceModel.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.Security.Cryptography.Xml.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.Duplex.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.Federation.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.Http.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.NetTcp.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.Primitives.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.ServiceModel.Security.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\System.Web.Services.Description.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\cs\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\de\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\es\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\fr\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\it\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ja\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ko\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pl\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pt-BR\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ru\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\tr\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hans\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hant\System.Private.ServiceModel.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\cs\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\de\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\es\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\fr\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\it\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ja\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ko\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pl\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pt-BR\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ru\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\tr\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hans\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hant\System.ServiceModel.Federation.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\cs\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\de\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\es\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\fr\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\it\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ja\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ko\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pl\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\pt-BR\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\ru\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\tr\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hans\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\zh-Hant\System.Web.Services.Description.resources.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.AssemblyReference.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.AssemblyInfoInputs.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.AssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.CoreCompileInputs.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.RazorAssemblyInfo.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.RazorAssemblyInfo.cs
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.YINSA_INTRANET.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.build.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.YINSA_INTRANET.props
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\Pedidos.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\_Direcciones.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\_Pedido.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Colaboradores\Contabilidad.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Colaboradores\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Colaboradores\Registro.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Home\Fuentes.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Home\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Home\NoEncontrado.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Compras.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Factura.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\Index.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\OrdenCompra.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\_Facturacion.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\_OrdenCompra.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\PdfViewer.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_EstadoCuenta.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Footer.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_Menu.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_RedesSociales.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Shared\_SubirFactura.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Control.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Cuentas.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Editar.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Login.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Panel.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\Registro.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Usuarios\RevisionArchivos.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\bundle\YINSA_INTRANET.styles.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\projectbundle\YINSA_INTRANET.bundle.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.csproj.CopyComplete
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\refint\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.pdb
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\YINSA_INTRANET.genruntimeconfig.cache
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\ref\YINSA_INTRANET.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Colaboradores\Editar.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Clientes\_PedidoTable.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\obj\Debug\net6.0\scopedcss\Views\Proveedores\_OrdenCompraTable.cshtml.rz.scp.css
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Extensions.Logging.File.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Sinks.Async.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\alma_\OneDrive\Documentos\Bindus3\0.YINSA DESARROLLOS\YINSA_INTRANET\YINSA_INTRANET\bin\Debug\net6.0\Serilog.Sinks.RollingFile.dll

@@ -1,0 +1,23 @@
+﻿body {
+	height: 100%;
+	width: 100%;
+}
+.disable {
+	display: none;
+}
+
+.subirArchivo__layout {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	z-index: 9000;
+	background-color: #d4d1d185;
+}
+
+.myTabContent{
+	min-height:60vh;
+
+}

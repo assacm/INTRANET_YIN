@@ -1,0 +1,42 @@
+﻿@model EstadoCuentaViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ToPdf</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/YINSA_INTRANET.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fuentes.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/icofont/icofont.min.css">
+    <!-- Agrega aquí cualquier otro archivo CSS que necesites -->
+</head>
+<body>
+	<!-- Encabezado -->
+	<section id="encabezado" class="pt-5">
+		<div class="container content">
+			<div class="row">
+				<div class="col-12">
+					<h1>@Model.Nombre.ToUpper()</h1>
+					<h2>@((Model.Estado == 1) ? "Facturas" : "Estado de cuenta")</h2>
+				</div>
+				<div class="col-lg-12 col-12 pt-4">
+					<hr>
+				</div>
+			</div>
+		</div>
+	</section>
+    <partial name="_EstadoCuenta" model="Model" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/menu.js" asp-append-version="true"></script>
+</body>
+</html>

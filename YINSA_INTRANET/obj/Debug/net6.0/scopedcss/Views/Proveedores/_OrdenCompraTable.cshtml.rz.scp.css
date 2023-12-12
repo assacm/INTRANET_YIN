@@ -1,0 +1,45 @@
+body[b-9g32j1jrmp] {
+}
+.subirFactura__btn[b-9g32j1jrmp] {
+	color: #0083AE;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+	.subirFactura__btn :hover[b-9g32j1jrmp] {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+.disable[b-9g32j1jrmp] {
+	display: none !important;
+}
+
+.tabla-container[b-9g32j1jrmp]{
+	margin-bottom:3rem;
+}
+
+.subirFactura__td[b-9g32j1jrmp]{
+	border:none;
+	color:#ffff;
+	background-color:var(--yinsa-dark);
+	padding:10px;
+	border-radius:5px;
+	font-size:1rem;
+}
+.subirFactura__td:hover[b-9g32j1jrmp]{
+	background-color:var(--yinsa-dark-light);
+}
+.subirFactura__td img[b-9g32j1jrmp] {
+	max-height: 80%;
+	min-height: 20px;
+	height: 20px;
+}
+
+a.files[b-9g32j1jrmp] {
+	cursor: pointer;
+}
+
+	a.files img[b-9g32j1jrmp] {
+		height: 40px;
+	}

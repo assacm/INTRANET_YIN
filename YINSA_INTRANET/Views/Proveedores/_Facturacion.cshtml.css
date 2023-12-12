@@ -1,0 +1,41 @@
+﻿a{
+	color:var(--yinsa-dark);
+}
+	a:hover {
+		color: #FFC72C;
+		text-decoration: none;
+	}
+.btn-y {
+	background-color: #FFC72C !important;
+	color: #2D2926;
+}
+
+	.btn-y:hover {
+		background: #2D2926;
+		color: #FFC72C;
+	}
+.btn-default-y {
+	background: #FFC72C !important;
+	color: #2D2926;
+	border-radius: 1rem;
+	width: 100%;
+	font-family: "Suisse Intl Bold", sans-serif;
+	padding: 12px 4px !important;
+}
+
+	.btn-default-y:hover {
+		background: #2D2926;
+		color: #FFC72C;
+		border-radius: 1rem;
+	}
+
+.btn-default {
+	width: 100%;
+	border: 1px solid;
+	border-radius: 0;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+.input-group-text {
+	height: 100%;
+}
+

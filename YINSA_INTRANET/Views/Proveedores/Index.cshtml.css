@@ -1,0 +1,310 @@
+﻿:root {
+	--yinsa-dark: #2D2926;
+	--yinsa-primary: #FFC72C;
+	--light-grey: #F1F2F2;
+}
+a {
+	color: var(--yinsa-dark);
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+.color-g {
+	color: #adaeb0;
+}
+
+.prov-header-container {
+	display: flex;
+}
+.ico-info{
+	display:flex;
+	margin-top:2px;
+/* 	justify-content:space-between;
+*/ 	
+}
+.ico-info :nth-child(2){
+	padding-left:12px;
+}
+
+.ico-info p{
+	text-align:left;
+}
+
+.btn-default {
+	width: 100%;
+	border: 2px solid;
+	border-radius: 0;
+	font-family: "Suisse Intl Medium", sans-serif;
+	transition: transform .3s ease-in-out;
+}
+
+.btn-default:hover{
+	transform:scale(1.05);
+}
+.btn-short {
+	width: 50%;
+}
+
+a.btn-default{
+	text-decoration:none;
+}
+
+#proveedores .content-l {
+	padding-top: 7rem;
+	padding-bottom: 2rem;
+}
+
+label {
+	font-family: "Suisse Intl Bold", sans-serif;
+}
+
+#info-proveedor {
+	/*display:block;
+	position:static;*/
+	background: linear-gradient(to top, #FFC72C 50%, #fff 50%);
+	
+}
+
+/*.card{
+	position:static;
+}*/
+
+.font-min {
+	font-size: 1rem;
+	text-align:left;
+}
+
+.footer-y {
+	background: #FFC72C !important;
+}
+
+#select-ordencompra {
+	position: relative;
+	cursor:pointer;
+}
+.icon-tri {
+	position:absolute;
+	top:8px;
+	right:10px;
+	
+}
+
+
+/********** ORDENES DE COMPRA RESUMEN *******++*/
+
+
+.desplegar-input{
+	font-size:14px;
+	text-decoration:underline;
+	color:var(--yinsa-dark);
+	cursor:pointer;
+
+}
+
+.prov-compras__padre {
+	position: relative;
+}
+
+.prov-compras__container {
+	background: #FFF;
+	padding: 1rem 0.7rem;
+	width: 100%;
+	position: absolute;
+	top: 80px;
+	left: 0;
+	z-index: 400;
+}
+
+.prov-compras__header {
+	display: grid;
+	place-content: center;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+.prov-compras__cards-container {
+	height: 100%; 
+	max-height:350px;
+	overflow-y: auto;
+	overflow-x:hidden;
+}
+	.prov-compras__button {
+		padding: 5px;
+		width: 100%;
+	}
+
+		.prov-compras__button #compras__button {
+			background-color: #000;
+			color: #FFF;
+			display: inline-block;
+			width: 100%;
+			padding: 5px 0;
+			text-align: center;
+		}
+
+			.prov-compras__button #compras__button:hover {
+				text-decoration: none;
+			}
+
+.prov-compras__subir {
+	background-color: #000;
+	color: #FFF;
+	display: inline-block;
+	width: 100%;
+	padding: 5px 0;
+	border:none;
+}
+	/* CARDS */
+	.prov-compras__card {
+		background-color: #ffffff;
+		border-radius: 15px;
+		padding: 0.3rem;
+		margin-bottom: 0.6rem;
+		border: 1px solid #dedede;
+		-webkit-box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+		-moz-box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+		box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+		cursor:pointer;
+	}
+
+		.prov-compras__card
+		.prov-compras__card-info {
+			height: 100%;
+			padding: 0.5rem 0.5rem 0 0.5rem;
+		}
+
+	.prov-compras__card-info .docentry {
+		padding: 0 0 0.5rem 0;
+		border-bottom: 2px solid var(--yinsa-primary);
+		font-weight: 600;
+	}
+
+	.docentry span {
+		padding: 0.5rem;
+		background-color: var(--light-grey);
+		border-radius: 10px;
+		font-size: 12px;
+	}
+
+	.prov-compras__card-info .concepto {
+		padding: 0.5rem;
+		font-family: "Suisse Intl Bold", sans-serif;
+		font-weight: 600;
+	}
+
+	.prov-compras__card-info .fecha {
+		padding: 0.5rem 0 0 0.5rem;
+		font-family: "Suisse Intl Book";
+	}
+
+	.fecha span {
+		font-size: 10px;
+	}
+
+	.prov-compras__card-detalle {
+		padding: 1rem 1.5rem;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		flex-direction: column;
+	}
+
+		.prov-compras__card-detalle .detalle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--yinsa-primary);
+			/*border: 1px solid #f5f5f5; */ /*#f3f2f2*/
+			border-radius: 10px;
+			padding: 0.5rem 1.2rem;
+			/*box-shadow: 0px 0px 20px -1px rgba(225,225,225,0.75);
+		-webkit-box-shadow: 0px 0px 20px -1px rgba(225,225,225,0.75);
+		-moz-box-shadow: 0px 0px 20px -1px rgba(225,225,225,0.75);*/
+
+			-webkit-box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+			-moz-box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+			box-shadow: 0px 2px 6px 0px rgba(197,196,196,0.5);
+		}
+
+	.detalle a {
+		color: #FFF;
+		text-decoration: none;
+		/*margin-top: 0.5rem;*/
+		text-align: center;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+
+/*         DRAG DROP        */
+.drag-area.active {
+	background-color: #93929071;
+	color: black;
+	border: 4px dashed #494a49;
+}
+
+.show-files {
+	cursor: pointer;
+}
+
+.subirArchivo__container-file {
+	display: flex;
+	flex-direction: row;
+	/*	flex-direction: column;*/
+	align-items: start;
+	overflow-x: auto;
+}
+
+	.subirArchivo__container-file .file {
+		padding: 2px 6px;
+		white-space: nowrap;
+	}
+
+		.subirArchivo__container-file .file .file-img img {
+			height: 60px; /*20px cuando incluye nombre*/
+			width: auto;
+		}
+
+		.subirArchivo__container-file .file span {
+			font-size: 0.7rem;
+		}
+
+		.subirArchivo__container-file .file .file-img .delete-file {
+			cursor: pointer;
+			/*position: absolute;
+			z-index: 9010;*/
+		}
+
+			.subirArchivo__container-file .file .file-img .delete-file svg {
+				/*position: relative;
+				top: -1px;
+				left: -8px;*/
+				font-weight: 500;
+			}
+
+
+
+
+/* DISPOSITIVOS MOVILES MD */
+@media (max-width:1170px) {
+	.prov-compras__cards-container {
+		height: 290px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}
+/* DISPOSITIVOS MOVILES SM*/
+
+@media screen and (max-width:768px) {
+}
+.disable {
+	display: none !important;
+}
+
+a.files{
+	cursor:pointer;
+}
+a.files img {
+	height: 40px;
+}

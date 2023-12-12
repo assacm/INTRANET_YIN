@@ -1,0 +1,23 @@
+body[b-6xdon3z7il] {
+	height: 100%;
+	width: 100%;
+}
+.disable[b-6xdon3z7il] {
+	display: none;
+}
+
+.subirArchivo__layout[b-6xdon3z7il] {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	z-index: 9000;
+	background-color: #d4d1d185;
+}
+
+.myTabContent[b-6xdon3z7il]{
+	min-height:60vh;
+
+}

@@ -1,0 +1,31 @@
+﻿@model int 
+@{
+}
+
+<footer id="footer" class="@((Model==0) ? "bg-white":"bg-yellow" )">
+	<div class="content-footer">
+		<div class="row">
+			<div id="div-img-footer" class="col-md-3 col-lg-3">
+			<img id="img-footer" src="~/img/YINSA_WEB_Logo.png" alt="logo">
+			</div>
+			<div class="col-md col-lg">
+				<h3>Síguenos en nuestras redes sociales</h3>
+				<div id="div-redes">
+					<ul id="ul-redes" class="@((Model==0) ? "bg-white":"bg-yellow" )">
+						<li><a  href=""><i class="icofont-facebook"></i></a></li>
+						<li><a href=""><i class="icofont-instagram"></i></a></li>
+						<li><a href=""><i class="icofont-linkedin"></i></a></li>
+						<li><a href=""><i class="icofont-spotify"></i></a></li>
+						<li><a href=""><i class="icofont-youtube-play"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="div-links" class="col-md-3 col-lg-3">
+				<ul>
+					<li class="text-capitalize"><a href="">Aviso de Privacidad</a></li>
+					<li class="text-capitalize"><a href="">Información</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>

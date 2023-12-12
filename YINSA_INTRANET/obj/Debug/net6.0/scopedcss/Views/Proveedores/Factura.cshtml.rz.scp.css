@@ -1,0 +1,18 @@
+body[b-28s3jdmpxu] {
+}
+.container__factura[b-28s3jdmpxu]{
+	padding:50px 80px;
+}
+
+.line-yellow[b-28s3jdmpxu]{
+	border-left: 2px solid var(--yinsa-primary);
+}
+
+.btn-regresar[b-28s3jdmpxu] {	
+	display: inline-block;
+	padding: 6px 20px;
+	width:50%;
+	text-decoration: none;
+	border-radius: 15px;
+	font-weight: 600;
+}

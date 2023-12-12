@@ -1,0 +1,426 @@
+﻿@model SocioViewModel
+@{
+	ViewData["Title"] = "Mi Cuenta";
+	int footer = 1;
+
+	//int cardDocEntry = 12312;
+	//int cardDocNum = 12882;
+}
+@*<partial name="_Sidebar" />
+
+*@
+<partial name="_Menu" />
+
+<section id="proveedores">
+	<div class="container content-l">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 mt-3 prov-header-container">
+				<h2>PROVEEDOR</h2>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<div class="flex justify-content-end prov-header-container">
+					<a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default btn-short">CERRAR SESIÓN</a>
+				</div>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-lg-6 col-12 mt-3">
+				<div class="row">
+					<div class="col-lg-3 col-12">
+						<p class="font-min">Razón Social</p>
+					</div>
+					<div class="col-lg-9 col-12">
+						<h3>@Model.Socio.NombreS</h3>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-lg-3 col-12">
+						<p class="font-min">Giro de la empresa</p>
+					</div>
+					<div class="col-lg-9 col-12">
+						<p class="text-uppercase">GIRO DE LA EMPRESA @Model.Socio.Giro</p>
+						
+						<a href="" class="btn-a">
+							<i class="icofont-ui-edit"></i>
+							Editar Perfil
+						</a>
+						
+						<div class="ico-info">
+							<i class="fa fa-mobile-phone mr-2 icon"></i>
+							<p>@Model.Socio.Phone1</p>
+						</div>
+						<div class="ico-info">
+							<i class="fa fa-phone mr-2 icon"></i>
+							<p>@Model.Socio.Phone2</p>
+						</div>
+						<div class="ico-info">
+							<i class="fa fa-envelope mr-2 icon"></i>
+							<p>@Model.Socio.E_Mail</p>
+						</div>
+						<div class="ico-info">
+							<i class="icofont-globe mr-2 icon"></i>
+							<p>@Model.Socio.SitioWeb</p>
+						</div>
+						<div class="ico-info">
+							<p class="bold mr-2">No. Proveedor</p>
+							<p>@Model.Socio.CodigoS</p>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+							<label class="form-check-label" for="inlineRadio1">Persona Moral</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+							<label class="form-check-label" for="inlineRadio2">Persona Física</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-6 col-12 mt-3">
+				<div class="box box-g">
+					<div class="box-title mb-3">
+						<div class="row">
+							<div class="col-lg-4 col-12"><h4>Documentos</h4></div>
+							<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-ui-edit"></i> Editar</a></div>
+							<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-plus"></i> Agregar</a></div>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="#" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="#" class="btn-a  files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="#" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Info del Proveedor -->
+	<section id="info-proveedor">
+	<div class="container content-l">
+		<div class="row row-eq-height">
+
+			<!-- Columna 1 -->
+			<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+				<div class="card">
+
+					<div class="box box-g">
+						<div class="box-title text-center mb-3">
+							<h5>Cargar factura</h5>
+						</div>
+						<div class="row mb-2">
+							<div class="col-lg-12 prov-compras__padre">
+								<span class="font-min">Seleccionar orden de compra</span>
+
+								<div class="form-group mb-3 mt-3" id="select-ordencompra">
+										<span class="form-control color-g">Ver órdenes de compra </span>
+										<span class="icon-tri"><i class="bi bi-caret-down-fill"></i></span>
+								</div>
+								
+								<div class="prov-compras__container disable">
+									<div class="prov-compras__header">
+										<p>Últimas órdenes de compra</p>
+									</div>
+
+									<div class="prov-compras__cards-container">
+										@foreach (var c in Model.Pedidos)
+										{
+											<div class="prov-compras__card" 
+												 onclick="cardSelected({entry:@c.DocEntry, num:@c.NoDocumento, obj:@c.TipoObjSAP})">
+												<div class="row">
+													<div class="col-12">
+														<div class="prov-compras__card-info">
+															<div class="docentry">
+																<span>@c.NoDocumento</span>
+															</div>
+															<div class="row">
+																<div class="col-7">
+																	<div class="concepto">
+																		<p>
+																			@c.Producto
+																		</p>
+																	</div>
+																	<div class="fecha">
+																		<span>@c.Fecha</span>
+																	</div>
+																</div>
+																<div class="col-5">
+																	<div class="prov-compras__card-detalle">
+																		<div class="detalle">
+																			<a href="#">Ver detalle</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+											
+										}									
+									</div>
+
+									<div class="prov-compras__button">
+										<a id="compras__button" asp-action="Compras">Ver más</a>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-lg-12">
+								<span class="font-min">Subir archivos (PDF y XML)</span>
+								<div class="mb-3 mt-3 show-files" id="myForm">
+									<div class="form-group drag-area" id="drop-area">
+										<label for="Archivo" class="form-control color-g drag-text">Arrastra aquí</label>
+										@*<input id="file-upload" type="file" class="form-control" multiple accept="image/*" style="display: none;">*@
+										<input type="file" name="Archivo" id="input-file" hidden multiple />
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2 mb-3">
+								<div class="col-lg-4 col-12">
+									@*<span class="font-min">Archivos</span>*@
+								</div>
+								<div class="col-lg-8 col-12">
+									<div id="preview" class="subirArchivo__container-file"></div>
+								</div>
+							</div>
+						</div>
+						<div class="orden-datos_container disable">
+							<div class="form-group pb-2">
+								<div class="row">
+									<div class="col-12">
+										<span class="desplegar-input" id="desp-desc">Agregue descripción de factura  </span> @*<i class="bi bi-chevron-down"></i>*@
+										<input type="text" class="form-control " name="Descripcion" id="input-desc" />	@*color-g disable*@
+									</div>
+									<div class="col-12">
+										<span class="desplegar-input" id="desp-comment" for="Comentario">Agregar comentario  <i class="bi bi-chevron-down"></i></span>
+										<textarea type="text" class="form-control color-g disable" name="Comentario" id="input-comentario"></textarea>
+									</div>
+								</div>
+								
+								<input type="text" name="Entry" id="input-entry" hidden />
+								<input type="text" name="Num" id="input-num" hidden />
+								<input type="text" name="Obj" id="input-obj" hidden />
+
+							</div>
+						
+						
+						
+							<div class="ico-info">
+								<p class="bold mr-2">Orden de compra:</p>
+								<p id="orden-compra_docEntry"></p>
+							</div>
+							<div class="ico-info">
+								<p class="bold mr-2">Fecha carga de factura:</p>
+								<p>@DateTime.Now</p>
+							</div>
+							<div class="ico-info">
+								<p class="bold mr-2">Fecha de pago:</p>
+								<p>Pendiente</p>
+							</div>
+							<button type="button" class="prov-compras__subir" onclick="subir()"
+									data-bs-toggle="modal" data-bs-target="#modalUpd">
+								Subir
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Columna 2 -->
+			<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+				<div class="card">
+
+					<div class="box box-g">
+						<div class="box-title text-center mb-3">
+							<h5>Facturas anteriores</h5>
+						</div>
+						<div class="row">
+							<div class="col-lg-5 col-12">
+								<span class="color-g font-min">Descargar últimas facturas</span>
+							</div>
+							<div class="col-lg-7 col-12">
+								<a class="btn-a mb-2 files"><img src="/img/icons/xml.png"><img src="/img/icons/pdf.png"> Febrero</a>
+								<a class="btn-a mb-2 files"><img src="/img/icons/xml.png"><img src="/img/icons/pdf.png"> Enero</a>
+							</div>
+							<div class="row mt-3">
+								<div class="col-lg-12 col-12">
+									<form method="post" asp-action="EstadoCuenta" id="facturasForm">
+										<!--<input type="hidden" asp-for="Socio.CodigoS" asp-route-id="Socio.CodigoS" />-->
+										@*<select asp-for="Periodo" class="form-control" name="Mes"
+												asp-items="Html.GetEnumSelectList<Meses>()" id="mesSelect">
+											
+										</select>*@
+										<select id="mesSelect" asp-for="Periodo" asp-items="ViewBag.Opciones" class="form-control">
+											<option>Seleccione un periodo</option>
+										</select>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Columna 3 -->
+			<div class="col-lg-4 col-md-12 col-sm-12 mb-4">
+				<div class="card">
+
+					<div class="box box-g">
+						<div class="box-title text-center mb-3">
+							<h5>Aviso de privacidad</h5>
+						</div>
+						<div class="row">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis aliquet elit, in volutpat nibh. Vivamus vitae neque ac est finibus vestibulum nec ac nisi. Nullam sit amet dolor in enim congue sollicitudin a ornare dui. Sed vitae purus dolor. Vivamus quam lorem, semper sed pretium quis, blandit et magna. Praesent sit amet ultricies lacus. Aenean dolor tortor, interdum quis elit a, venenatis feugiat diam. Curabitur a diam velit.</p>
+							<p>Vestibulum blandit eget erat molestie sodales. Donec cursus, arcu tempor varius vestibulum, turpis quam iaculis felis, ut aliquam urna sem quis nibh. Sed fermentum suscipit malesuada. Vestibulum sagittis dolor ligula, quis bibendum mauris hendrerit et. Nam nec auctor felis. Integer faucibus risus in magna maximus, pretium pretium nisl iaculis. Curabitur sit amet congue enim, tincidunt lacinia quam. In et ullamcorper tellus, vel ultricies nunc. Praesent scelerisque sapien sed metus iaculis commodo eget a dolor. Pellentesque sollicitudin consequat pellentesque. </p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="modal-title" id="modalLabel">Subida</h6>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body d-flex justify-content-center" id="modalInfo">
+					Subiendo factura . . .
+				</div>
+				@*<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>*@
+			</div>
+		</div>
+	</div>
+</section>
+<partial name="_Footer" model="footer"/>
+@section Scripts{
+	<script  src="~/js/menu.js" asp-append-version="true"></script>
+	<script src="~/js/drag-drop.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import {customMenu} from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+
+	<script>
+
+		
+
+		function subir(){
+			const url = '@Url.Action("SubirFactura","Home")'; //cambiar ruta
+			uploadFile(url);
+		}
+
+	</script>
+
+	<script type="text/javascript">
+
+		//<i class="bi bi-caret-up-fill"></i>
+		const selectCompras = document.getElementById('select-ordencompra');
+		const arrowCompras = document.querySelector('.icon-tri i');
+		const comprasCont = document.querySelector('.prov-compras__container');
+		const selectDocEntry = document.getElementById('orden-compra_docEntry');
+		const infoOrden = document.querySelector('.orden-datos_container');
+		const despDesc = document.getElementById('desp-desc');
+		//const arrowDesc=despDesc.querySelector('i');
+		const despComment = document.getElementById('desp-comment');
+		const arrowComment = despComment.querySelector('i');
+
+		selectCompras.addEventListener('click', function(){
+
+			comprasCont.classList.toggle('disable');
+			if (arrowCompras.classList.contains('bi-caret-down-fill')) {
+				arrowCompras.classList.remove('bi-caret-down-fill')
+				arrowCompras.classList.add('bi-caret-up-fill');
+				
+				console.log('blue');
+			}else{
+				arrowCompras.classList.remove('bi-caret-up-fill')
+				arrowCompras.classList.add('bi-caret-down-fill');
+				console.log('red');
+			}
+
+		});
+
+	
+
+		despComment.addEventListener('click', function () {
+
+			inputComment.classList.toggle('disable');
+			if (arrowComment.classList.contains('bi-chevron-down')) {
+				arrowComment.classList.remove('bi-chevron-down')
+				arrowComment.classList.add('bi-chevron-up');
+
+				console.log('blue');
+			} else {
+				arrowComment.classList.remove('bi-chevron-up')
+				arrowComment.classList.add('bi-chevron-down');
+				console.log('red');
+			}
+
+		});
+
+		function cardSelected(elemento){
+			console.log(elemento)
+
+			//var val= elemento.getAttribute('data-value');
+			var val= elemento.num;
+			selectDocEntry.textContent = val;
+
+			inputEntry.value = elemento.entry;
+			inputNum.value = elemento.num;
+			inputObj.value= elemento.obj;
+
+			arrowCompras.classList.remove('bi-caret-up-fill')
+			arrowCompras.classList.add('bi-caret-down-fill');
+			comprasCont.classList.add('disable');
+			infoOrden.classList.remove('disable');
+			console.log(elemento);
+		}
+		
+		/** AGREGAR FUNCIONALIDAD DRAG-DROP Y ACTUALIZAR SUBIDA DE ARCHIVOS  CON API*/
+
+		$(document).ready(function(){
+
+			var formElement = document.getElementById("facturasForm");
+			var selectElement = document.getElementById("mesSelect");
+			selectElement.addEventListener("change", function () {
+				formElement.submit();
+			});
+		})
+	</script>
+	
+}

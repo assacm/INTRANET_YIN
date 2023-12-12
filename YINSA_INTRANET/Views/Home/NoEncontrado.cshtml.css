@@ -1,0 +1,21 @@
+﻿.container__noencontrado{
+	min-height:100vh;
+	display:flex;
+	align-items:center;
+	align-content:center;
+	justify-content:center;
+	justify-items:center;
+}
+/*@media screen and (max-width: 990px){
+	.container__noencontrado{
+		flex-direction:column;
+	}
+}*/
+
+.noencontrado__img{
+	width:100%;
+}
+
+.noencontrado__span{
+font-size:1.3rem;
+}

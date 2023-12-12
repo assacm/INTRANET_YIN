@@ -1,0 +1,41 @@
+a[b-nvdzm9fyxj]{
+	color:var(--yinsa-dark);
+}
+	a:hover[b-nvdzm9fyxj] {
+		color: #FFC72C;
+		text-decoration: none;
+	}
+.btn-y[b-nvdzm9fyxj] {
+	background-color: #FFC72C !important;
+	color: #2D2926;
+}
+
+	.btn-y:hover[b-nvdzm9fyxj] {
+		background: #2D2926;
+		color: #FFC72C;
+	}
+.btn-default-y[b-nvdzm9fyxj] {
+	background: #FFC72C !important;
+	color: #2D2926;
+	border-radius: 1rem;
+	width: 100%;
+	font-family: "Suisse Intl Bold", sans-serif;
+	padding: 12px 4px !important;
+}
+
+	.btn-default-y:hover[b-nvdzm9fyxj] {
+		background: #2D2926;
+		color: #FFC72C;
+		border-radius: 1rem;
+	}
+
+.btn-default[b-nvdzm9fyxj] {
+	width: 100%;
+	border: 1px solid;
+	border-radius: 0;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+.input-group-text[b-nvdzm9fyxj] {
+	height: 100%;
+}
+

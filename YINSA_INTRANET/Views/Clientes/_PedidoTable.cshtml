@@ -1,0 +1,166 @@
+﻿@model CardsViewModel
+
+<div class="row">
+
+	@if (Model.ProductosV2.Any())
+	{
+		@foreach (DocumentoV2 producto in Model.ProductosV2)
+		{
+			<div class="col-12">
+				<div class="box box-g ">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<h5>Llega el @producto.FechaVencimiento.ToString("D")</h5>
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Cliente</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.CodigoS</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Nombre</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.NombreS</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Empleado de ventas</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.Asesor</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Uso principal</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">Adquisición de mercancías</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">No. Pedido</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.NoDocumento</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Pedido realizado el</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.Fecha.ToString("dd/MM/yyyy")</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Estado</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@producto.Estatus</p>
+								</div>
+								<div class="col-lg-12 col-md-12">
+									<a href="" class="pedidos__btn-gray text-uppercase">Realizar seguimiento de envio</a>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Subtotal</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Html.DisplayFor(m => producto.Subtotal)</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Impuesto</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Html.DisplayFor(m =>producto.ImporteImpto)</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="bold font-min">Total</p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<p class="font-min">@Html.DisplayFor(m => producto.Total)</p>
+								</div>
+								@*@if (Model.Vista == 0 || Model.Vista == 2)
+								{
+									<div class="col-lg-12 col-md-12">
+										<a href="#" id="cancelar-link" class="btn-a text-uppercase font-min pedidos__text-underline inactivo"> Cancelar pedido</a>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<p class="color-g font-min">Elegible hasta el @producto.Fecha.AddDays(10).ToString("D") </p>
+									</div>
+								}*@
+							</div>
+
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-2">
+							<div class="row">
+								
+								<div class="col-lg-12 col-md-12">
+									<p class="font-min">
+										<a class="btn-a color-b" data-bs-toggle="collapse" href="#collapseFactura" role="button" aria-expanded="false">
+											Descargar factura <i class="icofont-simple-down"></i>
+										</a>
+									</p>
+									<div class="collapse mb-3" id="collapseFactura">
+										<div class="box-g">
+											<a href="" class="btn-a files"><img src="~/img/icons/xml.png"><img src="~/img/icons/pdf.png"> Factura</a>
+
+										</div>
+									</div>
+								</div>
+								@*<div class="col-lg-12 col-md-12">
+									<p class="font-min">
+										<a class="pedidos__color-b" asp-action="Factura">Ver factura</a>
+									</p>
+								</div>*@
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="tabla-container">
+					<table class="table table-striped table-responsive tabla-pedidos">
+						<thead>
+							<tr>
+								<th scope="col" class="text-start">Número de artículo</th>
+								<th scope="col" class="text-center">Descripción del artículo</th>
+								<th scope="col" class="text-center">Cantidad</th>
+								<th scope="col" class="text-center">Cantidad Pendiente</th>
+								<th scope="col" class="text-center">Precio por unidad</th>
+								<th scope="col" class="text-center">Importe</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+								@foreach (var p in producto.DetalleProductos)
+								{
+
+									<tr>
+
+										<td scope="row" class="">@p.ProductoKey</td>
+										<td scope="row" class="">@p.Producto</td>
+										<td class="">@Html.DisplayFor(m => p.Cantidad) @p.UnidadMedida</td>
+										<td class="">@Html.DisplayFor(m => p.CantidadPendiente) @p.UnidadMedida </td>
+										<td class="">@Html.DisplayFor(m => p.Precio)</td>
+										<td class="">@Html.DisplayFor(m => p.Importe)</td>
+
+									</tr>
+
+								}
+						
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		}
+
+	}
+</div>
+
+

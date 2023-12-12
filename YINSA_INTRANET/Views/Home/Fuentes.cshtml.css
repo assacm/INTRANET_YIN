@@ -1,0 +1,36 @@
+﻿div > *{
+	margin-bottom:2rem;
+	font-size:2rem;
+}
+div p:nth-child(1) {
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+
+div :nth-child(2) {
+	font-family: "Suisse Intl Book";
+}
+
+div :nth-child(3) {
+	font-family: "Suisse Intl Bold";
+}
+
+div :nth-child(4) {
+	font-family: "SuisseIntl-UltralightItalic_0";
+}
+
+div :nth-child(5) {
+	font-family: "SuisseIntl-Ultralight_0";
+}
+
+div :nth-child(6) {
+	font-family: "SuisseIntl-ThinItalic_0";
+}
+
+div :nth-child(7) {
+	font-family: "SuisseIntl-Thin_0";
+}
+
+div :nth-child(8) {
+	font-family: "SuisseIntl-SemiBoldItalic_0";
+}
+

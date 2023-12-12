@@ -1,0 +1,409 @@
+﻿@using System.Security.Claims;
+@model ColaboradorViewModel
+@{
+	ViewData["Title"] = "Mi cuenta";
+	int footer = 0; //bg white
+
+	var rol = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+}
+<partial name="_Menu" />
+
+<!-- ENCABEZADO -->
+<section id="mi-perfil">
+	<div class="container content-l">
+		<div class="row">
+			<div class="col-lg-7 col-md-6 d-flex justify-content-center">
+				<h2>MI PERFIL</h2>
+			</div>
+			<div class="col-lg-5 col-md-6">
+				<div class="row px-3 header__buttons">
+					<div class="col-6">
+						@if(rol =="admin"){
+							<div class="d-flex justify-content-lg-end justify-content-center">
+								<a asp-action="Panel" asp-controller="Usuarios" asp-route-id="@Model.Empleado.IdCuenta" class="btn btn-default btn-f-black">MODO ADMINISTRADOR</a>
+							</div>
+						}
+						@if (rol == "contador")
+						{
+							<div class="d-flex justify-content-lg-end justify-content-center">
+								<a asp-action="Contabilidad" asp-controller="Colaboradores" asp-route-id="@Model.Empleado.IdCuenta" class="btn btn-default btn-f-black">CONTABILIDAD</a>
+							</div>
+						}
+					</div>
+					<div class="col-6">
+						<div class="d-flex justify-content-lg-end justify-content-center">
+							<a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default btn-t-black">CERRAR SESIÓN</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="row p-5">
+			<div class="col-lg-2 col-md-2 col-12 mt-5">
+					<img class="img-perfil" src="/img/logos/YINSA_Logo_FondoAmarillo.png">
+			</div>
+			<div class="col-lg-4 col-md-4 col-12 mt-5">
+				<h3>@Model.Empleado.Nombre @Model.Empleado.ApellidoPa @Model.Empleado.ApellidoMa</h3>
+				<p class="text-uppercase">@Model.Empleado.Puesto</p>
+				<a href="" class="btn-a"><i class="icofont-ui-edit"></i> Editar Perfil</a>
+
+				<br><br>
+
+				<div class="d-flex">
+					<i class="fa fa-phone me-2 icon"></i>
+					<p>@Model.Empleado.Telefono</p>
+				</div>
+				<div class="d-flex">
+					<i class="fa fa-envelope me-2 icon"></i>
+					<p>@Model.Empleado.Email</p>
+				</div>
+				<div class="d-flex">
+					<p class="bold me-2">CURP</p>
+					<p></p>
+				</div>
+				<div class="d-flex">
+					<p class="bold me-2">Fecha de Nacimiento</p>
+					@*<p>@Html.DisplayFor(m => Model.Empleado.Nacimiento)</p>*@
+					<p>@Model.Empleado.Nacimiento.ToString("dd 'de' MMMM 'del' yyyy")</p>
+				</div>
+				<div class="d-flex">
+					<p class="bold me-2">No. Nomina</p>
+					<p></p>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-12 mt-5">
+				<div class="box box-g">
+					<div class="box-title mb-3">
+						<div class="row">
+							<div class="col-lg-4 col-md-12"><h4>Documentos</h4></div>
+							<div class="col-lg-8 col-md-12 d-flex justify-content-lg-start justify-content-md-start">
+								<a href="" class="link-a"><i class="icofont-ui-edit"></i> Editar</a>
+								<a href="" class="link-a"><i class="icofont-plus"></i> Agregar</a>
+							</div>
+						@*	<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-ui-edit"></i> Editar</a></div>
+							<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-plus"></i> Agregar</a></div>*@
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="row">
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+							<div class="col-lg-4 col-md-6 col-12 mb-2">
+								<a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Info del colaborador -->
+
+<main id="main">
+	<aside>
+		<form method="post" asp-action="Panel" id="menu-form">
+			<ul class="aside__menu">
+				<li>
+					<a asp-action="Index" asp-route-id="@Model.Empleado.IdCuenta" asp-controller="Colaboradores">
+						@*<a asp-action="ComprobacionGastos" asp-controller="Usuarios">*@
+						<div class="aside__menu-card" id="">
+							@*<input type="radio" value="c.CardCode">*@
+
+							<span class="card-content">
+								<span class="icon-container">
+									<img src="/img/icons/plus.png" alt="icon" class="menu-icon" />
+								</span>
+								<span class="menu-opcion">Agregar factura</span>
+							</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<label class="aside__menu-card">
+						<input type="radio" asp-for="MenuOption" value="0">
+						<span class="card-content">
+							<span class="icon-container">
+								
+								<img src="/img/icons/user.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Mis datos</span>
+						</span>
+					</label>
+				</li>
+				@*<li>
+					<label class="aside__menu-card">
+						<input type="radio" asp-for="MenuOption" value="0">
+						<span class="card-content">
+							<span class="icon-container">
+								<span class="circle notification-circle">
+									<span class="notification-number">@Model.No_Notificaciones</span>
+								</span>
+								<img src="/img/icons/bell.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Notificaciones</span>
+						</span>
+					</label>
+				</li>*@
+				<li>
+					<label class="aside__menu-card">
+						<input type="radio" asp-for="MenuOption" value="1">
+						<span class="card-content">
+							<span class="icon-container">
+								<img src="/img/icons/xml.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Mis facturas</span>
+
+						</span>
+					</label>
+				</li>
+				@if (User.HasClaim(c => c.Type == "authFct" && c.Value == "true")) 
+				{ 
+					<li>
+						<a asp-action="RevisionArchivos" asp-controller="Usuarios">
+							<div class="aside__menu-card">
+								<span class="card-content">
+									<span class="icon-container">
+										<span class="circle notification-circle">
+											<span class="notification-number">@Model.FacturasPendientes</span>
+										</span>
+										<img src="/img/icons/xml.png" alt="icon" class="menu-icon" />
+									</span>
+									<span class="menu-opcion">Autorizar Facturas</span>
+								</span>
+							</div>
+						</a>
+					</li>
+				}
+				<li>
+					<a asp-action="RevisionArchivos" asp-controller="Usuarios">
+						<div class="aside__menu-card">
+							<span class="card-content">
+								<span class="icon-container">
+									<span class="circle notification-circle">
+										<span class="notification-number">@Model.DocumentosPendientes</span>
+									</span>
+									<img src="/img/icons/file.png" alt="icon" class="menu-icon" />
+								</span>
+								<span class="menu-opcion">Autorizar Documentos</span>
+							</span>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</form>
+	</aside>
+	<section id="info">
+			<div class="row row-eq-height">
+				<!-- Columna 1 -->
+				<div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+					<div class="card">
+
+						<div class="box box-g">
+							<div class="box-title mb-3">
+								<div class="row">
+									<div class="col-lg-8 col-12"><h5>Información de contacto</h5></div>
+									<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-ui-edit"></i> Editar</a></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Correo personal</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Email</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Celular</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Celular</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Particular</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Celular</p>
+								</div>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="box box-g">
+							<div class="box-title">
+								<div class="row">
+									<div class="col-12"><h5>Información del puesto</h5></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Colabora desde</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									@*<p>@Html.DisplayFor(m =>Model.Empleado.FechaIngreso)</p>*@
+									<p>
+									@Model.Empleado.FechaIngreso.ToString("dd 'de' MMMM 'del' yyyy")
+									</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Estatus del empleado</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>Activo</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Puesto</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Puesto</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Departamento</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Departamento</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Días de vacaciones</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Vacaciones días</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--Columna 2 -->
+				<div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+					<div class="card">
+
+						<div class="box box-g">
+							<div class="box-title mb-3">
+								<div class="row">
+									<div class="col-lg-8 col-12"><h5>Salud</h5></div>
+									<div class="col-lg-4 col-12 text-right"><a href="" class="btn-a color-g"><i class="icofont-ui-edit"></i> Editar</a></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<p class="color-g">NSS</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.Nss</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Tipo de sangre</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>@Model.Empleado.TipoSangre</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Alergias</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>Ninguna</p>
+								</div>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="box box-g">
+							<div class="box-title">
+								<div class="row">
+									<div class="col-12"><h5>Contacto de emergencias</h5></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Nombre</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>Alberto Rodriguez Hernandez</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Celular</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>624 025 125</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Correo personal</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>correo@hotmail.com</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Dirección</p>
+								</div>
+								<div class="col-lg-6 col-12">
+									<p>Nombre de calle, 123 Int, 456, Colonia</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Columna 3 -->
+				<div class="col-lg-4 col-md-4 col-sm-4 mb-4">
+					<div class="card">
+
+						<div class="box box-g">
+							<div class="box-title">
+								<div class="row">
+									<div class="col-12"><h5>Mis Recibos de Nómina</h5></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-12">
+									<p class="color-g">Ultimos 3 recibos</p>
+								</div>
+								<div class="col-lg-6 col-12">
+								<div class="mb-2"><a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a></div>
+								<div class="mb-2"><a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a></div>
+								<div class="mb-2"><a href="" class="btn-a files"><img src="/img/icons/pdf.png"> Certificado</a></div>
+								</div>
+								<div class="col-lg-12">
+									<p class="color-g">Consulta anteriores</p>
+									<select class="form-control"><option>Selecciona el periodo:</option></select>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+	
+	</section>
+</main>
+<partial name="_Footer" model="footer" />
+
+@section Scripts{
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+}
+

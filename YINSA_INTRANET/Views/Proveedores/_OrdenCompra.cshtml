@@ -1,0 +1,131 @@
+﻿ @model CardsViewModel
+@{
+	string factura = "";//Modificar por Model.Producto.Ruta
+
+}
+
+<div class="row">
+	@if (Model.Productos != null && Model.Productos.Any() != false)
+	{
+		@foreach (Documento producto in Model.Productos)
+		{
+			<div class="col-lg-12">
+
+				<div class="mt-3 border">
+					<div class="box box-g ">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<h5>Llega el @producto.FechaEntrega.ToString("D")</h5>
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<p class="bold font-min">Pedido realizado el</p>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="font-min">@producto.Fecha.ToString("D")</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<p class="bold font-min">No. Pedido</p>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="font-min">@producto.NoDocumento</p>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="bold font-min">Total</p>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="font-min">@Html.DisplayFor(m => producto.Importe)</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<p class="bold font-min">Enviar a</p>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="font-min">
+											<a class="pedidos__btn-a pedidos__color-b" data-bs-toggle="collapse" href="#collapseDirection" role="button" aria-expanded="false">
+												Direccion B <i class="icofont-simple-down"></i>
+											</a>
+										</p>
+										<div class="collapse mb-3" id="collapseDirection">
+											<div class="card card-body">
+												<p class="font-min">Direccion @producto.DireccionEntrega</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										@if (string.IsNullOrEmpty(factura))
+										{
+											<p class="font-min subirFactura__btn" onclick="show({docEntry:@producto.DocEntry,docNum:@producto.NoDocumento})">
+												Subir Factura
+											</p>
+										}
+										else
+										{
+											<p class="font-min">
+												<a class="btn-a color-b" data-bs-toggle="collapse" href="#collapseFactura" role="button" aria-expanded="false">
+													Descargar factura <i class="icofont-simple-down"></i>
+												</a>
+											</p>
+											<div class="collapse mb-3" id="collapseFactura">
+												<div class="box-g">
+													<a href="" class="btn-a"><img src="~/img/xml.png"><img src="~/img/pdf-file-red.png"> Factura</a>
+												</div>
+											</div>
+										}
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<p class="font-min">
+											<a class="pedidos__color-b" asp-action="Factura">Ver factura</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row row-eq-height mt-4">
+
+						<div class="col-lg-8 col-md-8 ps-5">
+							<div class="row">
+								<div class="col-lg-12">
+									<h5 class="text-uppercase">@producto.Producto</h5>
+									<h5>@Html.DisplayFor(m => @producto.Cantidad) @producto.UnidadMedida</h5>
+									<br><br>
+
+									@if (Model.Vista != 3)
+									{
+										<a href="" class="btn pedidos__btn-gray text-uppercase">@ViewBag.btnName Realizar seguimiento de envio</a>
+									}
+									<br><br>
+									@if (Model.Vista == 0 || Model.Vista == 2)
+									{
+										<div class="row">
+											<div class="col-lg-6 col-md-6">
+												<a href="" id="cancelar-link" class="btn-a text-uppercase font-min pedidos__text-underline inactivo"> Cancelar pedido</a>
+											</div>
+											<div class="col-lg-6 col-md-6">
+												<p class="color-g font-min">Elegible hasta el @producto.Fecha.AddDays(10).ToString("D") </p>
+											</div>
+										</div>
+									}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</div>
+		}
+
+	}
+</div>

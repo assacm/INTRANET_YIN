@@ -1,0 +1,686 @@
+﻿@model ControlViewModel
+@{
+	ViewData["Title"] = "Contabilidad";
+}
+
+@section Styles{
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+}
+<partial name="_Menu" />
+
+<section id="mi-perfil-adm">
+
+	<div class="header__top">
+		<div class="row sin-pm">
+			<div class="col-lg-7 col-md-7 sin-pm d-flex justify-content-lg-start align-items-center justify-content-center">
+				<h2>CONTABILIDAD</h2>
+			</div>
+			<div class="col-lg-5 col-md-5 col-12 sin-pm">
+				<div class="row sin-pm d-flex justify-content-between">
+					<div class="col-lg-6 col-md-6 col-12 sin-pm">
+						<div class="d-flex justify-content-lg-end justify-content-center">
+							<a asp-action="Index" asp-controller="Colaboradores"
+							class="header-button btn-f-white">MI PERFIL</a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-12 sin-pm">
+						<div class="d-flex justify-content-lg-end justify-content-center">
+							<a asp-action="Logout" asp-controller="Usuarios"
+							class="header-button btn-t-yellow">CERRAR SESIÓN</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="header__bottom">
+		<div class="row sin-pm">
+			<div class="col-lg-4 col-12 sin-pm d-flex justify-content-center align-items-center">
+				<img class="img-perfil" src="/img/logos/YINSA_Logo_FondoNegro.png">
+			</div>
+			<div class="col-lg-8 col-12 sin-pm d-flex justify-content-lg-start align-items-center justify-content-center">
+				<div class="info-perfil">
+					<h3>@Model.Nombre.ToUpper()</h3>
+					<p class="text-uppercase">@Model.Puesto</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<div class="control__container">
+	<aside>
+		<form method="post" asp-action="Contabilidad" id="menu-form">
+			<input type="hidden" asp-for="IdCuenta"/>
+			<ul class="aside__menu">
+			<li>
+				<a href="#">
+					<label for="IdProveedor" class="aside__menu-card" id="">
+						<input type="radio" value="c.CardCode">
+						<span class="card-content">
+							<span class="icon-container">
+								<img src="/img/icons/plus.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Crear factura</span>	
+						</span>
+					</label>
+				</a>
+			</li>
+			<li>
+				<label  class="aside__menu-card" >
+					<input type="radio" asp-for="MenuOption" value="1">
+					<span class="card-content">
+						<span class="icon-container">
+							<span class="circle notification-circle">
+								<span class="notification-number">@Model.No_Notificaciones</span>
+							</span>
+							<img src="/img/icons/bell.png" alt="icon" class="menu-icon" />
+						</span>
+						<span class="menu-opcion">Notificaciones</span>
+						
+					</span>
+				</label>
+			</li>
+			<li>
+				<label class="aside__menu-card" >
+					<input type="radio" asp-for="MenuOption" value="0" >
+					<span class="card-content">
+						<span class="icon-container">
+							<img src="/img/icons/xml.png" alt="icon" class="menu-icon" />
+						</span>
+						<span class="menu-opcion">Facturas</span>
+						
+					</span>
+				</label>
+			</li>
+			<li>
+				<a asp-action="RevisionArchivos" asp-controller="Usuarios">
+					<div class="aside__menu-card" id="">
+						<span class="card-content">
+							<span class="icon-container">
+								<span class="circle notification-circle">
+									<span class="notification-number">@Model.FacturasPendientes</span>
+								</span>
+								<img src="/img/icons/xml.png" alt="icon" class="menu-icon" />
+							</span>
+							<span class="menu-opcion">Autorizar Facturas</span>
+						</span>
+					</div>
+				</a>
+			</li>
+		</ul>
+		</form>
+	</aside>
+	
+	<main>
+		<section class="control__section-container @(Model.MenuOption ==1 ? "active":"")">
+			<p class="align-self-center"> Sin notificaciones. </p>
+		</section>
+		<section class="control__section-container @(Model.MenuOption ==0 ? "active":"")">
+			<div class="control-tabs__container">
+				<form id="form-tab" method="post" asp-action="Contabilidad">
+					<input type="hidden" asp-for="IdCuenta" />
+
+					<label class="radio-tab">
+						<input type="radio" asp-for="SelectTabla" value="0" />
+						<span>Facturas revisadas</span>
+					</label>
+
+					<label class="radio-tab">
+						<input type="radio" asp-for="SelectTabla" value="1" />
+						<span>Facturas SAT</span>
+					</label>
+					<label class="radio-tab">
+						<input type="radio" asp-for="SelectTabla" value="2" />
+						<span>Facturas SAP</span>
+					</label>
+				</form>
+			</div>
+			<div class="tabs__content">
+				<div class="tabla-container @(Model.SelectTabla ==0 ? "active":"")">
+						<form method="post" asp-action="Contabilidad">
+						<input type="hidden" asp-for="IdCuenta" />
+
+							<div class="factsap-filtros__container">
+								<div class="row">
+									<div class="col-lg-3 col-md-6 col-12">
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+											</div>
+											<select class="form-control background-g" asp-items="@Model.SelectYear" asp-for="Year">
+												<option>Seleccionar año:</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-6 col-12">
+										<div class="input-group mb-2">
+											<div class="input-group-prepend">
+												<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+											</div>
+											<select class="form-control background-g" asp-items="@Model.SelectMonth" asp-for="Month">
+												<option>Seleccionar mes:</option>
+											</select>
+										</div>
+									</div>
+									@*<div class="form-group col-lg-3 col-md-6 col-12">
+									<select class="form-control background-g" asp-items="@Html.GetEnumSelectList<EstadosDoc>()">
+									<option>Todos los estatus de factura:</option>
+									</select>
+
+									</div>*@
+									<div class="col-lg-3 col-md-6 col-12">
+										<input type="hidden" asp-for="MenuOption" value="0" />
+										<input type="hidden" asp-for="SelectTabla" value="2" />
+										<button type="submit" class="btn btn-y" onclick="showLoading()">
+											<span class="fa fa-search"></span>
+											<span> Buscar</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						<table id="factintra-table" class="display">
+							<thead>
+								<tr>
+									<th>Código Proveedor</th>
+									<th>Proveedor</th>
+									<th>No. Orden Compra</th>
+									<th>Descripción</th>
+									<th>Estatus</th>
+									<th>Validación XML</th>
+									<th>Validación SAT</th>
+									<th>Ver detalle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@if (Model.ArchivosProv != null)
+								{
+									if (Model.ArchivosProv.Count > 0)
+									{
+										@foreach (var a in Model.ArchivosProv)
+										{
+											<tr>
+												<td>@a.IdSocio</td>
+												<td>@a.Socio</td>
+												<td>@a.DocNum</td>
+												<td>@a.Descripcion</td>
+												<td><span class="estado @a.Estatus.ToLower()">@a.Estatus</span></td>
+												<td class="text-center">
+													@if (a.ValidXML == true)
+													{
+														<i class="bi bi-check-square-fill"></i>
+													}
+													else
+													{
+														<i class="bi bi-x-square-fill"></i>
+													}
+
+												</td>
+												<td class="text-center">
+													@if (a.ValidSAT == true)
+													{
+														<i class="bi bi-check-square-fill"></i>
+													}
+													else
+													{
+														<i class="bi bi-x-square-fill"></i>
+													}
+
+												</td>
+												<td class="text-center"><a asp-action="RevisionArchivos" asp-route-idDoc="@a.Id" class="link-dark"><i class="bi bi-eye-fill"></i></a></td>
+											</tr>
+										}
+
+									}
+								}
+
+
+
+							</tbody>
+						</table>
+				</div>
+				<div class="tabla-container @(Model.SelectTabla ==1 ? "active":"")">
+					<form method="post" asp-action="Contabilidad">
+						<input type="hidden" asp-for="IdCuenta" />
+
+						<div class="factsap-filtros__container">
+							<div class="row">
+								<div class="form-group col-lg-3 col-md-6 col-12">
+									<select class="form-control background-g" asp-for="Socio">
+										<option>Ver facturas de:</option>
+										@*<option value="0">Clientes</option>*@
+										<option value="1">Proveedores</option>
+									</select>
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+										</div>
+										@*<input id="fechaInput" name="fechaInput"
+										class="form-control">*@
+										<select class="form-control background-g" asp-items="@Model.SelectYear" asp-for="Year">
+											<option>Seleccionar año:</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+										</div>
+										@*<input id="fechaInput" name="fechaInput"
+										class="form-control">*@
+										<select class="form-control background-g" asp-items="@Model.SelectMonth" asp-for="Month">
+											<option>Seleccionar mes:</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-lg-3 col-md-6 col-12">
+									<select class="form-control background-g" asp-items="@Html.GetEnumSelectList<EstadosDoc>()" asp-for="Estado">
+										<option>Todos los estatus de factura:</option>
+									</select>
+
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<input type="hidden" asp-for="MenuOption" value="0" />
+									<input type="hidden" asp-for="SelectTabla" value="1" />
+									<button type="submit" class="btn btn-y" onclick="showLoading()">
+										<span class="fa fa-search"></span>
+										<span> Buscar</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<table id="factxml-table" class="display">
+						<thead>
+							<tr>
+								<th>No. Documento</th>
+								<th>Fecha</th>
+								<th>RFC</th>
+								<th>Razón Social</th>
+								<th>Tipo</th>
+								<th>Método Pago</th>
+								<th>Moneda</th>
+								<th>Subtotal</th>
+								<th>Total</th>
+								<th>UUID</th>
+								<th>Vigente</th>
+								<th>Validar En Sat</th>
+								<th>Archivo</th>
+							</tr>
+						</thead>
+						<tbody>
+							@if (Model.FacturasXML != null)
+							{
+								if (Model.FacturasXML.Count > 0)
+								{
+									@foreach (var f in Model.FacturasXML)
+									{
+										<tr>
+											@*<td>f.NoSerie f.NoDocumento</td>*@
+											<td>@f.Folio</td>
+											<td class="text-end">@Html.DisplayFor(m => f.FechaTimbre)</td>
+											<td>@f.RFC</td>
+											<td>@f.RazonSocial</td>
+											<td>@f.Tipo</td>
+											<td>@f.Metodo</td>
+											<td>@f.Moneda</td>
+											<td class="text-end">@Html.DisplayFor(m => f.SubTotal)</td>
+											<td class="text-end">@Html.DisplayFor(m => f.Total)</td>
+											<td>@f.UUID</td>
+											<td>@(f.Estatus == "Vigente" ? "Sí" : "No")</td>
+											<td>
+												<button onclick="validarSat(@f.IdDoc)" class="validar-sat__btn"
+														data-bs-toggle="modal" data-bs-target="#modalUpd">
+													Validar
+												</button>
+											</td>
+											<td class="text-center">
+												<div class="d-flex">
+													<a href="#" class="btn-a mb-2"><img src="/img/xml.png"></a>
+													<a href="#"><img src="/img/pdf-file-red.png"></a>
+												</div>
+
+											</td>
+										</tr>
+									}
+								}
+							}
+
+
+						</tbody>
+					</table>
+				</div>
+				<div class="tabla-container @(Model.SelectTabla ==2 ? "active":"")">
+					<form method="post" asp-action="Contabilidad">
+						<input type="hidden" asp-for="IdCuenta" />
+
+						<div class="factsap-filtros__container">
+							<div class="row">
+								<div class="form-group col-lg-3 col-md-6 col-12">
+									<select class="form-control background-g" asp-for="Socio">
+										<option>Ver facturas de:</option>
+										<option value="0">Clientes</option>
+										<option value="1">Proveedores</option>
+									</select>
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+										</div>
+										@*<input id="fechaInput" name="fechaInput"
+										class="form-control">*@
+										<select class="form-control background-g" asp-items="@Model.SelectYear" asp-for="Year">
+											<option>Seleccionar año:</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+										</div>
+										@*<input id="fechaInput" name="fechaInput"
+										class="form-control">*@
+										<select class="form-control background-g" asp-items="@Model.SelectMonth" asp-for="Month">
+											<option>Seleccionar mes:</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-lg-3 col-md-6 col-12">
+									<select class="form-control background-g" asp-items="@Html.GetEnumSelectList<EstadosDoc>()" asp-for="Estado">
+										<option>Todos los estatus de factura:</option>
+									</select>
+
+								</div>
+								<div class="col-lg-3 col-md-6 col-12">
+									<input type="hidden" asp-for="MenuOption" value="0" />
+									<input type="hidden" asp-for="SelectTabla" value="1" />
+									<button type="submit" class="btn btn-y" onclick="showLoading()">
+										<span class="fa fa-search"></span>
+										<span> Buscar</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<table id="factsap-table" class="display">
+						<thead>
+							<tr>
+								<th>No. Documento</th>
+								<th>Fecha</th>
+								<th>RFC</th>
+								<th>Razón Social</th>
+								<th>Tipo</th>
+								<th>Método Pago</th>
+								<th>Moneda</th>
+								<th>Subtotal</th>
+								<th>Total</th>
+								<th>UUID</th>
+								<th>Vigente</th>
+								<th>Archivo</th>
+							</tr>
+						</thead>
+						<tbody>
+							@if (Model.FacturasSAP != null)
+							{
+								if (Model.FacturasSAP.Count > 0)
+								{
+									@foreach (var f in Model.FacturasSAP)
+									{
+										<tr>
+											<td>@f.NoSerie @f.NoDocumento</td>
+											<td class="text-end">@Html.DisplayFor(m => f.Fecha)</td>
+											<td>@f.RFC</td>
+											<td>@f.NombreS</td>
+											<td>@f.TipoDocumento</td>
+											<td>@f.MetodoPago</td>
+											<td>@f.Moneda</td>
+											<td class="text-end">@Html.DisplayFor(m => f.Importe)</td>
+											<td class="text-end">@Html.DisplayFor(m => f.Total)</td>
+											<td>@f.UUID</td>
+											<td>@(f.Cancelado == "N" ? "Sí" : "No")</td>
+											<td class="text-center">
+												<div class="d-flex">
+													<a href="#" class="btn-a mb-2"><img src="/img/xml.png"></a>
+													<a href="#"><img src="/img/pdf-file-red.png"></a>
+												</div>
+
+											</td>
+										</tr>
+									}
+								}
+							}
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+				
+		</section>
+	</main>
+
+	<div class="loading__container disable">
+		<div class="loading">
+			<span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>
+			<span>Obteniendo datos...</span>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="modal-title" id="modalLabel">Validación</h6>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body d-flex justify-content-center" id="modalInfo">
+					Validando factura . . .
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+@section Scripts{
+
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.6/b-2.4.1/b-html5-2.4.1/b-print-2.4.1/datatables.min.js"></script>
+	
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+	
+	<script>
+		$(document).ready(function () {
+
+			$('#factsap-table').DataTable({
+				lengthChange: true,
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+				language: {
+					url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+				},
+				//dom: 'Bfrtip',
+				dom: 'Blfrtip',
+				buttons: [
+					{ extend: 'copy', className: 'copyButton' },
+					{ extend: 'excel', className: 'excelButton' },
+					{ extend: 'pdf', className: 'pdfButton' }
+				],
+				pagingType: 'full_numbers'
+			});
+
+			$('#factxml-table').DataTable({
+				lengthChange: true,
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+				language: {
+					url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+				},
+				//dom: 'Bfrtip',
+				dom: 'Blfrtip',
+				buttons: [
+					{ extend: 'copy', className: 'copyButton' },
+					{ extend: 'excel', className: 'excelButton' },
+					{ extend: 'pdf', className: 'pdfButton' }
+				],
+				pagingType: 'full_numbers'
+			});
+
+			$('#factintra-table').DataTable({
+				lengthChange: true,
+				pageLength: 25,
+				lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+				language: {
+					url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+				},
+				//dom: 'Bfrtip',
+				dom: 'Blfrtip',
+				buttons: [
+					{ extend: 'copy', className: 'copyButton' },
+					{ extend: 'excel', className: 'excelButton' },
+					{ extend: 'pdf', className: 'pdfButton' }
+				],
+				pagingType: 'full_numbers'
+			});
+		});
+	</script>
+	<script>
+
+		let menuTabs = document.querySelectorAll('.aside__menu-card input[type="radio"]');
+		let menuTabsContent = document.querySelectorAll('.control__section-container');
+		let menuForm = document.getElementById('menu-form');
+
+		menuTabs.forEach((tab, i) => {
+
+			tab.addEventListener('click', () => {
+				//submitform
+				menuForm.submit();
+				showLoading()
+				menuTabs.forEach((tab, i) => {
+					menuTabsContent[i].classList.remove('active')
+				})
+				menuTabsContent[i].classList.add('active')
+
+				scrollTop();
+			})
+		})
+
+		let tabs = document.querySelectorAll('.radio-tab input[type="radio"]');
+		let tabsContent = document.querySelectorAll('.tabla-container');
+		let formTab = document.getElementById('form-tab');
+
+		tabs.forEach((tab, i) => {
+
+			tab.addEventListener('click', () => {
+				//submitform
+				formTab.submit();
+				showLoading();
+				tabs.forEach((tab, i) => {
+					tabsContent[i].classList.remove('active')
+				})
+				tabsContent[i].classList.add('active')
+
+			})
+		})
+
+		function scrollTop() {
+			let targetElement = document.querySelector(".info-perfil");
+
+			const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+
+			window.scrollTo({
+				top: targetPosition,
+				behavior: "smooth"
+			});
+		}
+
+		async function validarSat(doc) {
+			//activar btn
+			//peticion a server para revalidacion
+
+			const url = '@Url.Action("ValidarXML","Usuarios")';
+			//const url = `${urlAction}?idDoc=` + encodeURIComponent(doc);
+
+			var modalContent = document.querySelector("#modalInfo");
+
+			const text = document.createElement('p');
+			text.textContent = 'Validando factura . . .';
+			modalContent.innerHTML = '';
+			modalContent.appendChild(text);
+			let val = { idDoc: doc };
+			let idDoc = doc;
+			console.log(val)
+			await fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: idDoc //JSON.stringify(val)
+			})
+				.then(function (response) {
+
+					if (!response.ok) {
+
+						response.json().then(error => {
+							//modalContent.innerHTML = '';
+							text.textContent = error.message
+						});
+						modalContent.innerHTML = '';
+						modalContent.appendChild(text);
+					}
+					else {
+						modalContent.innerHTML = '';
+						//text.textContent = 'Archivo válidado correctamente.';
+						response.json().then(r => text.textContent = r.message)
+						modalContent.appendChild(text);
+						//setTimeout(() => {
+						//	window.location.reload();
+						//}, 1000);
+
+					}
+				})
+				.catch((error) => {
+					console.log(error)
+					text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+					modalContent.innerHTML = '';
+					modalContent.appendChild(text);
+				});
+
+		}
+
+		function showLoading() {
+			let loading = document.querySelector(".loading__container");
+
+			loading.classList.remove("disable");
+		}
+
+
+
+
+	</script>
+}

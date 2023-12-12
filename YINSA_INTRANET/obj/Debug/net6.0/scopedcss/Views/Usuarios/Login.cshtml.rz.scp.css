@@ -1,0 +1,257 @@
+body[b-8zcha247rp] {
+	font-family: "Suisse Intl Medium", sans-serif;
+	color: #2D2926;
+	/*background: #FFC72C;*/
+	/*  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;*/
+}
+.sin-pm[b-8zcha247rp] {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.enable[b-8zcha247rp]{
+	display:inline;
+}
+.disable[b-8zcha247rp]{
+	display:none;
+}
+
+.spinner-border-sm[b-8zcha247rp] {
+	width: 1rem;
+	height: 1rem;
+	border-width: 0.02em;
+}
+
+
+a[b-8zcha247rp] {
+	color: #2D2926;
+}
+
+	a:hover[b-8zcha247rp] {
+		color: #FFC72C;
+		text-decoration: none;
+	}
+
+
+h1[b-8zcha247rp], h2[b-8zcha247rp], h3[b-8zcha247rp], h4[b-8zcha247rp], h5[b-8zcha247rp], h6[b-8zcha247rp] {
+	font-family: "Suisse Intl Bold", sans-serif;
+}
+
+/* ============== CONTENIDO ============== */
+
+#login[b-8zcha247rp] {
+	background-color: #FFC72C !important;
+	height: 100%;
+	min-height:100vh;
+}
+
+/*	#login .form-control {
+		height:38px;
+		border:none;
+		border-radius: 1px;
+		font-family: "Suisse Intl Medium", sans-serif;
+	}*/
+
+		#login .form-control:focus[b-8zcha247rp]{
+			border:none;
+		}
+		.login__container-input[b-8zcha247rp] {
+			display: flex;
+			align-items: center;
+			background-color: #FFFF;
+			height: 100%;
+		}
+
+			.login__container-input input[b-8zcha247rp] {
+				height: 38px;
+				border: none;
+				border-radius: 1px;
+				font-family: "Suisse Intl Medium", sans-serif;
+			}
+				.login__container-input input:focus[b-8zcha247rp] {
+					border: none;
+				}
+				
+				
+		#login .form-group[b-8zcha247rp] {
+					height: 50px;
+					display: flex;
+				}
+
+	#login span.error[b-8zcha247rp] {
+		height: 38px;
+		width:38px;
+		/*padding-left: 15px;*/
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+.eye-icon[b-8zcha247rp] {
+	height: 38px;
+	width: 38px;
+}
+
+.eye-icon img[b-8zcha247rp]{
+	height: 100%;
+	
+}
+
+#login h1[b-8zcha247rp] {
+	color: #fff;
+	text-align: center;
+}
+
+
+img.form-decoration[b-8zcha247rp] {
+	height: 100%;
+	/*width: 3rem;*/
+}
+
+img.login__logo[b-8zcha247rp] {
+	max-height: 270px;
+}
+
+.btn-default[b-8zcha247rp] {
+	width: 100%;
+	background: #2D2926;
+	color: #fff;
+	border-radius: 0;
+	border: transparent;
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+
+	.btn-default:hover[b-8zcha247rp] {
+		color: #FFC72C;
+	}
+
+#btn-regresar[b-8zcha247rp] {
+	text-align: center;
+}
+
+	#btn-regresar button:hover[b-8zcha247rp] {
+		color: var(--yinsa-dark);
+	}
+
+	#btn-regresar .btn[b-8zcha247rp] {
+		border: 1px solid #2D2926;
+		color: #fff;
+	}
+
+#img-y[b-8zcha247rp] {
+	display: none;
+	max-height: 30px;
+}
+
+#header .logo a[b-8zcha247rp] {
+	color: #2D2926;
+}
+
+	#header .logo a span[b-8zcha247rp] {
+		color: #2D2926;
+	}
+
+#img-n[b-8zcha247rp] {
+	max-height: 50px;
+}
+
+/*DESKTOP*/
+@media screen and (min-width:1171px) {
+
+	#login[b-8zcha247rp] {
+		background-color: #FFC72C !important;
+		height: 100%;
+		min-height: 100vh;
+	}
+
+		#login .form-control[b-8zcha247rp] {
+			border-radius: 1px;
+			font-family: "Suisse Intl Medium", sans-serif;
+		}
+
+		#login .form-group[b-8zcha247rp] {
+			display: flex;
+			/*flex-direction:column;*/
+		}
+
+		/*#login span {
+			padding-left: 15px;
+			font-size: 1.5rem;
+			font-weight: bold;
+		}*/
+
+		#login h1[b-8zcha247rp] {
+			color: #fff;
+			text-align: center;
+		}
+
+
+	/*img.form-decoration {
+		height: 5rem;
+		width: 3rem;
+	}
+*/
+	img.login__logo[b-8zcha247rp] {
+		max-height: 270px;
+	}
+
+	.btn-default[b-8zcha247rp] {
+		width: 100%;
+		background: #2D2926;
+		color: #fff;
+		border-radius: 0;
+		border: transparent;
+		font-family: "Suisse Intl Medium", sans-serif;
+	}
+
+		.btn-default:hover[b-8zcha247rp] {
+			color: #FFC72C;
+		}
+
+	#btn-regresar[b-8zcha247rp] {
+		text-align: center;
+	}
+
+		#btn-regresar button:hover[b-8zcha247rp] {
+			color: var(--yinsa-dark);
+		}
+
+		#btn-regresar .btn[b-8zcha247rp] {
+			border: 1px solid #2D2926;
+			color: #fff;
+		}
+
+	#img-y[b-8zcha247rp] {
+		display: none;
+		max-height: 30px;
+	}
+
+	#header .logo a[b-8zcha247rp] {
+		color: #2D2926;
+	}
+
+		#header .logo a span[b-8zcha247rp] {
+			color: #2D2926;
+		}
+
+	#img-n[b-8zcha247rp] {
+		max-height: 50px;
+	}
+
+}
+
+
+/* DISPOSITIVOS MOVILES MD */
+@media (max-width:1170px) {
+	img.login__logo[b-8zcha247rp] {
+		max-height: 200px;
+	}
+}
+
+@media screen and (max-width:768px) {
+	img.login__logo[b-8zcha247rp] {
+		max-height: 170px;
+	}
+}

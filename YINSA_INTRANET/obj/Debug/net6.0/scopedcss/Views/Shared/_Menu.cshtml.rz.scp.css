@@ -1,0 +1,331 @@
+*[b-o782a4svny], *[b-o782a4svny]::before, *[b-o782a4svny]::after {
+	box-sizing: inherit;
+}
+.logo[b-o782a4svny] {
+	/* width: 180px; */
+	max-height: 30px;
+}
+.logo.activado[b-o782a4svny]{
+	max-height:43px;
+}
+nav[b-o782a4svny] {
+	position: fixed;
+	z-index: 10000;
+	display: flex;
+	/*  justify-content: space-around; */
+	justify-content: space-between;
+	align-items: center;
+	padding: 50px 60px 20px 60px;
+	min-height: 8vh;
+	width: fit-content;
+	/*background-color: rgba(255, 255, 255, 0.678);*/
+
+}
+
+.ham[b-o782a4svny] {
+	display: inline-block;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	position: absolute;
+	top: 50px;
+	/* right:25px; */
+	left: 200px;
+}
+
+	.ham span[b-o782a4svny] {
+		background-color: var(--yinsa-dark);
+		display: block;
+		height: 4px;
+		width: 24px;
+		margin: 4px auto;
+		border-radius: 2px;
+	}
+
+.enlaces-menu[b-o782a4svny] {
+	display: none;
+	/*diplay:flex;*/
+	padding: 0;
+	/*transition: display 10s ease-in-out;*/
+}
+
+	.enlaces-menu li[b-o782a4svny] {
+		padding: 0 20px;
+		list-style-type: none;
+	}
+
+		.enlaces-menu li a[b-o782a4svny] {
+			display: inline-block;
+			padding-bottom: 0.2rem;
+			text-decoration: none;
+			font-size: 1rem;
+			color: var(--yinsa-dark);
+			font-weight: 600;
+			font-family: "Suisse Intl Book", sans-serif;
+
+		}
+
+			.enlaces-menu li a:hover[b-o782a4svny] {
+				border-bottom: 4px solid var(--yinsa-primary);
+			}
+button.btn-cuentas[b-o782a4svny] {
+	background-color: transparent;
+	border: none;
+	font-size: 1.07rem;
+	color: var(--yinsa-dark);
+	font-weight: 600;
+	font-family: "Suisse Intl Book", sans-serif;
+}
+/*	button.btn-cuentas:hover {
+		border-bottom: 4px solid var(--yinsa-primary);
+	}*/
+button.btn-acceso[b-o782a4svny], a.btn-acceso[b-o782a4svny] {
+	position: relative;
+	padding: 3px 5px;
+	border: 2.3px solid var(--yinsa-dark);
+	border-bottom: 2.3px solid var(--yinsa-dark);
+	transition: transform 0.5s;
+	background-color: transparent;
+	font-size: 1.07rem;
+	color: var(--yinsa-dark);
+	font-weight: 600;
+	font-family: "Suisse Intl Book", sans-serif;
+}
+
+	.btn-acceso:hover[b-o782a4svny] {
+		position: relative;
+		border: 2.3px solid var(--yinsa-dark);
+		border-bottom: 2.3px solid var(--yinsa-dark);
+		transform: scale(1.1);
+	}
+
+/*DESKTOP*/
+@media screen and (min-width:1171px) {
+	#menu-nav.activado[b-o782a4svny] {
+		width: 100%;
+	}
+		.logo[b-o782a4svny] {
+		max-height: 30px;
+	}
+	.logo.activado[b-o782a4svny]{
+		max-height:43px;
+	}
+	.ham.activado[b-o782a4svny] {
+		top: 48px;
+		left: 200px;
+	}
+	.br-1.activado[b-o782a4svny] {
+		height: 4px;
+		width: 24px;
+		margin: 8px auto;
+		border-radius: 2px;
+	}
+	.br-2.activado[b-o782a4svny] {
+		height: 4px;
+		width: 24px;
+		margin: 8px auto;
+		border-radius: 2px;
+	}
+	.br-3.activado[b-o782a4svny] {
+		height: 4px;
+		width: 24px;
+		margin: 8px auto;
+		border-radius: 2px;
+	}
+	.ham.off[b-o782a4svny] {
+		display: none;
+	}
+
+	.enlaces-menu[b-o782a4svny] {
+		display: none;
+		/*diplay:flex;
+  padding:0;
+  transition: display 10s ease-in-out;*/
+	}
+
+		.enlaces-menu.activado[b-o782a4svny] {
+			display: flex;
+			/*animation: muestraMenu 50ms ease-in-out both;*/
+		}
+
+}
+/* DISPOSITIVOS MOVILES MD */
+@media (max-width:1170px) {
+	body[b-o782a4svny] {
+		overflow: hidden;
+	}
+
+	#menu-nav[b-o782a4svny]{
+		width:fit-content;
+	}
+
+	#menu-nav.activado[b-o782a4svny] {
+		width:100%;
+		background-color: rgb(255, 255, 255, 0.94);
+	}
+	.ham[b-o782a4svny] {
+		display: inline-block;
+		cursor: pointer;
+		position: absolute;
+		top: 24px;
+		/* right:25px; */
+		left: calc(200px);
+		transition: 0.2s 0.1s;
+	}
+
+		.ham span[b-o782a4svny] {
+			background-color: var(--yinsa-dark);
+			display: block;
+			height: 3px;
+			width: 24px;
+			margin: 6px auto;
+			border-radius: 2px;
+		}
+
+	nav[b-o782a4svny] {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.logo[b-o782a4svny] {
+		/*  width: 120px;
+      height: 25px;  */
+		max-height: 30px;
+	}
+
+	.enlaces-menu[b-o782a4svny] {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		height: 92vh;
+		margin: 0;
+		padding: 0;
+		display: none;
+		opacity: 0;
+		transition: opacity 5s ease-out;
+		width: 100%;
+	}
+
+		.enlaces-menu li[b-o782a4svny] {
+			text-align: center;
+			width: 100%;
+			padding: 6px;
+		}
+
+	.br-1.animado[b-o782a4svny] {
+		transform: rotate(-45deg) translate(-5px, 8px);
+	}
+
+	.br-2.animado[b-o782a4svny] {
+		opacity: 0;
+	}
+
+	.br-3.animado[b-o782a4svny] {
+		transform: rotate(45deg) translate(-5px, -8px);
+	}
+
+	.enlaces-menu.activado[b-o782a4svny] {
+		display: flex;
+		animation: muestraMenu-b-o782a4svny 350ms ease-in-out both;
+	}
+}
+/* DISPOSITIVOS MOVILES SM*/
+
+@media screen and (max-width:768px) {
+	body[b-o782a4svny] {
+		overflow: hidden;
+	}
+	#menu-nav[b-o782a4svny]{
+		padding-bottom:5px;
+	}
+	#menu-nav.activado[b-o782a4svny] {
+		background-color: rgb(255, 255, 255, 0.94);
+	}
+
+	.ham[b-o782a4svny] {
+		display: inline-block;
+		cursor: pointer;
+		position: absolute;
+		top: 15px;
+		left: 90%;
+		transition: 0.2s 0.1s;
+	}
+
+
+	nav[b-o782a4svny] {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.logo[b-o782a4svny] {
+		width: 120px;
+		height: 25px;
+	}
+
+	.enlaces-menu[b-o782a4svny] {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		height: 92vh;
+		margin: 0;
+		padding: 0;
+		display: none;
+		opacity: 0;
+		transition: opacity 5s ease-out;
+		width: 100%;
+	}
+
+		.enlaces-menu li[b-o782a4svny] {
+			text-align: center;
+			width: 100%;
+			padding: 10px;
+		}
+
+	.br-1.animado[b-o782a4svny] {
+		transform: rotate(-45deg) translate(-5px, 8px);
+	}
+
+	.br-2.animado[b-o782a4svny] {
+		opacity: 0;
+	}
+
+	.br-3.animado[b-o782a4svny] {
+		transform: rotate(45deg) translate(-5px, -8px);
+	}
+
+	.enlaces-menu.activado[b-o782a4svny] {
+		display: flex;
+		animation: muestraMenu-b-o782a4svny 350ms ease-in-out both;
+	}
+}
+
+
+/* Animaciones */
+
+@keyframes muestraMenu-b-o782a4svny {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+/*.enlaces-menu.activado {
+	display: flex;
+	animation: muestraMenu 350ms ease-in-out both;
+}*/
+#menu-nav.activado[b-o782a4svny] {
+	background-color: rgb(255, 255, 255, 0.84);
+}
+.ham.girar:hover[b-o782a4svny] {
+	transform: rotate(360deg);
+}

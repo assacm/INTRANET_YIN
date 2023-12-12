@@ -1,0 +1,152 @@
+﻿@model SocioViewModel
+@{
+	ViewData["Title"] = "Mi Cuenta";
+
+	int footer = 1;//bgyellow
+}
+<partial name="_Menu" />
+
+<!-- Header -->
+<header class="header__cliente">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-12 pt-5">
+				<!-- aqui va la foto del buho -->
+			</div>
+			<div class="col-lg-4 col-md-4 col-12 pt-5">
+				<img class="img-h" src="/img/YINSA_WEB_Logo.png" alt="">
+			</div>
+			<div class="col-lg-4 col-md-4 col-12 pt-5">
+				<h1>Tu mejor opción</h1>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Principal -->
+<section id="principal">
+	<div class="container content">
+		<div class="row row-eq-height">
+
+			<!-- Columna 1 -->
+			<div class="col-lg-4 col-md-4 col-sm-6 pb-4 pt-4">
+				<div class="card">
+
+					<div class="box box-y box-large">
+						<div class="box-title mb-3">
+							<h5>Mis pedidos</h5>
+							<i class="icofont-cart-alt"></i>
+						</div>
+						<div class="row text-center">
+							<div class="col-lg-12">
+								<a asp-action="Pedidos"><img class="img-n" src="/img/YINSA_WEB_Acceso_Buho.png"></a>
+								<div class="mt-3"><a class="mt-1 ver-mas_link" asp-action="Pedidos" asp-controller="Clientes">Ver más</a></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Columna 2 -->
+			<div class="col-lg-4 col-md-4 col-sm-6 pb-4 pt-4">
+				<div class="card">
+
+					<div class="box box-g box-large">
+						<div class="box-title mb-3">
+							<h5>Lista de precios</h5>
+							<i class="icofont-price"></i>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<p class="bold">Tu ciudad</p>
+								<select class="form-control"><option>Elige tu ubicación:</option></select>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Columna 3 -->
+			<div class="col-lg-4 col-md-4 col-sm-12 pb-4 pt-4">
+				<div class="card">
+
+					<div class="box box-g box-large">
+						<div class="box-title mb-3">
+							<h5>Estado de cuenta</h5>
+							<i class="icofont-ui-file"></i>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-12">
+								<p>Facturas realizadas durante:</p>
+							</div>
+							<div class="col-lg-6 col-md-6 col-12">
+								<form method="post" asp-action="EstadoCuenta" id="cuentaForm">
+									@*<input type="hidden" asp-for="Socio.CodigoS" />
+									<input type="hidden" asp-for="Socio.NombreS" />
+									<input type="hidden" asp-for="Year" />*@
+									@*<select asp-for="Mes" asp-items="Html.GetEnumSelectList<Meses>()"
+		   id="mesSelect" class="form-control control-g"
+		   asp-route-estado="1">
+										<option>Mes</option>
+									</select>*@
+									<select id="mesSelect" asp-for="Periodo" asp-items="ViewBag.Opciones" class="form-control control-g">
+										<option>Seleccione un periodo</option>
+									</select>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<br>
+
+					<div class="box box-g box-large">
+						<div class="box-title mb-3">
+							<h5>Mis direcciones</h5>
+							<i class="icofont-google-map"></i>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-6">
+								<p>Mi dirección actual</p>
+								<div class="mt-3">
+									<a class="btn-a" href=""><i class="icofont-plus"></i> Agregar</a>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-6">
+								<p class="bold">Dirección de prueba</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<partial name="_Footer" model="footer"/>
+
+
+@section Scripts{
+	<script src="~/js/menu.js" asp-append-version="true"></script>
+	<script type="module">
+
+		import { customMenu } from '/js/menu-options.js'
+		let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+		customMenu(urlMenu);
+
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			var formElement = document.getElementById("cuentaForm");
+			var selectElement = document.getElementById("mesSelect");
+			selectElement.addEventListener("change", function () {
+				// Enviar el formulario al cambiar la selección en el select
+				formElement.submit();
+			});
+		})
+	</script>
+}

@@ -1,0 +1,137 @@
+﻿@model Socio
+
+<div class="container pt-3 pb-2">
+
+	<div class="row row-eq-height">
+		<div class="col-sm col-md col-4">
+			<div class="container-direccion flex-column">
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.Address)) ? "none" : "block")">
+					
+					<div class="d-flex">
+						<p class="bold pe-2">Lugar</p>
+						<p>@Model.Direccion.Address</p>
+					</div>
+				</div>
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.Calle)) ? "none" : "block")">
+					
+					<div class="d-flex">
+						<p class="bold pe-2">Calle</p>
+						<p>@Model.Direccion.Calle @Model.Direccion.NoCalle</p>
+					</div>
+				</div>
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.Ciudad)) ? "none" : "block")">
+					
+					<div class="d-flex">
+						<p class="bold pe-2">Ciudad</p>
+						<p>@Model.Direccion.Ciudad</p>
+					</div>
+				</div>
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.Estado)) ? "none" : "block")">
+					<div class="d-flex">
+						<p class="bold pe-2">Estado</p>
+						<p>@Model.Direccion.Estado</p>
+					</div>
+				</div>
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.CP)) ? "none" : "block")">
+					<div class="d-flex">
+						<p class="bold pe-2">Código Postal</p>
+						<p>@Model.Direccion.CP</p>
+					</div>
+				</div>
+				<div style="display : @((string.IsNullOrEmpty(Model.Direccion.Pais)) ? "none" : "block")">
+					<div class="d-flex">
+						<p class="bold pe-2">Pais</p>
+						<p>@Model.Direccion.Pais</p>
+					</div>
+				</div>
+			</div>		
+			
+		</div>
+		@if (Model.Direcciones != null && Model.Direcciones.Count > 0)
+		{
+			foreach (Direccion direccion in Model.Direcciones)
+			{
+				<div class="col-sm col-md col-4">
+					<div class="container-direccion flex-column">
+						<div style="display : @((string.IsNullOrEmpty(direccion.Address)) ? "none" : "block")">
+
+							<div class="d-flex">
+								<p class="bold pe-2">Lugar</p>
+								<p>@direccion.Address</p>
+							</div>
+						</div>
+						<div style="display : @((string.IsNullOrEmpty(direccion.Calle)) ? "none" : "block")">
+
+							<div class="d-flex">
+								<p class="bold pe-2">Calle</p>
+								<p>@direccion.Calle @direccion.NoCalle</p>
+							</div>
+						</div>
+						<div style="display : @((string.IsNullOrEmpty(direccion.Ciudad)) ? "none" : "block")">
+
+							<div class="d-flex">
+								<p class="bold pe-2">Ciudad</p>
+								<p>@direccion.Ciudad</p>
+							</div>
+						</div>
+						<div style="display : @((string.IsNullOrEmpty(direccion.Estado)) ? "none" : "block")">
+							<div class="d-flex">
+								<p class="bold pe-2">Estado</p>
+								<p>@direccion.Estado</p>
+							</div>
+						</div>
+						<div style="display : @((string.IsNullOrEmpty(direccion.CP)) ? "none" : "block")">
+							<div class="d-flex">
+								<p class="bold pe-2">Código Postal</p>
+								<p>@direccion.CP</p>
+							</div>
+						</div>
+						<div style="display : @((string.IsNullOrEmpty(direccion.Pais)) ? "none" : "block")">
+							<div class="d-flex">
+								<p class="bold pe-2">Pais</p>
+								<p>@direccion.Pais</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			}
+		}
+	</div>
+
+</div>
+
+						@*
+
+	<div class="row row-eq-height">
+		<div class="col-sm col-md col-4">
+			<div class="container-direccion flex-column">
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.Address)) ? "none" : "block")">@Model.Direccion.Address</p>
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.Calle)) ? "none" : "block")">@Model.Direccion.Calle @Model.Direccion.NoCalle</p>
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.Ciudad)) ? "none" : "block")">@Model.Direccion.Ciudad</p>
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.Estado)) ? "none" : "block")">@Model.Direccion.Estado</p>
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.CP)) ? "none" : "block")">@Model.Direccion.CP</p>
+				<p style="display : @((string.IsNullOrEmpty(Model.Direccion.Pais)) ? "none" : "block")">@Model.Direccion.Pais</p>
+			</div>
+
+		</div>
+		@if (Model.Direcciones != null && Model.Direcciones.Count > 0)
+		{
+			foreach (Direccion direccion in Model.Direcciones)
+			{
+				<div class="col-sm col-md col-4">
+					<div class="container-direccion flex-column">
+
+						<p style="display : @((string.IsNullOrEmpty(direccion.Address)) ? "none" : "block")" >@direccion.Address</p>
+						<p style="display : @((string.IsNullOrEmpty(direccion.Calle)) ? "none" : "block")">@direccion.Calle @direccion.NoCalle</p>
+						<p style="display: @((string.IsNullOrEmpty(direccion.Ciudad)) ? "none" : "block")">@direccion.Ciudad</p>
+						<p style="display: @((string.IsNullOrEmpty(direccion.Estado)) ? "none" : "block")">@direccion.Estado</p>
+						<p style="display: @((string.IsNullOrEmpty(direccion.CP)) ? "none" : "block")">@direccion.CP</p>
+						<p style="display: @((string.IsNullOrEmpty(direccion.Pais)) ? "none" : "block")">@direccion.Pais</p>
+					</div>
+
+				</div>
+			}
+		}
+	</div>
+						*@

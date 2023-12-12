@@ -1,0 +1,72 @@
+{
+  "cliente": {
+    "opciones": [
+      {
+        "nombre": "Inicio",
+        "ruta": "/Clientes/Index"
+      },
+      {
+        "nombre": "Mis pedidos",
+        "ruta": "/Clientes/Pedidos"
+      },
+      {
+        "nombre": "Mis facturas",
+        "ruta": "/Clientes/EstadoCuenta"
+      }
+    ]
+  },
+
+  "proveedor": {
+    "opciones": [
+      {
+        "nombre": "Inicio",
+        "ruta": "/Proveedores/Index"
+      },
+      {
+        "nombre": "Compras",
+        "ruta": "/Proveedores/Compras"
+      },
+      {
+        "nombre": "Facturación",
+        "ruta": "/Proveedores/EstadoCuenta"
+      }
+    ]
+  },
+  "empleado": {
+    "opciones": [
+      {
+        "nombre": "Inicio",
+        "ruta": "/Colaboradores/Index"
+      }
+    ]
+  },
+  "contador": {
+    "opciones": [
+      {
+        "nombre": "Inicio",
+        "ruta": "/Colaboradores/Index"
+      },
+      {
+        "nombre": "Contabilidad",
+        "ruta": "/Colaboradores/Contabilidad"
+      }
+    ]
+  },
+  "administrador": {
+    "opciones": [
+      {
+        "nombre": "Inicio",
+        "ruta": "/Colaboradores/Index"
+      },
+      {
+        "nombre": "Panel de control",
+        "ruta": "/Usuarios/Panel"
+      }
+    ]
+  },
+  "unknown": {
+    "opciones": []
+  }
+
+}
+

@@ -1,0 +1,16 @@
+.container-direccion[b-ztyqrm978i] {
+	height:100%;
+	padding: 1rem 1.5rem;
+	/*border: 0.8px solid transparent;*/
+	/*#606487e6;*/
+	border: 1px solid rgb(102, 100, 100, 0.32);
+	border-radius: 0.25rem;
+	/*border-radius: 15px;*/
+	box-shadow: 1px 1px 1px 1px rgba(88,89,133,0.35);
+	-webkit-box-shadow: 1px 1px 5px 1px rgb(105, 106, 134, 0.35);
+}
+
+.container-direccion p[b-ztyqrm978i]{
+	padding-bottom:6px;
+	margin:0;
+}

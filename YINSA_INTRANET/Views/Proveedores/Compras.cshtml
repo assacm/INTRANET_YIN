@@ -1,0 +1,203 @@
+﻿@model TabsViewModel
+@{
+    ViewData["Title"] = "Compras";
+    int footer = 1;
+}
+<partial name="_Menu" />
+
+<!-- Encabezado -->
+
+        <section id="encabezado" class="pt-5">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 col-12">
+                        <h1>@Model.Socio.NombreS.ToUpper()</h1>
+                        <h2>Órdenes de compra</h2>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                <div class="row header__buttons">
+                            <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+                        <a asp-action="Index" asp-route-id="@Model.IdCuenta" class="btn-regresar">REGRESAR</a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                        <a asp-action="Logout" asp-controller="Usuarios" class="btn btn-default" id="btn-logout">CERRAR SESIÓN</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-12 pt-4">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-pedidos" class="pt-5 pb-5">
+            <div class="container ">
+                <div class="row">
+                    <form method="post" asp-action="Compras" id="comprasForm">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs  flex-column flex-sm-row" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button asp-route-vista="0" class="@((Model.DetalleProducto.Vista ==0) ? "nav-link active":"nav-link")" type="submit" id="compras-tab"
+                                            data-bs-toggle="tab" data-bs-target="#compras"
+                                            role="tab" aria-controls="compras" aria-selected="true">
+                                        Compras
+                                    </button>
+                                </li>
+                                @*<li class="nav-item" role="presentation">
+                                <button class="nav-link" id="comprados-tab" data-bs-toggle="tab" data-bs-target="#comprados" type="button" role="tab" aria-controls="pendientes" aria-selected="false">Comprar de nuevo</button>
+                                </li>*@
+                                <li class="nav-item" role="presentation">
+                                    <button asp-route-vista="1" class="@((Model.DetalleProducto.Vista ==1) ? " nav-link active":"nav-link")" id="compras-tab" type="submit"
+                                            data-bs-toggle="tab" data-bs-target="#compras" role="tab" aria-controls="compras" aria-selected="false">
+                                        Pendientes de entrega
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button asp-route-vista="2" class="@((Model.DetalleProducto.Vista ==2) ? " nav-link active":"nav-link")" id="compras-tab" data-bs-toggle="tab" data-bs-target="#compras"
+                                            type="submit" role="tab" aria-controls="compras" aria-selected="false">
+                                        Compras canceladas
+                                    </button>
+                                </li>
+                                @* <li class="flex-sm-fill text-end text-capitalize" role="presentation">
+                                <a href="#" class="nav-link" id="direcciones-tab" data-bs-toggle="tab" data-bs-target="#direcciones" type="button" role="tab" aria-controls="direcciones" aria-selected="false">
+                                <i class="icofont-ui-edit"></i>   Direcciones
+                                </a>
+                                </li>*@
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="compras" role="tabpanel" aria-labelledby="compras-tab">
+                                    <div class="row pt-3 pb-3">
+                                        <div class="col-3 d-flex justify-content-end">
+                                            <p class="pedidos__select-label">Compras realizadas: </p>
+                                        </div>
+                                        <div class="col-9">
+                                            <select id="periodoInput" asp-for="Periodo" asp-items="ViewBag.Opciones"></select>
+                                            <input type="hidden" asp-for="Vista" id="input-vista"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center ">
+                                        <div class="spinner-border disable" role="status" id="spinner">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+
+
+                                     <div class="row @(Model.DetalleProducto.ProductosV2.Any() ? "disable" : "" )">
+                                            <div class="col-lg-12 d-flex justify-content-center pedidos__container-empty text-danger">
+                                                <p class="pt-5" id="noproduct">No se encontraron productos</p>
+                                            </div>
+                                        </div>
+                                        @if (Model.DetalleProducto.ProductosV2.Any())
+                                        {
+                                            @* <partial name="_OrdenCompra" model="Model.DetalleProducto" />*@                                             
+                                               <partial name="_OrdenCompraTable" model="Model.DetalleProducto" />
+                                        }
+                                 </div>
+                                @*<div class="tab-pane fade" id="comprados" role="tabpanel" aria-labelledby="comprados-tab">Comprados</div>*@
+                                @* <div class="tab-pane fade" id="pendientes" role="tabpanel" aria-labelledby="pendientes-tab">Pendientes de envío
+                                <partial name="_Ficha" model="Model.Productos" />
+
+                                </div>
+                                <div class="tab-pane fade" id="cancelados" role="tabpanel" aria-labelledby="cancelados-tab">Cancelados
+                                <partial name="_Ficha" model="Model.Productos" />
+
+                                </div>*@
+                                @* <div class="tab-pane fade" id="direcciones" role="tabpanel" aria-labelledby="direcciones-tab">
+                                <h5 class="py-3 px-5">Direcciones</h5>
+                                <partial name="_Direcciones" model="Model.Socio" />
+                                </div>*@
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+  
+        </section>
+<partial name="_SubirFactura" />
+<partial name="_Footer" model="footer" />
+
+
+@section Scripts {
+    <script src="~/js/menu.js" asp-append-version="true"></script>
+    <script type="module">
+
+        import { customMenu } from '/js/menu-options.js'
+        let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+        customMenu(urlMenu);
+
+    </script>
+
+    <script src="~/js/drag-drop.js" asp-append-version="true"></script>
+
+    <script>
+
+       
+        function subir(){
+            const url = '@Url.Action("SubirFactura","Home")';
+            console.log(`url de script ${url}`)
+            uploadFile(url);//por aquí se auto lanza el form
+        }
+        //MOSTRAR Y OCULTAR MODAL SUBIR FACTURAS
+        const cont = document.querySelector('.subirArchivo__layout');
+        const btnClose = document.getElementById('close-subir');
+
+        btnClose.addEventListener('click', function () {
+            cont.classList.add('disable');
+        });
+
+        function close() {
+
+            cont.classList.add('disable');
+        }
+        function show(doc) {
+            console.log(doc);
+            inputEntry.value = doc.docEntry;
+            inputNum.value = doc.docNum;
+            inputObj.value = doc.obj;
+
+            cont.classList.remove('disable');
+
+        }
+    </script>
+    <script>
+
+
+
+        $(document).ready(function () {
+
+            var spinner = document.getElementById('spinner');
+            var noProducto = document.getElementById('noproduct');
+
+            var buttons = document.querySelectorAll('.nav-item button');
+
+            buttons.forEach((button, i) => {
+                button.addEventListener('click', () => {
+                    document.getElementById('input-vista').value = i;
+                    showLoading();
+
+                })
+            })
+
+
+            var formElement = document.getElementById("comprasForm");
+            var selectElement = document.getElementById("periodoInput");
+            selectElement.addEventListener("change", function () {
+                
+                showLoading();               
+                formElement.submit();
+
+            });
+
+           
+
+            function showLoading() {
+                spinner.classList.remove('disable');
+                noProducto.classList.add('disable');
+            }
+        })
+    </script>
+
+}

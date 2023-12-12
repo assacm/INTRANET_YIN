@@ -1,0 +1,94 @@
+.ocultar[b-tez9u7alnd] {
+	display: none !important;
+}
+
+/*.btn-default {
+	width: 100%;
+	border: 1px solid;
+	border-radius: 0;
+	font-family: "Suisse Intl Medium", sans-serif;
+}*/
+
+/* ============== FILTROS ============== */
+.input-group-text[b-tez9u7alnd]{
+	font-size:1.5rem;
+}
+
+.background-g[b-tez9u7alnd] {
+	background: #efefef;
+}
+
+.btn-y[b-tez9u7alnd] {
+	background: #FFC72C;
+	color: #2D2926;
+}
+
+	.btn-y:hover[b-tez9u7alnd] {
+		background: #2D2926;
+		color: #FFC72C;
+	}
+/*=====================TABLA==================*/
+.table-title[b-tez9u7alnd] {
+	background: #FFC72C;
+	color: #2D2926;
+}
+
+#tabla[b-tez9u7alnd] {
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+
+tbody tr:hover[b-tez9u7alnd] {
+	background-color: #ffe34974;
+}
+
+tfoot[b-tez9u7alnd] {
+	border-bottom: 1px solid #c6c6c6;
+}
+
+.table-responsive[b-tez9u7alnd] {
+	display: table;
+}
+
+#resumen p[b-tez9u7alnd] {
+	font-family: "Suisse Intl Bold", sans-serif;
+}
+
+@media (max-width: 768px) {
+	.table-responsive[b-tez9u7alnd] {
+		display: block;
+	}
+}
+
+
+.fecha-vencimiento[b-tez9u7alnd]{ font-weight:600;}
+
+td.red[b-tez9u7alnd] {
+	border-bottom: 4px solid #ee000f;
+	color: #ee000f;
+}
+
+td.yellow[b-tez9u7alnd] {
+	color: var(--yinsa-primary);
+	border: 4px solid var(--yinsa-primary);
+}
+
+
+.aprobado[b-tez9u7alnd] {
+	/*background-color: #15d000;*/
+	border: 2px solid #15d000;
+	color: #15d000;
+}
+
+.rechazado[b-tez9u7alnd] {
+	border: 2px solid #ee000f;
+	color: #ee000f;
+}
+
+.pendiente[b-tez9u7alnd] {
+	color: var(--yinsa-primary);
+	border: 2px solid var(--yinsa-primary);
+}
+
+a.files img[b-tez9u7alnd] {
+	height: 40px;
+}

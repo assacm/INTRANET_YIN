@@ -1,0 +1,107 @@
+﻿/*==================GENERAL=================*/
+/*h1, h2, h3, h4, h5, h6 {
+	font-family: "Suisse Intl Bold", sans-serif;
+}
+*/
+h1 {
+	padding-top: 1.5rem;
+	font-size: 2.5rem;
+}
+
+#principal{
+	display:block;
+	/*padding-top:3rem;*/
+}
+
+
+/* ============== HEADER ============== */
+.header__cliente {
+	background: #FFC72C;
+	height: 30vh;
+}
+
+.img-n {
+	width: 100%;
+}
+
+.img-h {
+	width: 80%;
+}
+
+@media (max-width: 768px) {
+	h1 {
+		display: none;
+	}
+}
+
+/* ============== PRINCIPAL ============== */
+
+.box {
+	padding: 30px;
+	width: 100%;
+	box-shadow: 6px 6px 5px 0px rgba(186,186,186,0.75);
+	-webkit-box-shadow: 6px 6px 5px 0px rgba(186,186,186,0.75);
+	-moz-box-shadow: 6px 6px 5px 0px rgba(186,186,186,0.75);
+}
+
+.row-eq-height {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+	.row-eq-height .col-lg-4 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.row-eq-height .card {
+		flex: 1;
+		border: 0;
+	}
+
+
+.box-large {
+	height: 100%;
+}
+
+/*.box-short {
+	height: 50%;
+}*/
+
+.box-g {
+	background: #EBEBEB;
+}
+
+.box-y {
+	background: #FFC72C;
+}
+
+.box-title {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+	.box-title h5 {
+		width: 70%;
+		text-align: left;
+	}
+
+	.box-title i {
+		width: 30%;
+		font-size: 3rem;
+		text-align: right;
+	}
+
+.bold {
+	font-weight: bold;
+}
+
+.control-g {
+	border-radius: 1rem;
+	background: #c3c3c3;
+}
+
+.btn-a {
+	font-family: "Suisse Intl Medium", sans-serif;
+	text-decoration: none;
+}

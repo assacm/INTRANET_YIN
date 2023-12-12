@@ -1,0 +1,636 @@
+﻿
+@model RegistroUserVM
+@{
+    ViewData["Title"] = "Registro de usuarios";
+}
+<partial name="_Menu" />
+
+<section class="registro__container">
+
+		<div id="pag1" class="page active">
+			<div class="registro__container-form">
+				<form asp-action="Registro" method="post">
+					<div class="row">
+						<div class="registro__title"><h3>REGISTRO</h3></div>
+
+						<div asp-validation-summary="All"></div>
+
+						<div class="form-group flex-column">
+							<div class="d-flex flex-row">
+@*								<img class="form-decoration" src="~/img/form-decoration.png">
+*@								<input class="form-control" asp-for="userName"
+								id="user" placeholder="Usuario" />
+							</div>
+							<div><span asp-validation-for="userName" class="text-danger"></span></div>
+
+						</div>
+					<div class="form-group flex-column">
+						<div class="d-flex flex-row">
+							<input class="form-control" asp-for="name" id="username" placeholder="Nombre corto" />
+						</div>
+						<div><span asp-validation-for="name" class="text-danger"></span></div>
+
+					</div>
+						<div class="form-group flex-column">
+
+							<div class="d-flex flex-row">
+@*								<img class="form-decoration" src="~/img/form-decoration.png">
+*@								<input type="text" class="form-control" asp-for="email"
+								id="email" placeholder="Correo electrónico" />
+							</div>
+							<div>
+								<span asp-validation-for="email" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="form-group flex-column">
+							<div class="d-flex flex-row">
+@*								<img class="form-decoration" src="~/img/form-decoration.png">
+*@								<input asp-for="password" type="password" class="form-control" id="password" placeholder="Contraseña" />
+							</div>
+							<div>
+								<span asp-validation-for="password" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="form-group">
+@*							<img class="form-decoration" src="~/img/form-decoration.png">
+*@							<input asp-for="confPass" type="password" class="form-control" id="password2" placeholder="Confirmar contraseña" />
+
+						</div>
+						<div class="radio_group py-2">
+							<label class="radio-container">
+								<input type="radio" name="Rol" value="3" checked />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Empleado</span>
+							</label>
+							<label class="radio-container">
+								<input type="radio" name="Rol" value="8" />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Socio</span>
+							</label>
+						<label class="radio-container">
+							<input type="radio" name="Rol" value="9" />
+							<span class="checkmark"></span>
+							<span class="ps-2 radio-label">Contador</span>
+						</label>
+							<label class="radio-container">
+								<input type="radio" name="Rol" value="2" />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Administrador</span>
+							</label>
+						</div>
+						<div class="row btn-pair-container">
+							<div class="col-md-6 col-12">
+								<a asp-action="Panel" asp-controller="Usuarios" class="btn btn-default btn-t-white">VOLVER</a>
+							</div>
+							<div class="col-md-6 col-12">
+								<button type="button" onclick="movPage('pag2')" class="btn btn-default btn-f-yellow">CONTINUAR</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+        </div>
+		<div id="pag2" class="page">
+			<div class="registro__container-cuentas">
+				<div class="registro__container-form">
+					<div class="row">
+						<div class="registro__title"><h3>ASIGNAR CUENTAS</h3></div>
+						<div class="registro__title color-y">
+							<h5 id="h5-username"></h5>
+						</div>
+						<div class="form-group">
+
+							<div class="search-bar">
+								<input type="search" name="input-search" class="form-control"
+									   id="search-input" placeholder="Ingrese usuario" />
+							</div>
+							<button type="button" onclick="buscarCuentas()"
+									class="btn-search btn-y"
+									id="btn-search">
+								<span class="fa fa-search"></span>
+							</button>
+
+						</div>
+						<div class="form-group">
+							<div id="search-cards-container" class="registro__cards-container disable">
+								<div id="loadingIndicator" style="display: none;">Cargando...</div>
+							</div>
+						</div>
+						<div class="row btn-pair-container">
+							<div class="col-md-6 col-12">
+								<button type="button" onclick="movPage('pag1')" class="btn btn-default btn-t-white">VOLVER</button>
+							</div>
+							<div class="col-md-6 col-12">
+								<button onclick="movPage('pag3')" class="btn btn-default btn-f-yellow">
+									CONTINUAR
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="registro__container-form">
+				<div class="registro__title text-center"><h3>CUENTAS SELECCIONADAS</h3></div>
+				<div id="cards-selected-container" class="registro__cards-selected-container">
+				</div>
+			</div>
+			</div>
+					
+        </div>
+		<div id="pag3" class="page registro__container-permisos">
+				<div class="registro__container-form">
+				<div class="registro__title"><h3>SELECCIONAR PERMISOS</h3></div>
+
+					<div class="permisos__container-table">
+						<table id="permisos-table" class="display">
+							<thead>
+								<tr>
+									<th>Descripción</th>
+									<th>Ver</th>
+									<th>Crear</th>
+									<th>Editar</th>
+									<th>Autorizar</th>
+									<th>Eliminar</th>
+								</tr>
+							</thead>
+							<tbody>
+						@foreach (var it in Model.Permisos)
+						{
+							<tr>
+								<td>@it.Nombre</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" />
+										<span></span>
+									</label>
+								</td>
+							</tr>
+						}
+					</tbody>
+						</table>
+					</div>
+					<div class="row btn-pair-container">
+						<div class="col-md-6 col-12">
+							<button type="button" onclick="movPage('pag2')" class="btn btn-default btn-t-white">VOLVER</button>
+						</div>
+						<div class="col-md-6 col-12">
+							<button onclick="movPage('pag4')" class="btn btn-default btn-f-yellow">
+								CONTINUAR
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="pag4" class="page registro__container-autorizaciones">
+			<div class="registro__container-cuentas">
+				<div class="registro__container-form">
+					<div class="row">
+						<div class="registro__title"><h3>ASIGNAR AUTORIZACIONES</h3></div>
+						<div class="registro__title color-y">
+							<h5 id="h5-username"></h5>
+						</div>
+						<div class="form-group flex-column">
+						<label class="label-grupoprov">Según grupo de proveedores</label>
+							<div class="d-flex flex-row">
+@*								<img class="form-decoration" src="/img/form-decoration.png">
+*@								<select class="form-control" asp-items="@Model.GrupoProv" id="selectFiltros">
+									<option value="0">Seleccione grupo de proveedores</option>
+								</select>
+							</div>
+							<div>
+								@*	<span asp-validation-for="" class="text-danger"></span>*@
+							</div>
+						</div>
+						<div class="row btn-pair-container">
+							<div class="col-md-6 col-12">
+								<button type="button" onclick="movPage('pag3')" class="btn btn-default btn-t-white">VOLVER</button>
+							</div>
+							<div class="col-md-6 col-12">
+								<button onclick="asignarModel()" class="btn btn-default btn-f-yellow"
+										data-bs-toggle="modal" data-bs-target="#modalUpd" asp-action="Registro">
+									FINALIZAR
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="registro__container-form">
+				<div class="registro__title text-center"><h3>GRUPOS SELECCIONADOS</h3></div>
+				<div id="filtros-container" class="registro__cards-selected-container">
+				</div>
+			</div>
+			</div>
+		
+		</div>
+		
+		<div class="btn-panel__container disable">
+		<a asp-action="Panel" asp-route-id="@Model.IdCuenta"><img src="~/img/icons/arrow-white.png" alt="arrow" /> <span> PANEL</span></a>
+		</div>
+</section>
+
+	<!-- Modal -->
+	<div class="modal fade justify-content-center" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="modal-title" id="modalLabel">Registro</h6>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body d-flex justify-content-center" id="modalInfo-reg">
+					Registrando usuario . . .
+				</div>
+				@*<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>*@
+			</div>
+		</div>
+	</div>
+
+
+@section Scripts{
+		<script src="~/js/menu.js" asp-append-version="true"></script>
+		<script type="module">
+
+			import {customMenu} from '/js/menu-options.js'
+			let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+			customMenu(urlMenu);
+
+		</script>
+
+	<partial name="_ValidationScriptsPartial" />
+
+	<script>
+
+
+		var btnSearch = document.getElementById("btn-search");
+		var inputBuscar = document.getElementById('search-input');
+
+		var searchContainer = document.getElementById('search-cards-container');
+		var selectedContainer = document.getElementById('cards-selected-container');
+
+		var loadingIndicator = document.getElementById('loadingIndicator');
+		var json = new Array();
+		var lstSeleccion = [];
+
+		var username = document.getElementById("user");
+		var email = document.getElementById("email");
+		var pass = document.getElementById("password");
+		var confpass= document.getElementById("password2");
+		var radioGroup = document.getElementsByName("Rol");
+		var selectFiltros = document.getElementById("selectFiltros");
+
+		var filtros=[];
+
+		var permisos = [];
+
+		
+
+		var h5User = document.getElementById('h5-username');
+
+		username.addEventListener('focus',function (){
+
+			h5User.textContent = username.value; 
+		});
+
+		selectFiltros.addEventListener('change',()=>{
+
+			var opcion = selectFiltros.options[selectFiltros.selectedIndex];
+
+			//en el futuro, si existen otros filtros, hacer descripción un parámetro, puede ser el id del select
+
+			let filtro ={
+				Id :parseInt(opcion.value),
+				Nombre:opcion.text,
+				Descripcion:'GrupoProveedor'
+			};
+
+			let existe = filtros.some((f) =>{
+				return f.Id === filtro.Id;
+			});
+			
+			if(!existe && filtro.Id > 0){
+				filtros.push(filtro);
+			
+				genFiltro(filtros);
+				
+			}
+
+			console.log(filtros);
+		});
+
+		function genFiltro(lista){
+			
+			let contFiltros = 'filtros-container';
+			
+			//let tooltip = (funcion == 'DropCuenta' ? 'Quitar cuenta' : 'Agregar cuenta');
+			let icon = '<i class="bi bi-dash-circle"></i>';
+			var cards = lista.map(f =>
+
+				`<div class="registro__user-card" data-value="${f.Id}"
+									onclick="dropFiltro(${f.Id}, '${f.Nombre}')"
+											data-bs-toggle="tooltip" data-bs-placement="top" title="Quitar filtro"
+											   >
+									<p class="registro__user-card-text"> ${icon}  ${f.Nombre}</p>
+				</div>`
+
+			);
+			
+			$(`#${contFiltros}`).html(cards);
+		}
+
+		function dropFiltro(id,nombre){
+						
+			filtros = filtros.filter(f => f.Id !== id);
+			genFiltro(filtros);
+
+		}
+
+		function obtenerPermisos(){
+			var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+			var grupos = [];
+			
+			checkboxes.forEach((checkbox) => {				
+				
+				var nombre = checkbox.getAttribute("name");
+				console.log(nombre)
+
+				//verifico si existe el grupo
+
+				//si existe:    agrego el valor del checkbox al arreglo
+
+				//si no existe: creo el grupo y agrego el valor del checkbox al arreglo
+
+				if (!grupos[nombre]) {
+					grupos[nombre] = [];
+				}
+
+				grupos[nombre].push(checkbox.checked);
+			});
+
+			console.log(grupos)			
+			
+			for (var gr in grupos) {
+				if (grupos.hasOwnProperty(gr)) {
+
+					//permisos[gr] = {
+					//	idPermiso: gr,
+					//	valores: grupos[gr],
+					//	crear: grupos[gr][0],
+					//	leer: grupos[gr][1],
+					//	actualizar: grupos[gr][2],
+					//	autorizar: grupos[gr][3],
+					//	eliminar: grupos[gr][4]
+					//};
+					permisos.push({
+						IdPermiso: parseInt(gr),
+						Crear: grupos[gr][0],
+						Leer: grupos[gr][1],
+						Editar: grupos[gr][2],
+						Autorizar: grupos[gr][3],
+						Eliminar: grupos[gr][4]
+					});
+				}
+			}
+
+			console.log(permisos)
+
+		}
+
+		async function buscarCuentas() {
+			searchContainer.classList.remove('disable');
+			loadingIndicator.style.display = 'block';
+			var stringBuscar = inputBuscar.value;
+
+			console.log(stringBuscar);
+			const urlBuscarCuentas = '@Url.Action("BuscarCuentas")';
+			const url = `${urlBuscarCuentas}?cuenta=` + encodeURIComponent(stringBuscar);
+
+			const respuesta = await fetch(url);
+			console.log(respuesta);
+			json = await respuesta.json();
+
+			loadingIndicator.style.display = 'none';
+			console.log(json)
+			genCards(searchContainer.id, json, 'AddCuenta');
+
+
+		};
+
+		function movPage(id) {
+			let pages = document.querySelectorAll('.page');
+			let btnBack = document.querySelector('.btn-panel__container');
+			pages.forEach( (p) =>{
+				p.classList.remove('active')
+			})
+
+			document.getElementById(id).classList.add('active');
+
+			if(id != 'pag1')
+			{ btnBack.classList.remove('disable');}
+			else { btnBack.classList.add('disable');}
+
+		};
+		
+		function getRadio(group){
+
+			for (let radio of group) {
+				if (radio.checked) {
+					console.log(radio.value);
+					return radio.value;
+				}
+			}
+		}
+
+		function genCards(contenedor,lista, funcion){
+
+			let tooltip = (funcion == 'DropCuenta' ? 'Quitar cuenta' : 'Agregar cuenta');
+			let icon = (funcion == 'DropCuenta' ? '<i class="bi bi-dash-circle"></i>' : '')
+			var	cards = lista.map(cuenta =>
+
+					`<div class="registro__user-card" data-value="${cuenta.codigoS}"
+							onclick="${funcion}('${cuenta.codigoS}', '${cuenta.nombreS}')"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="${tooltip}"
+									   >
+							<p class="registro__user-card-text"> ${icon}  ${cuenta.codigoS} - ${cuenta.nombreS}</p>
+					 </div>`
+
+				);
+				$(`#${contenedor}`).html(cards);
+		};
+
+		function AddCuenta(id, nombre){
+			console.log("clic addCuenta");
+
+			lstSeleccion.push({ codigoS:id, nombreS:nombre});
+			genCards(selectedContainer.id, lstSeleccion,'DropCuenta');
+
+
+			json = json.filter(cuenta => cuenta.codigoS !== id);
+			genCards(searchContainer.id, json,'AddCuenta');
+
+		}
+
+		function DropCuenta(id, nombre) {
+			lstSeleccion = lstSeleccion.filter(cuenta => cuenta.codigoS !== id);
+			genCards(selectedContainer.id, lstSeleccion, 'DropCuenta');
+
+			json.push({ codigoS: id, nombreS: nombre });
+			genCards(searchContainer.id, json, 'AddCuenta');
+
+		}
+
+		async function asignarModel(){
+			var name = document.getElementById("username");
+
+			obtenerPermisos()
+			var modalContent = document.querySelector("#modalInfo-reg");
+
+			const text = document.createElement('p');
+			text.textContent = '';
+
+			const url = '@Url.Action("Registro")'
+
+			var modelo = {
+				userName: username.value,
+				name: name.value,
+				email: email.value,
+				password: pass.value,
+				rolId: getRadio(radioGroup),
+				confPass: confpass.value,
+				cuentas : lstSeleccion	,
+				permisos: permisos,
+				filtros: filtros
+			};
+			console.log(modelo)
+			await fetch(url, {
+				method: 'POST',
+				body: JSON.stringify(modelo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+
+				}).then((response) => {
+					console.log(response);
+
+					modalContent.innerHTML = '';
+					if (!response.ok) {
+						//let m = validPassword(pass.value);
+
+						//validpass.textContent = m;
+						response.json().then(error => {
+
+							text.textContent = error.message
+						});
+						//text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+						modalContent.appendChild(text);
+
+					}
+					else {
+
+						text.textContent = 'Usuario registrado.';
+						modalContent.appendChild(text);
+					}
+
+				})
+				.catch((error) => {
+						console.log(error)
+						text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+						modalContent.appendChild(text);
+					});
+		
+		}
+	
+
+		//ojo
+	</script>
+}
+
+		@*
+			// Parámetro de consulta
+			var queryParam = 'example';
+
+			// Construir la URL con el parámetro de consulta
+			var url = 'https://api.example.com/data?param=' + encodeURIComponent(queryParam);
+
+			// Realizar la solicitud GET
+			fetch(url)
+				.then(function (response) {
+					// Verificar el estado de la respuesta
+					if (response.ok) {
+						// La respuesta se recibió con éxito
+						return response.json();
+					} else {
+						// Hubo un error en la respuesta
+						throw new Error('Error en la respuesta de la API');
+					}
+				})
+				.then(function (data) {
+					console.log(data); // Hacer algo con los datos devueltos por la API
+				})
+				.catch(function (error) {
+					console.error('Error en la solicitud:', error);
+				});
+
+				name="UserName"
+		*@
+
+
+					@*
+
+								<div class="registro__container-form">
+				<div class="registro__title"><h3>SELECCIONE CUENTAS A AUTORIZAR</h3></div>
+				<div class="row">
+					<div class="col-6 col-sm-12">
+						<div class="form-group flex-column">
+							<label>Según grupo de proveedores</label>
+							<div class="d-flex flex-row">
+								<img class="form-decoration" src="/img/form-decoration.png">
+								<select  class="form-control" asp-items="@Model.GrupoProv">
+									<option>Seleccione grupo de proveedores</option>
+								</select>
+							</div>
+							<div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-sm-12">
+						<div class="form-group flex-column">
+							<label>Departamento</label>
+							<div class="d-flex flex-row">
+								<img class="form-decoration" src="/img/form-decoration.png">
+								<select class="form-control" asp-items="@Model.De">
+									<option>Seleccione departamento</option>
+								</select>
+							</div>
+							<div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+					*@

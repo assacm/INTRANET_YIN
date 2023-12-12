@@ -1,0 +1,18 @@
+﻿@model string
+@{
+	ViewData["Title"] = "Visualizador de PDF";
+}
+
+<div class="pdf-header__container">
+	<div class="row">
+		<div class="col-12">
+			<h1 class="text-center">Visualización de la factura</h1>
+		</div>
+@*		<div class="col-2 mb-5 d-flex justify-content-start">
+			<div class="detalle-button">
+				<button onclick="history.back()">&lt; REGRESAR</button> <!--QUITAR history.back() -->
+			</div>
+		</div>*@
+	</div>
+</div>
+<iframe src="@Url.Action("Pdf", "Archivos", new {name=Model})" width="100%" height="600px"></iframe>

@@ -1,0 +1,36 @@
+div > *[b-dflh3crl4r]{
+	margin-bottom:2rem;
+	font-size:2rem;
+}
+div p:nth-child(1)[b-dflh3crl4r] {
+	font-family: "Suisse Intl Medium", sans-serif;
+}
+
+div :nth-child(2)[b-dflh3crl4r] {
+	font-family: "Suisse Intl Book";
+}
+
+div :nth-child(3)[b-dflh3crl4r] {
+	font-family: "Suisse Intl Bold";
+}
+
+div :nth-child(4)[b-dflh3crl4r] {
+	font-family: "SuisseIntl-UltralightItalic_0";
+}
+
+div :nth-child(5)[b-dflh3crl4r] {
+	font-family: "SuisseIntl-Ultralight_0";
+}
+
+div :nth-child(6)[b-dflh3crl4r] {
+	font-family: "SuisseIntl-ThinItalic_0";
+}
+
+div :nth-child(7)[b-dflh3crl4r] {
+	font-family: "SuisseIntl-Thin_0";
+}
+
+div :nth-child(8)[b-dflh3crl4r] {
+	font-family: "SuisseIntl-SemiBoldItalic_0";
+}
+

@@ -1,0 +1,147 @@
+﻿@model CuentasViewModel
+@{
+    ViewData["Title"] = "Cuentas";
+
+    bool c = Model.cuentas.Any(e => e.tipo == "C");
+    bool s = Model.cuentas.Any(e => e.tipo == "S");
+    bool e = Model.cuentas.Any(e => e.tipo == "E");
+
+}
+
+<section class="d-flex align-items-center align-content-center justify-content-center py-5">
+    <form method="post" asp-action="RedigirCuenta" asp-controller="Usuarios" enctype="application/x-www-form-urlencoded">
+     <div class="cuentas__container">
+        <p id="cuentas__title" class="bold">Seleccione una cuenta</p>
+        <p class="text-danger">@ViewBag.Validacion</p>
+       
+           <div class="cuentas__container-type">
+                   @if(c) {<h5>CLIENTE</h5>
+                     @foreach (var cta in Model.cuentas)
+                        {
+                            if (cta.tipo == "C")
+                            {
+                                <div class="cuentas__card">
+                                    <label class="radio-container">
+                                    <input type="radio" asp-for="id" value="@cta.codigoS,@cta.tipo" />
+                                    @* <input type="hidden" asp-for="tipo" value="@cta.tipo" />*@
+                                        <span class="checkmark"></span>
+                                        <span class="ps-2">@cta.nombreS</span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                }
+            </div> 
+           <div class="cuentas__container-type">
+            @if(s) {<h5>PROVEEDOR</h5>}
+            @foreach (var cta in Model.cuentas)
+                    {
+                      if (cta.tipo == "S")
+                      {
+                        <div class="cuentas__card">
+                            <label class="radio-container">
+                                <input type="radio" asp-for="id" value="@cta.codigoS,@cta.tipo" />
+                                @* <input type="hidden" asp-for="tipo" value="@cta.tipo" />*@
+                                <span class="checkmark"></span>
+                                <span class="ps-2">@cta.nombreS</span>
+                            </label>
+                        </div>
+                      }
+                    }
+                </div>
+           <div class="cuentas__container-type">
+            @if (e)
+            {
+                <h5>COLABORADOR</h5>
+           
+                @foreach (var cta in Model.cuentas)
+                {
+                    if (cta.tipo == "E")
+                    {
+                        <div class="cuentas__card">
+                            <label class="radio-container">
+                                    <input type="radio"  asp-for="id" value="@cta.codigoS,@cta.tipo" />
+                                   @* <input type="hidden" asp-for="tipo" value="@cta.tipo" />*@
+                                <span class="checkmark"></span>
+                                <span class="ps-2">@cta.nombreS</span>
+                            </label>
+                        </div>
+                    }
+                } 
+            }
+        </div>
+         <p id="validacion-msg" class="align-self-center"></p>
+            <button type="submit" asp-action="RedirigirCuenta" asp-route-id="@Model.id" asp-route-tipo="@Model.tipo" id="cuentas-link" class="btn btn-default">CONTINUAR</button>
+    </div>
+    </form>
+</section>
+
+@*asp-route-id="@Model.cuenta.codigoS" asp-route-tipo="@Model.cuenta.tipo" *@
+
+@*@section Scripts{
+    <script>
+        const validacion = document.getElementById('validacion-msg');
+
+        var cards = document.querySelectorAll(".cuentas__container-type");
+
+        cards.forEach(function (card) {
+            card.addEventListener("click", function () {
+                
+                validacion.textContent = "";
+            });
+        });
+
+        async function obtenerCuenta() {
+
+            var url = "@Url.Action("RedirigirCuenta","Usuarios")";
+
+            var radio = document.querySelector('input[name="opcion"]:checked');
+            var userId;
+            var tipo;
+            if (radio) {
+                var valores = radio.value.split(',');
+                userId = valores[0];
+                tipo = valores[1];
+
+                const urlAction = `${url}?id=${encodeURIComponent(userId)}&tipo=${encodeURIComponent(tipo)}`;
+
+                await fetch(urlAction);
+                //await fetch(url, {
+                //    method: 'POST',
+                //    headers: {
+                //        'Content-Type': 'application/json'
+                //    },
+                //    body: JSON.stringify({ id: userId, tipo: tipo })
+                //})
+            } else {
+
+                validacion.textContent = "Debe seleccionar una cuenta."
+
+            }
+        }
+    </script>
+}
+*@
+
+@*@section Scripts{
+asp-route-id="@Model.cuenta.codigoS" asp-route-tipo="@Model.cuenta.tipo"
+
+    <script>
+
+        $(document).ready(function () {
+            // Escuchar el evento de cambio en los radio buttons
+            $('input[name="opcion"]').change(function () {
+                var seleccion = $(this).val();
+                var nuevoEnlace = '';
+                //VERIFICAR QUE EL INPUT HIDDEN PUEDA TOMAR UN VALOR DINÁMICO Y SELECCIONARLO Y MANDARLO AL CONTROLADOR
+                const urlIndex = '@Url.Action("RedirigirCuenta")';
+                const url = `${urlIndex}?id=` + encodeURIComponent(inputRadioValue) + '?tipo=' + encodeURIComponent(inputHiddenValue);
+                // Asignar el nuevo enlace al atributo href del enlace
+                $('#miEnlace').attr('href', url);
+            });
+        });
+
+
+
+    </script>
+}*@

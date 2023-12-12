@@ -1,0 +1,22 @@
+body[b-z195ifyyhx] {
+}
+.inactivo[b-z195ifyyhx] {
+	color: #686464;
+	text-decoration: none;
+	cursor: not-allowed;
+}
+
+pedidos__btn-gray[b-z195ifyyhx]{
+	background-color:var(--light-grey);
+	font-size:14px;
+	padding:6px;
+	width:100%;
+}
+
+a.files[b-z195ifyyhx] {
+	cursor: pointer;
+}
+
+	a.files img[b-z195ifyyhx] {
+		height: 40px;
+	}

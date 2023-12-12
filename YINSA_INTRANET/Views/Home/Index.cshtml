@@ -1,0 +1,56 @@
+﻿@{
+	ViewData["Title"] = "Home";
+	int footer = 1;//bg yellow
+}
+
+<section id="portada">
+	<div class="portada-container">
+		<div id="portadaCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+			<ol class="carousel-indicators" id="portada-carousel-indicators"></ol>
+
+			<div class="carousel-inner" role="listbox">
+
+				<!-- Slide 1 -->
+				<div class="carousel-item active" style="background: url(img/YINSA_WEB_SLIDESHOW1.png)">
+					<div class="carousel-container">
+						<div class="carousel-content">
+							<partial name="_RedesSociales">
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2 -->
+				<div class="carousel-item" style="background: url(img/YINSA_WEB_SLIDESHOW2.png)">
+					<div class="carousel-container">
+						<div class="carousel-content">
+							<partial name="_RedesSociales">
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3 -->
+				<div class="carousel-item" style="background: url(img/YINSA_WEB_SLIDESHOW3.png)">
+					<div class="carousel-container">
+						<div class="carousel-content">
+							<partial name="_RedesSociales">
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<a class="carousel-control-prev" href="#portadaCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon fa fa-angle-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+
+			<a class="carousel-control-next" href="#portadaCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon fa fa-angle-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+</section>
+<partial name="_Footer" model="footer" />

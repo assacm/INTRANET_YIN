@@ -1,0 +1,113 @@
+﻿@model LoginUser
+@{
+	ViewData["Title"] = "Inicio de sesión";
+}
+
+<section id="login" class="d-flex align-items-center">
+	<div class="container content d-flex justify-content-center">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+				<img class="login__logo" src="~/img/YINSA_WEB_Acceso_Buho.png">
+			</div>
+			<div class="col-lg-6 col-md-6 col-12">
+				<div class="row"><h1>INICIA SESIÓN</h1></div>
+				<form asp-action="Login">
+					<div class="row pe-5">
+						<div class="col-12 sin-pm">
+							<div class="form-group mb-3">
+								<img class="form-decoration" src="~/img/form-decoration.png">
+
+								<div class="login__container-input">
+								<input asp-for="userName" type="text" name="UserName" class=""
+									id="user" placeholder="Usuario" />
+								</div>
+								<span class="error @((string.IsNullOrEmpty(ViewBag.Error)) ? "disable" :"")">*</span>
+								
+							</div>
+						</div>
+						<div class="col-12 sin-pm">
+							<div class="form-group mb-4">
+								<img class="form-decoration" src="~/img/form-decoration.png">
+								<div class="login__container-input">
+									<input asp-for="password" type="password" name="Password" class="" id="password" placeholder="Contraseña" />
+
+									<span class="eye-icon">
+										<img src="~/img/icons/eye-closed.png" alt="eye"/>
+									</span>		
+								</div>
+								<span class="error @((string.IsNullOrEmpty(ViewBag.Error)) ? "disable" :"")">*</span>
+								
+							</div>
+						</div>		
+						<div class="col-lg-6 col-12 sin-pm">
+								<p id="view-error">@ViewBag.Error</p>
+								<div class="spinner-border text-dark spinner-border-sm disable" role="status" >
+									<span class="visually-hidden">Loading...</span>
+								</div>
+						</div>
+						<div class="col-lg-6 col-12 sin-pm">
+								<button type="submit" onclick="load()"  class="btn btn-default">
+									<span class="spinner-border spinner-border-sm disable" role="status" aria-hidden="true" id="spinner"></span>
+									ACCESAR
+								</button>
+							
+						</div>
+						
+					</div>
+				</form>
+			</div>
+			@*<div class="col-lg-12 pt-5">
+				<div id="btn-regresar">
+					<button class="btn" onclick="history.back()">&lt; REGRESAR</button>
+				</div>
+				</div>*@
+		</div>
+	</div>
+</section>
+
+@section Scripts{
+	<script src="~/js/login.js"></script>
+	<script>
+		var spinner = document.getElementById('spinner');
+		var error = document.getElementById('view-error');
+
+		function load(){
+			spinner.classList.toggle('disable');
+			error.textContent='';
+
+			document.querySelectorAll('.error').forEach((c)=>{
+				c.textContent = '';
+				console.log(c)
+			})
+		}
+
+		let eye = document.querySelector('.eye-icon');
+
+		let eyeImg = document.querySelector('.eye-icon img');
+		eye.addEventListener('click', ()=>{
+
+			changeTypeInput()
+
+		})
+
+		function changeTypeInput(){
+
+			let inputPass = document.getElementById('password');
+			let type = inputPass.type;
+
+			var textInput = document.createElement("input");
+			
+			textInput.type = (type == "password" ? "text" :"password");
+			eyeImg.src = (type == "password" ? "/img/icons/eye.png" : "/img/icons/eye-closed.png");
+			
+			textInput.value = inputPass.value;
+			textInput.name = inputPass.name;
+			textInput.setAttribute("id", "password");
+			
+			inputPass.parentNode.replaceChild(textInput, inputPass);
+		}
+
+
+	</script>
+
+}

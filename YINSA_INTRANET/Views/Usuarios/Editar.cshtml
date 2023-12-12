@@ -1,0 +1,779 @@
+﻿@model EditarUsuarioVM
+@{
+	ViewData["Title"] = "Editar usuario";
+
+	//string jsonCuentas = Newtonsoft.Json.JsonConvert.SerializeObject(Model.cuentas);
+	//var id = ViewBag.id;
+}
+<partial name="_Menu" />
+
+<section id="editar-usuario">
+
+	<div class="editar__container">
+		<form asp-action="Editar">
+		<div class="row">
+			<div class="col-12">
+				<div class="row">
+						<div class="col-6"><h1>INFORMACIÓN DEL USUARIO</h1></div>
+						<div class="col-6 d-flex align-items-center justify-content-end px-5"> 
+							<a asp-action="Panel" asp-controller="Usuarios" class="back-button btn-short btn-f-black">VOLVER</a>
+						</div>
+				</div>
+			</div>
+			<div class="col-12">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<fieldset class="form-group flex-column">
+							<legend>Nombre</legend>
+							<div class="d-flex flex-row">
+								<img class="form-decoration" src="~/img/form-decoration.png">
+								<input type="text" asp-for="userName" class="form-control" id="user" placeholder="Usuario" value="@Model.userName" />
+									<input type="hidden" value="@Model.userName" id="user1" />
+							</div>
+							<div>
+							<span asp-validation-for="userName" class="text-danger"></span>
+							</div>
+						</fieldset>
+						<fieldset class="form-group flex-column">
+							<legend>Contraseña</legend>
+							<div class="d-flex flex-row">
+								<img class="form-decoration" src="~/img/form-decoration.png">
+								<input type="password" asp-for="password" class="form-control" id="password" placeholder="Contraseña" value="@Model.password" />
+							</div>
+							<div>	
+							<span id="span-validpass" class="text-danger"></span>
+								</div>
+						</fieldset>
+					</div>
+					<div class="col-12 col-lg-6">
+							<fieldset class="form-group flex-column">
+								<legend>Nombre del usuario</legend>
+								<div class="d-flex flex-row">
+									<img class="form-decoration" src="~/img/form-decoration.png">
+									<input type="text" asp-for="name" class="form-control" id="username" placeholder="Nombre del usuario" value="@Model.name" />
+								</div>
+								<div>
+									<span asp-validation-for="name" class="text-danger"></span>
+								</div>
+							</fieldset>
+						<fieldset class="form-group flex-column">
+							<legend>Correo electrónico</legend>
+							<div class="d-flex flex-row"> 
+									<img class="form-decoration" src="~/img/form-decoration.png">
+									<input type="text" asp-for="email" class="form-control" id="email" placeholder="Correo electrónico" value="@Model.email" />
+							</div>
+							<div>
+									<span asp-validation-for="email" class="text-danger"></span>
+							</div>
+							</fieldset>
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6">
+				<fieldset class="editar__radio_group">
+							<label class="rol-description">Rol</label>
+							<div class="flex-radios">
+							<label class="radio-container">
+								<input type="radio" id="rad1" name="Rol" value="3" @((Model.rolId == 3) ? "checked" : "") />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Empleado</span>
+							</label>
+							<label class="radio-container">
+								<input type="radio" id="rad2" name="Rol" value="2" @((Model.rolId == 2) ? "checked" : "") />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Administrador</span>
+							</label>
+							<label class="radio-container">
+								<input type="radio" id="rad3" name="Rol" value="8" @((Model.rolId == 8) ? "checked" : "") />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Socio</span>
+							</label>
+							<label class="radio-container">
+								<input type="radio" id="rad4" name="Rol" value="9" @((Model.rolId == 9) ? "checked" : "") />
+								<span class="checkmark"></span>
+								<span class="ps-2 radio-label">Contador</span>
+							</label>
+							</div>
+				
+				</fieldset>
+			</div>
+			<div class="col-12 col-lg-6">
+					<fieldset class="form-group align-items-center pt-5">
+						<label class="switch-descripcion pe-5">Activo</label>
+						<input type="checkbox" id="switch" @((Model.estatus == "1") ? "checked" : "") />
+						<label for="switch" class="switch-label"></label>
+					</fieldset>
+			</div>
+		</div>
+		</form>
+	</div>
+
+	<div class="editar__container">
+		<div class="registro__container-cuentas">
+			<div class="registro__container-form">
+				<div class="row">
+					<div class="registro__title"><h3>ASIGNAR CUENTAS</h3></div>
+					<div class="registro__title color-y">
+						<h5 id="h5-username"></h5>
+					</div>
+					<div class="form-group">
+
+						<div class="search-bar">
+							<input type="search" name="input-search" class="form-control"
+								   id="search-input" placeholder="Ingrese usuario" />
+						</div>
+						<button type="button" onclick="buscarCuentas()"
+								class="btn-search btn-y"
+								id="btn-search">
+							<span class="fa fa-search"></span>
+						</button>
+
+					</div>
+					<div class="form-group">
+						<div id="search-cards-container" class="registro__cards-container disable">
+							<div id="loadingIndicator" style="display: none;">Cargando...</div>
+						</div>
+					</div>
+			
+				</div>
+			</div>
+			<div class="registro__container-form">
+				<div class="registro__title text-center"><h3>CUENTAS SELECCIONADAS</h3></div>
+				<div id="cards-selected-container" class="registro__cards-selected-container">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="editar__container">
+		<div class="registro__container-form">
+			<div class="registro__title"><h3>SELECCIONAR PERMISOS</h3></div>
+
+			<div class="permisos__container-table">
+				<table id="permisos-table" class="display">
+					<thead>
+						<tr>
+							<th>Descripción</th>
+							<th>Ver</th>
+							<th>Crear</th>
+							<th>Editar</th>
+							<th>Autorizar</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var it in Model.Permisos)
+						{
+							<tr>
+								<td>@it.Nombre</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" class="permiso-check" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" class="permiso-check" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" class="permiso-check" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" class="permiso-check" />
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<label>
+										<input type="checkbox" name="@it.Id" class="permiso-check" />
+										<span></span>
+									</label>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="editar__container">
+		<div class="registro__container-cuentas">
+			<div class="registro__container-form">
+				<div class="row">
+					<div class="registro__title"><h3>ASIGNAR AUTORIZACIONES</h3></div>
+					<div class="registro__title color-y">
+						<h5 id="h5-username"></h5>
+					</div>
+					<div class="form-group flex-column">
+						<label class="label-grupoprov">Según grupo de proveedores</label>
+						<div class="d-flex flex-row">
+							<select class="form-control" asp-items="@Model.GrupoProv" id="selectFiltros">
+								<option value="0">Seleccione grupo de proveedores</option>
+							</select>
+						</div>
+						<div>
+							@*	<span asp-validation-for="" class="text-danger"></span>*@
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="registro__container-form">
+				<div class="registro__title text-center"><h3>GRUPOS SELECCIONADOS</h3></div>
+				<div id="filtros-container" class="registro__cards-selected-container">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="editar__container d-flex justify-content-center">
+		
+		<div class="btn-pair-container">
+			<button onclick="sendForm()" class="btn btn-default btn-f-yellow" data-bs-toggle="modal" data-bs-target="#modalUpd">GUARDAR CAMBIOS</button>
+		</div>
+	</div>
+	<div class="editar__container">
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalUpd" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h6 class="modal-title" id="modalLabel">Actualización</h6>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body d-flex justify-content-center" id="modalInfo">
+					Actualizando usuario . . .
+				  </div>
+				  @*<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				  </div>*@
+				</div>
+			  </div>
+		</div>
+	</div>
+</section>
+
+
+@section Scripts{
+		<script src="~/js/menu.js" asp-append-version="true"></script>
+		<script type="module">
+
+			import {customMenu} from '/js/menu-options.js'
+			let urlMenu = '@Url.Action("MenuOptions","Usuarios")';
+			customMenu(urlMenu);
+
+		</script>
+
+	<partial name="_ValidationScriptsPartial" />
+	
+	<script>
+			/**Formulario inputs*/
+		var username1 = document.getElementById("user1");
+
+		var username = document.getElementById("user");
+		
+		var email = document.getElementById("email");
+		var pass = document.getElementById("password");
+		var validpass = document.getElementById('span-validpass');
+		var radioGroup = document.getElementsByName("Rol");
+		var activo = document.getElementById("switch");
+		var radioUser = document.getElementById("rad1");
+		var radioAdm = document.getElementById("rad2")
+		/*Buscar cuentas */
+
+		var btnSearch = document.getElementById("btn-search");
+		var inputBuscar = document.getElementById('search-input');
+
+		var searchContainer = document.getElementById('search-cards-container');
+		var selectedContainer = document.getElementById('cards-selected-container');
+
+		var loadingIndicator = document.getElementById('loadingIndicator');
+		var json = new Array();
+		var lstSeleccion = [];
+
+		var selectFiltros = document.getElementById("selectFiltros");
+
+		var filtros = [];
+
+		var permisos = [];
+
+		var h5User = document.getElementById('h5-username');
+
+		username.addEventListener('focus', function () {
+
+			h5User.textContent = username.value;
+		});
+
+		selectFiltros.addEventListener('change', () => {
+
+			var opcion = selectFiltros.options[selectFiltros.selectedIndex];
+
+			let filtro = {
+				Id: parseInt(opcion.value),
+				Nombre: opcion.text,
+				Descripcion: 'GrupoProveedor'
+			};
+			console.log(filtro)
+
+			var existe = false;
+			if(filtros == null){
+				filtros = [];
+				existe = false;
+			}else{
+				existe = filtros.some((f) => {
+					return f.Id === filtro.Id;
+				});
+			}
+
+
+			if (!existe && filtro.Id > 0) {
+				filtros.push(filtro);
+
+				genFiltro(filtros);
+
+			}
+
+			//console.log(filtros);
+		});
+
+		function genFiltro(lista) {
+			
+			let contFiltros = 'filtros-container';
+
+			//let tooltip = (funcion == 'DropCuenta' ? 'Quitar cuenta' : 'Agregar cuenta');
+			let icon = '<i class="bi bi-dash-circle"></i>';
+			var cards = lista.map(f =>
+
+				`<div class="registro__user-card" data-value="${f.Id}"
+											onclick="dropFiltro(${f.Id}, '${f.Nombre}')"
+													data-bs-toggle="tooltip" data-bs-placement="top" title="Quitar filtro"
+													   >
+											<p class="registro__user-card-text"> ${icon}  ${f.Nombre}</p>
+						</div>`
+
+			);
+
+			$(`#${contFiltros}`).html(cards);
+		}
+
+		function dropFiltro(id, nombre) {
+			
+
+			filtros = filtros.filter(f => f.Id !== id);
+			genFiltro(filtros);
+
+
+		}
+		function asignarFiltros(){
+			filtros = @Html.Raw(Model.FiltrosJSON)
+			if(filtros !=null)
+			{genFiltro(filtros);}
+		}
+
+		function asignarPermisos(){
+			
+			let loaded = @Html.Raw(Model.PermisosJSON);
+			if (loaded != null)
+			{   var checkboxes = document.querySelectorAll('.permiso-check');
+				var grupos = [];
+
+				loaded.forEach((p,i)=>{
+					console.log(p)
+					console.log(i)
+					let group = document.querySelectorAll(`input[name="${p.IdPermiso}"]`);
+					group[0].checked = p.Leer;
+					group[1].checked = p.Crear;
+					group[2].checked = p.Editar;
+					group[3].checked = p.Autorizar;
+					group[4].checked = p.Eliminar;
+
+				});
+			}
+
+		}
+		function obtenerPermisos() {
+			//var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+			var checkboxes = document.querySelectorAll('.permiso-check');
+			var grupos = [];
+
+			checkboxes.forEach((checkbox) => {
+
+				var nombre = checkbox.getAttribute("name");
+				console.log(nombre)
+
+				if (!grupos[nombre]) {
+					grupos[nombre] = [];
+				}
+
+				grupos[nombre].push(checkbox.checked);
+			});
+
+			//console.log(grupos)
+
+			for (var gr in grupos) {
+				if (grupos.hasOwnProperty(gr)) {
+
+					permisos.push({
+						IdPermiso: parseInt(gr),					
+						Leer: grupos[gr][0],
+						Crear: grupos[gr][1],
+						Editar: grupos[gr][2],
+						Autorizar: grupos[gr][3],
+						Eliminar: grupos[gr][4]
+					});
+				}
+			}
+
+			console.log(permisos)
+
+		}
+
+
+		document.addEventListener('DOMContentLoaded',async function () {
+			//	console.log(Html.Raw(Model.FiltrosJSON));
+			lstSeleccion = @Html.Raw(Model.CuentasJSON);
+
+			asignarFiltros();
+			asignarPermisos();
+
+			if(lstSeleccion)
+			{
+				genCards(selectedContainer.id, lstSeleccion, 'DropCuenta'); 
+			}
+
+		});
+
+		inputBuscar.addEventListener('focus', function () {
+			
+			searchContainer.classList.add('disable');
+
+			/*json = [];
+				genCards(searchContainer.id, json, 'AddCuenta'); */
+		});
+
+		pass.addEventListener('input', function () { 
+				
+				let m = validPassword(pass.value);
+				
+				validpass.textContent = m; 
+			});
+			
+		function validPassword(contrasena){
+
+				if (contrasena.length < 6) {
+					return "La contraseña debe tener al menos 6 caracteres.";
+				  }
+
+				  // Verificar si la contraseña contiene al menos una letra minúscula
+				  if (!/[a-z]/.test(contrasena)) {
+					return "La contraseña debe contener al menos una letra minúscula.";
+				  }
+
+				  // Verificar si la contraseña contiene al menos una letra mayúscula
+				  if (!/[A-Z]/.test(contrasena)) {
+					return "La contraseña debe contener al menos una letra mayúscula.";
+				  }
+
+				  // Verificar si la contraseña contiene al menos un número
+				  if (!/\d/.test(contrasena)) {
+					return "La contraseña debe contener al menos un número.";
+				  }
+
+				  // Verificar si la contraseña contiene al menos un carácter especial (por ejemplo, @@, #, $, %, etc.)
+				 // if (!/[@@#$%^&*!]/.test(contrasena)) {
+					//return "La contraseña debe contener al menos un carácter especial (@@, #, $, %, etc.).";
+				 // }
+
+				  // Si todas las validaciones pasan, la contraseña es válida
+				  return "";
+
+			}
+			
+		function getRadio(group) {
+
+				for (let radio of group) {
+					if (radio.checked) {
+						console.log(radio.value);
+						return radio.value;
+					}
+				}
+			}
+			
+		async function buscarCuentas() {
+				
+				searchContainer.classList.remove('disable');
+				loadingIndicator.style.display = 'block';
+				var stringBuscar = inputBuscar.value;
+
+				console.log(stringBuscar);
+				const urlBuscarCuentas = '@Url.Action("BuscarCuentas")';
+				const url = `${urlBuscarCuentas}?cuenta=` + encodeURIComponent(stringBuscar);
+
+				const respuesta = await fetch(url);
+				console.log(respuesta);
+				json = await respuesta.json();
+
+				loadingIndicator.style.display = 'none';
+				console.log(json)
+				genCards(searchContainer.id, json, 'AddCuenta');
+
+
+			};
+
+		function genCards(contenedor, lista, funcion) {
+
+				let tooltip = (funcion == 'DropCuenta' ? 'Quitar cuenta' : 'Agregar cuenta');
+				let icon = (funcion == 'DropCuenta' ? '<i class="bi bi-dash-circle"></i>' : '')
+				var cards = lista.map(cuenta =>
+
+					`<div class="registro__user-card" data-value="${cuenta.codigoS}"
+											onclick="${funcion}('${cuenta.codigoS}', '${cuenta.nombreS}')"
+											data-bs-toggle="tooltip" data-bs-placement="top" title="${tooltip}"
+													   >
+											<p class="registro__user-card-text"> ${icon}  ${cuenta.codigoS} - ${cuenta.nombreS}</p>
+									 </div>`
+
+				);
+				$(`#${contenedor}`).html(cards);
+			};
+
+		function AddCuenta(id, nombre) {
+				
+				lstSeleccion = lstSeleccion.filter( cuenta => cuenta.codigoS !== id);
+
+				lstSeleccion.push({ codigoS: id, nombreS: nombre });
+				genCards(selectedContainer.id, lstSeleccion, 'DropCuenta');
+
+
+				json = json.filter(cuenta => cuenta.codigoS !== id);
+				genCards(searchContainer.id, json, 'AddCuenta');
+
+			}
+
+		function DropCuenta(id, nombre) {
+				
+				lstSeleccion = lstSeleccion.filter(cuenta => cuenta.codigoS !== id);
+				genCards(selectedContainer.id, lstSeleccion, 'DropCuenta');
+
+				json.push({ codigoS: id, nombreS: nombre });
+				genCards(searchContainer.id, json, 'AddCuenta');
+
+			}
+
+		async function sendForm(){
+			var name = document.getElementById("username");
+			
+			obtenerPermisos()
+			var modalContent = document.querySelector("#modalInfo");
+
+			const text = document.createElement('p');
+			text.textContent = '';
+
+			let active = (activo.checked == true ? '1' : '0' ) 
+
+			const url = '@Url.Action("Editar")'
+
+			var modelo = {
+				userName1:username1.value,
+				userName: username.value,
+				name:name.value,
+				email: email.value,
+				password: pass.value,
+				rolId: getRadio(radioGroup),
+				estatus: active,
+				//confPass: confpass.value,
+				cuentas: lstSeleccion,
+				permisos: permisos,
+				filtros: filtros
+			};
+			await fetch(url, {
+				method: 'POST',
+				body: JSON.stringify(modelo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+
+			}).then((response) => {
+				console.log(response);
+
+				modalContent.innerHTML = '';
+				if (!response.ok) {
+					//let m = validPassword(pass.value);
+
+					//validpass.textContent = m;
+					//response.json().then(error => {
+
+					//	text.textContent = error.message
+					//});
+					text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+					modalContent.appendChild(text);
+
+				}
+				else {
+
+					text.textContent = 'Usuario Actualizado.';
+					modalContent.appendChild(text);
+				}
+
+			})
+				.catch((error) => {
+					console.log(error)
+					text.textContent = 'Ha ocurrido un problema. Inténtelo de nuevo';
+					modalContent.appendChild(text);
+				});
+
+		}
+	</script>
+}
+@*<h5>
+							@((Model != null) ? Model.Registro.UserName : "usuario.ejemplo")
+							</h5>*@
+@*
+	<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="registro__container-form">
+						<div class="registro__title"><h3>ASIGNAR CUENTAS</h3></div>
+						<div class="registro__title color-y">
+							<h5>usuario.ejemplo</h5>
+						
+						</div>
+<div class="form-group">
+
+	<div class="search-bar">
+		<input type="search" name="input-search" class="form-control"
+			   id="search-input" placeholder="Ingrese usuario" />
+	</div>
+	<button type="button" onclick="buscarCuentas()"
+			class="btn-search btn-y"
+			id="btn-search">
+		<span class="fa fa-search"></span>
+	</button>
+
+</div>
+<div class="form-group">
+	<div id="search-cards-container" class="registro__cards-container disable">
+		<div id="loadingIndicator" style="display: none;">Cargando...</div>
+	</div>
+</div>
+
+					</div>
+			</div>
+<div class="col-12 col-lg-6">
+	<div class="registro__container-form ">
+		<div class="registro__title text-center"><h3>CUENTAS ASIGNADAS</h3></div>
+		<div id="cards-selected-container" class="registro__cards-selected-container">
+		</div>
+	</div>
+</div>
+		</div>
+
+*@
+
+
+
+
+
+
+@*
+
+
+
+
+
+
+
+	<form>
+
+		<div id="pag1" class="registro__container-form me-3">
+			<div class="row">
+				<div class="registro__title"><h3>DATOS DEL USUARIO</h3></div>
+				<div class="form-group">
+					<img class="form-decoration" src="~/img/form-decoration.png">
+					<input type="text" name="UserName" class="form-control" id="user" placeholder="Usuario" />
+				</div>
+				<div class="form-group">
+					<img class="form-decoration" src="~/img/form-decoration.png">
+					<input type="text" name="UserName" class="form-control" id="email" placeholder="Correo electrónico" />
+				</div>
+				<div class="form-group">
+					<img class="form-decoration" src="~/img/form-decoration.png">
+					<input  type="password" name="Password" class="form-control" id="password" placeholder="Contraseña" />
+				</div>
+				<div class="radio_group py-2">
+					<label class="radio-container">
+						<input type="radio" name="Rol" value="3" checked />
+						<span class="checkmark"></span>
+						<span class="ps-2 radio-label">Usuario</span>
+					</label>
+					<label class="radio-container">
+						<input type="radio" name="Rol" value="2" />
+						<span class="checkmark"></span>
+						<span class="ps-2 radio-label">Administrador</span>
+					</label>
+				</div>
+				<div class="form-group justify-content-center">
+					<span class="switch-descripcion pe-4" >Usuario Activo</span>
+					<input type="checkbox" id="switch" checked>
+					<label for="switch" class="switch-label"></label>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div id="pag2" class="update__container-cuentas">
+		<div class="row">
+			<div class="registro__container-form ">
+				<div class="row">
+					<div class="registro__title"><h3>AGREGAR CUENTAS</h3></div>
+					<div class="registro__title color-y">
+						<h5>usuario.ejemplo</h5>
+
+					</div>
+					<div class="form-group">
+
+						<div class="search-bar">
+							<input type="search" name="input-search" class="form-control"
+								   id="search-input" placeholder="Ingresar nombre de la cuenta" />
+						</div>
+						<button type="button" onclick="buscarCuentas()"
+								class="btn-search btn-y"
+								id="btn-search">
+							<span class="fa fa-search"></span>
+						</button>
+
+					</div>
+					<div class="form-group">
+						<div id="search-cards-container" class="registro__cards-container disable">
+							<div id="loadingIndicator" style="display: none;">Cargando...</div>
+						</div>
+					</div>
+
+					<div class="registro__title text-center"><h3>CUENTAS ASIGNADAS</h3></div> <!-- SI NO HAY CUENTAS NO MOSTRAR-->
+					<div id="cards-selected-container" class="registro__cards-selected-container">
+						<!-- aqui van las cards-->
+					</div>
+
+
+					<div class="row btn-pair-container">
+						<div class="col-md-6 col-12 pe-2">
+							<button type="button" onclick="movPage()" class="btn btn-default btn-t-white">VOLVER</button>
+						</div>
+						<div class="col-md-6 col-12 ps-2">
+							<button onclick="asignarModel()" class="btn btn-default btn-f-yellow">FINALIZAR</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+*@

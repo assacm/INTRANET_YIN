@@ -1,0 +1,15 @@
+body[b-wy5qd8m9gy] {
+}
+.subirFactura__btn[b-wy5qd8m9gy] {
+	color: #0083AE;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+	.subirFactura__btn :hover[b-wy5qd8m9gy] {
+		text-decoration: none;
+		cursor: pointer;
+	}
+.disable[b-wy5qd8m9gy] {
+	display: none !important;
+}
